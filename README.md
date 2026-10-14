@@ -9,6 +9,8 @@
 
 <a id="english"></a>
 
+Still working on everything (14/10/26)
+
 # Échec Critique
 
 <img src="./resources/logo-title.png" alt="Échec Critique — d20 on fire" width="200" align="right" />
@@ -25,8 +27,11 @@ Not affiliated with Wizards of the Coast. D&D and related terms belong to their 
 
 ## Use the app
 
-- **Web, iPhone, PC**: open [asyyy.github.io/echec-critique](https://asyyy.github.io/echec-critique/) and install it from your browser (*Add to Home Screen*). It works offline once installed.
-- **Android**: download the APK from the [Releases](https://github.com/asyyy/echec-critique/releases) page.
+- **Android**: download the `.apk` from the [latest release](https://github.com/asyyy/echec-critique/releases/latest) and open it (allow installs from unknown sources).
+- **iPhone / iPad**: open [the web app](https://asyyy.github.io/echec-critique/) in Safari → Share → *Add to Home Screen*.
+- **Computer**: open [the web app](https://asyyy.github.io/echec-critique/) in Chrome or Edge → *Install* icon in the address bar.
+
+Nothing else to set up: once installed, it works offline.
 
 ## Run locally
 
@@ -59,8 +64,11 @@ Non affilié à Wizards of the Coast. D&D et termes associés appartiennent à l
 
 ## Utiliser l'app
 
-- **Web, iPhone, PC** : ouvre [asyyy.github.io/echec-critique](https://asyyy.github.io/echec-critique/) et installe-la depuis ton navigateur (*Ajouter à l'écran d'accueil*). Elle fonctionne hors ligne une fois installée.
-- **Android** : télécharge l'APK depuis la page [Releases](https://github.com/asyyy/echec-critique/releases).
+- **Android** : télécharge le `.apk` de la [dernière version](https://github.com/asyyy/echec-critique/releases/latest) et ouvre-le (autoriser l'installation depuis des sources inconnues).
+- **iPhone / iPad** : ouvre [la version web](https://asyyy.github.io/echec-critique/) dans Safari → Partager → *Sur l'écran d'accueil*.
+- **Ordinateur** : ouvre [la version web](https://asyyy.github.io/echec-critique/) dans Chrome ou Edge → icône *Installer* dans la barre d'adresse.
+
+Rien d'autre à installer : une fois ajoutée, elle fonctionne hors ligne.
 
 ## Lancer en local
 

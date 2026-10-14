@@ -1,17 +1,8 @@
 export type ThemeId =
-  | 'astrarium'
-  | 'crimson'
-  | 'dragon'
-  | 'emerald'
-  | 'forge'
-  | 'jungle'
-  | 'ocean'
-  | 'pixel'
-  | 'terminal'
-  | 'vitrail'
+  'crimson' | 'dragon' | 'emerald' | 'forge' | 'jungle' | 'ocean' | 'pixel' | 'terminal' | 'vitrail'
 
 export type ThemePreviewShape =
-  'square' | 'round' | 'arch' | 'leaf' | 'pixel' | 'terminal' | 'hex' | 'orb' | 'shield' | 'drop'
+  'square' | 'round' | 'arch' | 'leaf' | 'pixel' | 'terminal' | 'hex' | 'shield' | 'drop'
 
 export interface ThemeDefinition {
   id: ThemeId
@@ -219,36 +210,6 @@ export const THEMES: Record<ThemeId, ThemeDefinition> = {
       '--control-radius': '2px',
     },
   },
-  astrarium: {
-    id: 'astrarium',
-    label: 'Astrarium',
-    description: 'Ciel nocturne — constellations, orbes et cartes du ciel',
-    preview: ['#070b18', '#7dd3fc', '#e2e8f0'],
-    previewShape: 'orb',
-    vars: {
-      '--color-bg-primary': '#070b18',
-      '--color-bg-secondary': '#0d1428',
-      '--color-bg-card': '#121a32',
-      '--color-bg-input': '#0a1020',
-      '--color-accent': '#7dd3fc',
-      '--color-accent-hover': '#bae6fd',
-      '--color-text-primary': '#e8eef8',
-      '--color-text-secondary': '#94a8c8',
-      '--color-text-muted': '#7486a2',
-      '--color-border': '#243048',
-      '--color-border-hover': '#3a5080',
-      '--color-success': '#5eead4',
-      '--color-warning': '#fbbf24',
-      '--color-danger': '#fb7185',
-      '--color-tab-active': '#7dd3fc',
-      '--color-tab-inactive': '#0d1428',
-      '--radius-sm': '8px',
-      '--radius-md': '12px',
-      '--radius-lg': '16px',
-      '--check-mark-radius': '50%',
-      '--control-radius': '8px',
-    },
-  },
   terminal: {
     id: 'terminal',
     label: 'Terminal',
@@ -323,7 +284,6 @@ const LOGO_CLIP: Record<ThemePreviewShape, string> = {
   pixel: 'M6 6h36v36H6z',
   terminal: 'M4 8h40v32H4z',
   hex: 'M24 4l18 10v20L24 44L6 34V14z',
-  orb: 'M24 2a22 22 0 1 1 0 44a22 22 0 1 1 0-44z',
   shield: 'M24 4l18 6v14c0 12-8 20-18 24C14 44 6 36 6 24V10z',
   drop: 'M24 3C24 3 41 21 41 31a17 17 0 0 1-34 0C7 21 24 3 24 3z',
 }
@@ -344,7 +304,6 @@ function buildLogoSvg(theme: ThemeDefinition): string {
     <rect width="48" height="48" fill="${bg}"/>
     <text x="24" y="${isPixel ? 30 : 31}" text-anchor="middle" font-family="${font}" font-size="${fontSize}" font-weight="800" fill="${isTerminal ? accent : text}">EC</text>
   </g>
-  ${theme.previewShape === 'orb' ? `<circle cx="24" cy="24" r="21" fill="none" stroke="${accent}" stroke-width="1.5" opacity="0.6"/>` : ''}
   ${theme.previewShape === 'arch' ? `<path d="M10 44V20c0-6 6-10 14-10s14 4 14 10v24" fill="none" stroke="${accent}" stroke-width="2"/>` : ''}
 </svg>`
 }

@@ -158,10 +158,6 @@ export const en: MessageSchema = {
       label: 'Stained glass',
       description: 'Night cathedral — coloured glass, lead and light',
     },
-    astrarium: {
-      label: 'Astrarium',
-      description: 'Night sky — constellations, orbs and star charts',
-    },
     terminal: {
       label: 'Terminal',
       description: 'Dungeon CRT — green phosphor, scanlines and monospace',

@@ -18,6 +18,7 @@ import { useSettingsStore } from '@/stores/settings'
 import { useCharacterStore } from '@/stores/character'
 import { useDeathSounds } from '@/composables/useDeathSounds'
 import { navigateSearchResult } from '@/composables/useSearchNavigation'
+import { useTabLabelsFit } from '@/composables/useTabLabelsFit'
 import type { SearchEntry } from '@/utils/searchIndex'
 import type { PixelIconName } from '@/components/icons/pixelIcons'
 
@@ -65,6 +66,14 @@ const allTabs = computed(() => {
 })
 
 const tabs = allTabs
+
+const contextNav = ref<HTMLElement | null>(null)
+const { hidden: hideTabLabels } = useTabLabelsFit(contextNav, {
+  button: '.context-btn',
+  label: '.context-label',
+  // onglet actif inclus : le thème Terminal ajoute un curseur après son libellé
+  deps: [tabs, activeContext, () => settings.locale, () => settings.theme, () => settings.font],
+})
 
 const subTabs = computed(() => {
   if (activeContext.value === 'stats') {
@@ -164,7 +173,7 @@ function onSearchSelect(entry: SearchEntry) {
           ⚙
         </button>
       </div>
-      <nav class="context-nav">
+      <nav ref="contextNav" class="context-nav" :class="{ 'labels-hidden': hideTabLabels }">
         <button
           v-for="tab in tabs"
           :key="tab.id"
@@ -348,6 +357,11 @@ function onSearchSelect(entry: SearchEntry) {
   text-overflow: ellipsis;
   padding: 0 0.15rem;
   box-sizing: border-box;
+}
+
+/* Un libellé ne tient pas : tous masqués, onglets en icônes seules (nom au survol / lecteur d'écran) */
+.context-nav.labels-hidden .context-label {
+  display: none !important;
 }
 
 .sub-context-nav {

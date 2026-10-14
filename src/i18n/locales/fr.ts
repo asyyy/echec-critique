@@ -156,10 +156,6 @@ export const fr = {
       label: 'Vitrail',
       description: 'Cathédrale nocturne — verre coloré, plomb et lumière',
     },
-    astrarium: {
-      label: 'Astrarium',
-      description: 'Ciel nocturne — constellations, orbes et cartes du ciel',
-    },
     terminal: {
       label: 'Terminal',
       description: 'CRT du donjon — phosphore vert, scanlines et monospace',

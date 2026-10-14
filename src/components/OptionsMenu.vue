@@ -811,7 +811,16 @@ async function exportCharacters(id: string | null) {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  /* Titre + fermeture restent visibles en faisant défiler le panneau.
+     Marges négatives = on recouvre le padding du panneau pour ne rien laisser voir passer au-dessus. */
+  position: sticky;
+  top: -1rem;
+  z-index: 2;
+  margin: -1rem -1rem 1rem;
+  padding: 1rem 1rem 0.6rem;
+  /* Même fond que le panneau, quel que soit le thème (couleur unie ou dégradé) */
+  background: inherit;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .options-header h2 {
@@ -1169,8 +1178,7 @@ async function exportCharacters(id: string | null) {
   z-index: 1;
 }
 
-.theme-preview.shape-round,
-.theme-preview.shape-orb {
+.theme-preview.shape-round {
   border-radius: 50%;
 }
 
@@ -1223,10 +1231,6 @@ async function exportCharacters(id: string | null) {
 .theme-preview.shape-pixel .preview-mark {
   font-family: 'Press Start 2P', ui-monospace, monospace;
   font-size: 0.4rem;
-}
-
-.theme-preview.shape-orb {
-  box-shadow: 0 0 8px color-mix(in srgb, var(--color-accent) 35%, transparent);
 }
 
 .swatch-bg {

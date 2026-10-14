@@ -490,7 +490,6 @@ onUnmounted(() => {
           {{ t('stats.deathSaves.title') }}
           <InfoTip :title="t('stats.deathSaves.title')" :lines="deathSaveRuleLines" />
         </h3>
-        <span class="death-quip" aria-live="polite">{{ deathQuip }}</span>
         <button
           v-if="char.deathSaveUndo.length"
           class="death-undo"
@@ -502,6 +501,8 @@ onUnmounted(() => {
           ↶
         </button>
       </div>
+      <!-- Ligne à part, pleine largeur ; hauteur réservée (2 lignes) : rien ne bouge quand il apparaît -->
+      <p class="death-quip" aria-live="polite">{{ deathQuip }}</p>
 
       <div class="death-tracks">
         <div class="death-track success" :aria-label="t('stats.deathSaves.successes')">
@@ -1198,9 +1199,10 @@ onUnmounted(() => {
 .death-head {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
-  /* Hauteur fixe (2 lignes de commentaire) : le message n'entraîne aucun décalage */
-  height: 2.2rem;
+  /* Hauteur fixe : le bouton d'annulation qui apparaît ne décale rien */
+  min-height: 2.4rem;
 }
 
 .death-head .section-title {
@@ -1209,11 +1211,12 @@ onUnmounted(() => {
 }
 
 .death-quip {
-  flex: 1;
-  min-width: 0;
-  font-size: 0.68rem;
+  margin: 0;
+  /* Toujours 2 lignes réservées, vides ou non : les boutons des jets ne bougent jamais sous le doigt */
+  min-height: calc(2 * 1.3em);
+  font-size: 0.8rem;
   font-style: italic;
-  line-height: 1.2;
+  line-height: 1.3;
   text-align: center;
   color: var(--color-text-primary);
   display: -webkit-box;

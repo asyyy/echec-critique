@@ -10,6 +10,7 @@
 <a id="english"></a>
 
 TODO Mettre des images de l'app quand même
+
 Still working on everything (14/10/26)
 
 # Échec Critique

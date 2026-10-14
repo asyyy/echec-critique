@@ -19,8 +19,6 @@ Still working on everything (14/10/26)
 
 TODO Décrire le truc en anglais
 
-© 2026 Alexys Guerin — licensed under [PolyForm Strict 1.0.0](./LICENSE): you may read the code and use the app for free for noncommercial purposes (for example at your table), but not modify or redistribute it. For any other use, ask me. The logo and icons are covered by the same license.
-
 Not affiliated with Wizards of the Coast. D&D and related terms belong to their respective owners.
 
 ## A personal project
@@ -56,8 +54,6 @@ J'ai encore pleins d'idée de trucs a rajouté aussi inutile que marrante, ça d
 Une version avec connexion pour échanger avec d'autres joueurs. (ça va prendre un peu de temps a mettre en place) (et des features permettant de fluidifier la session ainsi que des features plus marrante)
 
 
-© 2026 Alexys Guerin — sous licence [PolyForm Strict 1.0.0](./LICENSE) : tu peux lire le code et utiliser l'app gratuitement à des fins non commerciales (par exemple à ta table), mais pas la modifier ni la redistribuer. Pour tout autre usage, demande-moi. Le logo et les icônes sont couverts par la même licence.
-
 Non affilié à Wizards of the Coast. D&D et termes associés appartiennent à leurs propriétaires.
 
 ## Un projet perso
@@ -78,3 +74,9 @@ Rien d'autre à installer : une fois ajoutée, elle fonctionne hors ligne.
 npm install
 npm run dev
 ```
+
+---
+
+## License
+
+© 2026 Alexys Guerin — licensed under [PolyForm Strict 1.0.0](./LICENSE): you may read the code and use the app for free for noncommercial purposes (for example at your table), but not modify or redistribute it. For any other use, ask me. The logo and icons are covered by the same license.

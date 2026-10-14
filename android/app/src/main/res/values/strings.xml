@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Échec Critique</string>
+    <string name="title_activity_main">Échec Critique</string>
+    <string name="package_name">com.asyyy.echeccritique</string>
+    <string name="custom_url_scheme">com.asyyy.echeccritique</string>
+</resources>

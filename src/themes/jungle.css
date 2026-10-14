@@ -1,0 +1,194 @@
+/* Jungle — canopée, mousse, lumière filtrée entre les feuilles */
+
+html[data-theme='jungle'] body {
+  background-color: var(--color-bg-primary);
+  background-image:
+    radial-gradient(ellipse 90px 60px at 12% 8%, rgba(20, 60, 30, 0.9), transparent 70%),
+    radial-gradient(ellipse 120px 80px at 88% 5%, rgba(15, 50, 28, 0.85), transparent 70%),
+    radial-gradient(ellipse 100px 70px at 50% 0%, rgba(25, 70, 35, 0.7), transparent 65%),
+    radial-gradient(ellipse 70px 50px at 25% 15%, rgba(10, 40, 20, 0.8), transparent 70%),
+    radial-gradient(ellipse 80px 55px at 75% 12%, rgba(18, 55, 28, 0.75), transparent 70%),
+    radial-gradient(ellipse 40% 30% at 30% 70%, rgba(143, 206, 74, 0.06), transparent 60%),
+    radial-gradient(ellipse 35% 25% at 80% 60%, rgba(232, 197, 71, 0.05), transparent 55%),
+    radial-gradient(circle 3px at 18% 42%, rgba(143, 206, 74, 0.35), transparent 4px),
+    radial-gradient(circle 2px at 62% 28%, rgba(232, 197, 71, 0.3), transparent 3px),
+    radial-gradient(circle 2.5px at 84% 55%, rgba(143, 206, 74, 0.25), transparent 3.5px),
+    linear-gradient(180deg, rgba(8, 28, 14, 0.4) 0%, transparent 28%);
+  background-attachment: fixed;
+}
+
+html[data-theme='jungle'] #app {
+  max-width: 600px;
+}
+
+html[data-theme='jungle'] .app-header {
+  background: linear-gradient(180deg, rgba(12, 26, 18, 0.95), rgba(12, 26, 18, 0.75)) !important;
+  border-bottom: 1px solid rgba(143, 206, 74, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme='jungle'] .context-btn {
+  border-radius: 18px 18px 4px 4px / 40% 40% 4px 4px !important;
+  border: 1px solid rgba(42, 72, 52, 0.9) !important;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(143, 206, 74, 0.12), transparent 55%),
+    var(--color-tab-inactive) !important;
+  overflow: hidden;
+}
+
+html[data-theme='jungle'] .context-btn.active {
+  border-color: var(--color-accent) !important;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(143, 206, 74, 0.28), transparent 55%),
+    var(--color-bg-secondary) !important;
+  box-shadow:
+    inset 0 0 20px rgba(143, 206, 74, 0.1),
+    0 0 12px rgba(143, 206, 74, 0.15);
+  color: var(--color-text-primary) !important;
+}
+
+html[data-theme='jungle'] .options-btn {
+  border-radius: 40% 60% 45% 55% / 55% 40% 60% 45% !important;
+  border: 1px solid rgba(143, 206, 74, 0.45) !important;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(180, 224, 112, 0.25), transparent 50%),
+    var(--color-bg-card) !important;
+  color: var(--color-accent) !important;
+}
+
+html[data-theme='jungle'] .item-card,
+html[data-theme='jungle'] .config-card,
+html[data-theme='jungle'] .add-form,
+html[data-theme='jungle'] .config-form,
+html[data-theme='jungle'] .result-panel,
+html[data-theme='jungle'] .options-panel,
+html[data-theme='jungle'] .choice-option,
+html[data-theme='jungle'] .ability-card,
+html[data-theme='jungle'] .saves,
+html[data-theme='jungle'] .skills,
+html[data-theme='jungle'] .hp-panel,
+html[data-theme='jungle'] .credits-item {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid rgba(42, 72, 52, 0.95) !important;
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(143, 206, 74, 0.08), transparent 45%),
+    radial-gradient(ellipse at 90% 100%, rgba(232, 197, 71, 0.05), transparent 40%),
+    var(--color-bg-card) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(180, 224, 112, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.28) !important;
+}
+
+html[data-theme='jungle'] .choice-option.active {
+  border-color: var(--color-accent) !important;
+  box-shadow:
+    0 0 14px rgba(143, 206, 74, 0.18),
+    inset 0 0 16px rgba(143, 206, 74, 0.06) !important;
+}
+
+html[data-theme='jungle'] input:not([type='checkbox']):not([type='radio']),
+html[data-theme='jungle'] select,
+html[data-theme='jungle'] textarea {
+  border-radius: var(--control-radius) !important;
+  border: 1px solid var(--color-border) !important;
+  background: rgba(8, 20, 12, 0.75) !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme='jungle'] .btn-add,
+html[data-theme='jungle'] .btn-primary,
+html[data-theme='jungle'] .btn-submit {
+  border-radius: 999px 999px 999px 999px / 80% 80% 100% 100% !important;
+  border: 1px solid rgba(180, 224, 112, 0.35) !important;
+  background: linear-gradient(180deg, #b4e070, #8fce4a 55%, #6a9e30) !important;
+  color: #0c1a12 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 220, 0.25),
+    0 2px 0 #4a7020;
+  font-weight: 800;
+}
+
+html[data-theme='jungle'] .choice-check {
+  border-radius: var(--check-mark-radius) !important;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 200, 0.35), transparent 50%),
+    var(--color-accent) !important;
+  color: #0c1a12 !important;
+  box-shadow: 0 0 10px rgba(143, 206, 74, 0.4);
+  transform: rotate(-6deg);
+}
+
+html[data-theme='jungle'] input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+  border: 2px solid var(--color-accent);
+  background: rgba(8, 20, 12, 0.9);
+  display: inline-grid;
+  place-content: center;
+  transform: rotate(-8deg);
+}
+
+html[data-theme='jungle'] input[type='checkbox']:checked {
+  background: color-mix(in srgb, var(--color-accent) 25%, #0c1a12);
+}
+
+html[data-theme='jungle'] input[type='checkbox']:checked::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.28rem;
+  border-left: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  transform: rotate(-45deg);
+  margin-top: -0.1rem;
+}
+
+html[data-theme='jungle'] .check-dot {
+  border-radius: 60% 40% 50% 50% / 50% 45% 55% 50% !important;
+  border-color: var(--color-border) !important;
+}
+
+html[data-theme='jungle'] .check-row.proficient .check-dot {
+  background: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 0 8px rgba(143, 206, 74, 0.35);
+}
+
+html[data-theme='jungle'] .check-row.expertise .check-dot {
+  background: transparent !important;
+  border-color: var(--color-warning) !important;
+  border-width: 2px !important;
+}
+
+html[data-theme='jungle'] .ability-mod-ring {
+  border-color: var(--color-accent) !important;
+  background: rgba(143, 206, 74, 0.1) !important;
+  box-shadow: 0 0 12px rgba(143, 206, 74, 0.15);
+}
+
+html[data-theme='jungle'] .category-badge,
+html[data-theme='jungle'] .equipped-badge,
+html[data-theme='jungle'] .modifier-tag,
+html[data-theme='jungle'] .weapon-dmg-tag {
+  border-radius: 8px 14px 10px 12px !important;
+}
+
+html[data-theme='jungle'] .equipped-badge {
+  background: var(--color-success) !important;
+  color: #0c1a12 !important;
+}
+
+html[data-theme='jungle'] .sub-context-btn-inner {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(143, 206, 74, 0.1), transparent 60%),
+    var(--color-tab-inactive) !important;
+}
+
+html[data-theme='jungle'] .sub-context-btn.active .sub-context-btn-inner {
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(143, 206, 74, 0.2), transparent 70%),
+    var(--color-bg-secondary) !important;
+  color: var(--color-accent);
+}

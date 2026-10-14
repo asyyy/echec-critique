@@ -1,0 +1,66 @@
+/*
+ * Styles de texte partagés — une seule définition par rôle, comme pour les boutons.
+ * Les composants n'y ajoutent que du placement (marges), jamais taille / graisse / couleur.
+ */
+
+/* Titre d'une section de page (Fiche, Équipement, Sorts, Magie…) */
+.section-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-text-secondary);
+  margin: 0;
+  padding-left: 0.45rem;
+  border-left: 2px solid var(--color-accent);
+  line-height: 1.2;
+}
+
+/* Titre d'un formulaire (nouvelle attaque, nouveau sort, nouvel état…) */
+.form-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+/* Libellé d'un champ ou d'un groupe de champs (`.form-group > label` et `.field > span` : formulaires existants) */
+.field-label,
+.section-label,
+.form-group > label,
+.field > span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+/* Indication courte (dans une section, sous un groupe de champs) */
+.hint {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* Liste vide : message centré, éventuellement suivi d'une indication */
+.empty-state {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.empty-state p {
+  margin: 0;
+}
+
+.empty-state p:first-child {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+.empty-state p + p {
+  margin-top: 0.4rem;
+}

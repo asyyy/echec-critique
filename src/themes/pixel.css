@@ -1,0 +1,243 @@
+/* Pixel donjon — 8-bit, ombres dures, UI RPG rétro */
+
+/* Press Start 2P est ~1,7× plus large qu'une police classique : on réduit l'unité rem
+   pour que toute l'app rétrécisse. Les tailles de texte de ce fichier sont en px pour
+   ne pas être réduites une seconde fois. */
+html[data-theme='pixel'] {
+  font-size: 12.5px;
+}
+
+html[data-theme='pixel'] body {
+  background-color: #1a1c2c;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 8px 8px;
+  font-family: 'Press Start 2P', 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 1.7;
+  image-rendering: pixelated;
+}
+
+html[data-theme='pixel'] #app {
+  max-width: 600px;
+  border: 4px solid #0d0f18;
+  box-shadow: 8px 8px 0 #0d0f18;
+  margin: 0.5rem auto;
+  min-height: calc(100dvh - 1rem);
+  background: #1a1c2c;
+}
+
+html[data-theme='pixel'] .app-header {
+  background: #262b44 !important;
+  border-bottom: 4px solid #0d0f18;
+}
+
+html[data-theme='pixel'] .context-nav {
+  gap: 0 !important;
+  padding: 0.4rem !important;
+}
+
+html[data-theme='pixel'] .context-btn {
+  border-radius: 0 !important;
+  border: 4px solid #0d0f18 !important;
+  border-bottom: 4px solid #0d0f18 !important;
+  background: #262b44 !important;
+  color: #a8b0c8 !important;
+  margin-right: -4px;
+  padding: 0.55rem 0.25rem !important;
+  gap: 0.25rem !important;
+  font-family: inherit !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+html[data-theme='pixel'] .context-btn:last-child {
+  margin-right: 0;
+}
+
+html[data-theme='pixel'] .context-btn.active {
+  background: #333a5a !important;
+  color: #f4f0e8 !important;
+  border-color: #e85d75 !important;
+  z-index: 2;
+  box-shadow: 0 4px 0 #e85d75 !important;
+}
+
+html[data-theme='pixel'] .context-label {
+  font-size: 7.2px !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase;
+  line-height: 1.2 !important;
+}
+
+html[data-theme='pixel'] .context-icon {
+  transform: scale(0.75);
+  image-rendering: pixelated;
+}
+
+html[data-theme='pixel'] .options-btn {
+  border-radius: 0 !important;
+  border: 4px solid #0d0f18 !important;
+  background: #333a5a !important;
+  color: #e85d75 !important;
+  box-shadow: 3px 3px 0 #0d0f18 !important;
+}
+
+html[data-theme='pixel'] .sub-context-btn,
+html[data-theme='pixel'] .sub-context-btn-inner {
+  clip-path: none !important;
+  border-radius: 0 !important;
+}
+
+html[data-theme='pixel'] .sub-context-btn {
+  background: #0d0f18 !important;
+  margin-right: 2px;
+}
+
+html[data-theme='pixel'] .sub-context-btn-inner {
+  background: #262b44 !important;
+  border: 2px solid #0d0f18;
+  font-family: inherit !important;
+  font-size: 8px !important;
+}
+
+html[data-theme='pixel'] .sub-context-btn.active .sub-context-btn-inner {
+  background: #e85d75 !important;
+  color: #1a1c2c !important;
+}
+
+html[data-theme='pixel'] .item-card,
+html[data-theme='pixel'] .config-card,
+html[data-theme='pixel'] .add-form,
+html[data-theme='pixel'] .config-form,
+html[data-theme='pixel'] .result-panel,
+html[data-theme='pixel'] .options-panel,
+html[data-theme='pixel'] .choice-option,
+html[data-theme='pixel'] .ability-card,
+html[data-theme='pixel'] .saves,
+html[data-theme='pixel'] .skills,
+html[data-theme='pixel'] .hp-panel,
+html[data-theme='pixel'] .credits-item {
+  border-radius: 0 !important;
+  border: 4px solid #0d0f18 !important;
+  background: #333a5a !important;
+  box-shadow: 4px 4px 0 #0d0f18 !important;
+}
+
+html[data-theme='pixel'] .choice-option.active {
+  border-color: #e85d75 !important;
+  box-shadow: 4px 4px 0 #e85d75 !important;
+}
+
+html[data-theme='pixel'] input,
+html[data-theme='pixel'] select,
+html[data-theme='pixel'] textarea {
+  border-radius: 0 !important;
+  border: 3px solid #0d0f18 !important;
+  background: #141628 !important;
+  font-family: inherit !important;
+  font-size: 10.4px !important;
+  box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme='pixel'] .btn-add,
+html[data-theme='pixel'] .btn-primary,
+html[data-theme='pixel'] .btn-submit {
+  border-radius: 0 !important;
+  border: 3px solid #0d0f18 !important;
+  background: #e85d75 !important;
+  color: #1a1c2c !important;
+  box-shadow: 4px 4px 0 #0d0f18 !important;
+  font-family: inherit !important;
+  font-size: 8.8px !important;
+  text-transform: uppercase;
+  letter-spacing: 0;
+}
+
+html[data-theme='pixel'] .btn-add:active,
+html[data-theme='pixel'] .btn-primary:active,
+html[data-theme='pixel'] .btn-submit:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #0d0f18 !important;
+}
+
+html[data-theme='pixel'] .choice-check {
+  border-radius: 0 !important;
+  background: #e85d75 !important;
+  color: #1a1c2c !important;
+  box-shadow: 2px 2px 0 #0d0f18 !important;
+  font-family: inherit !important;
+  font-size: 8.8px !important;
+}
+
+html[data-theme='pixel'] input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0;
+  border: 3px solid #0d0f18;
+  background: #141628;
+  box-shadow: 2px 2px 0 #0d0f18;
+  display: inline-grid;
+  place-content: center;
+}
+
+html[data-theme='pixel'] input[type='checkbox']:checked {
+  background: #e85d75;
+}
+
+html[data-theme='pixel'] input[type='checkbox']:checked::before {
+  content: '';
+  width: 0.35rem;
+  height: 0.35rem;
+  background: #1a1c2c;
+}
+
+html[data-theme='pixel'] .check-dot {
+  border-radius: 0 !important;
+  border: 2px solid #0d0f18 !important;
+  box-shadow: 1px 1px 0 #0d0f18;
+}
+
+html[data-theme='pixel'] .check-row.proficient .check-dot {
+  background: #e85d75 !important;
+  border-color: #0d0f18 !important;
+}
+
+html[data-theme='pixel'] .check-row.expertise .check-dot {
+  background: #f0c040 !important;
+  border-color: #0d0f18 !important;
+}
+
+html[data-theme='pixel'] .ability-mod-ring {
+  border-radius: 0 !important;
+  border: 3px solid #e85d75 !important;
+  background: rgba(232, 93, 117, 0.15) !important;
+  box-shadow: 3px 3px 0 #0d0f18;
+}
+
+html[data-theme='pixel'] .category-badge,
+html[data-theme='pixel'] .equipped-badge,
+html[data-theme='pixel'] .modifier-tag,
+html[data-theme='pixel'] .weapon-dmg-tag,
+html[data-theme='pixel'] .expertise-tag {
+  border-radius: 0 !important;
+  border: 2px solid #0d0f18 !important;
+  box-shadow: 2px 2px 0 #0d0f18;
+  font-size: 8px !important;
+}
+
+html[data-theme='pixel'] .options-panel {
+  border-radius: 0 !important;
+  border-top: 4px solid #e85d75 !important;
+}
+
+html[data-theme='pixel'] h2,
+html[data-theme='pixel'] h3,
+html[data-theme='pixel'] .section-title {
+  font-size: 11.2px !important;
+  letter-spacing: 0 !important;
+  text-transform: uppercase;
+}

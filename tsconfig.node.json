@@ -1,0 +1,22 @@
+{
+  // Options de @tsconfig/node26 reprises à la main : sa cible ES2025 est inconnue de TypeScript 5.7
+  // (à remettre en "extends" quand TypeScript sera mis à jour)
+  "include": [
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "nightwatch.conf.*",
+    "playwright.config.*"
+  ],
+  "compilerOptions": {
+    "target": "ES2024",
+    "lib": ["ES2024"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["node"]
+  }
+}

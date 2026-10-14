@@ -1,0 +1,175 @@
+/* Boutons d’action partagés — une seule source de vérité */
+
+.btn-add {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.9rem;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.btn-add:active {
+  background: var(--color-accent-hover);
+}
+
+/* Ajout dans un en-tête de formulaire ou de panneau (+ Modif, + Dégâts, + Ressource…) */
+.btn-add.compact {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+/* Valider (fond accent) / Annuler ou action secondaire (bordure) */
+.btn-primary,
+.btn-secondary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn-primary:not(:disabled):active {
+  background: var(--color-accent-hover);
+}
+
+.btn-secondary {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.btn-secondary:active {
+  background: var(--color-bg-secondary);
+}
+
+/* Neutre (repos, concentration) : discret, sur le fond des panneaux */
+.btn-ghost {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  padding: 0.45rem 0.7rem;
+}
+
+.btn-ghost.danger {
+  color: var(--color-danger);
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-ghost:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Pied de formulaire : Annuler à gauche, Valider prend la place restante */
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-actions .btn-primary,
+.form-actions .btn-secondary {
+  padding: 0.7rem 1rem;
+  font-size: 0.95rem;
+}
+
+.form-actions .btn-primary {
+  flex: 1;
+}
+
+.btn-edit,
+.btn-remove {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.15rem;
+  height: 2.15rem;
+  padding: 0;
+  margin: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.btn-edit {
+  color: var(--color-accent);
+  border-color: color-mix(in srgb, var(--color-accent) 55%, var(--color-border));
+}
+
+.btn-edit:active {
+  background: color-mix(in srgb, var(--color-accent) 12%, var(--color-bg-card));
+}
+
+.btn-remove {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+  background: transparent;
+}
+
+.btn-remove:active {
+  background: color-mix(in srgb, var(--color-danger) 12%, transparent);
+}
+
+.btn-edit svg,
+.btn-remove svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+  pointer-events: none;
+}
+
+/* Zone de tap élargie sans changer le dessin : petits boutons isolés (+/−, effacer…).
+   Ne pas l'utiliser sur des boutons collés les uns aux autres (les zones se chevaucheraient). */
+.hit-area {
+  position: relative;
+}
+
+.hit-area::after {
+  content: '';
+  position: absolute;
+  inset: -0.45rem;
+}
+
+/* Variante compacte (lignes de formulaire) */
+.btn-edit.compact,
+.btn-remove.compact {
+  position: relative;
+  width: 1.55rem;
+  height: 1.55rem;
+}
+
+.btn-edit.compact::after,
+.btn-remove.compact::after {
+  content: '';
+  position: absolute;
+  inset: -0.35rem;
+}
+
+.btn-edit.compact svg,
+.btn-remove.compact svg {
+  width: 0.85rem;
+  height: 0.85rem;
+}

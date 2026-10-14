@@ -1,0 +1,49 @@
+/* Notes d’intro — i cerclé + italique + cadre */
+
+/* Quand la note est masquée, les actions restent calées à droite */
+.view-lead {
+  justify-content: flex-end;
+}
+
+.view-lead .intro,
+.view-lead .inventory-hint,
+.lead-note {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--color-text-secondary);
+  background: color-mix(in srgb, var(--color-accent) 9%, var(--color-bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--color-accent) 30%, var(--color-border));
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+}
+
+.view-lead .intro::before,
+.view-lead .inventory-hint::before,
+.lead-note::before {
+  content: 'i';
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-accent);
+  color: var(--color-accent);
+  font-style: normal;
+  font-size: 0.68rem;
+  font-weight: 800;
+  font-family: var(--font-family);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+  text-transform: none;
+}

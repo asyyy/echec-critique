@@ -1,0 +1,69 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+coverage
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# PWA
+dev-dist
+
+# Android / Capacitor
+android/.gradle
+android/app/build
+android/build
+android/captures
+android/local.properties
+android/capacitor-cordova-android-plugins
+android/app/src/main/assets/public
+*.apk
+*.aab
+*.ap_
+*.dex
+*.keystore
+*.jks
+
+/scripts/*
+key.properties
+keystore.properties
+*.p12
+
+# APK builds (dossier conservé vide)
+apk/*
+!apk/.gitkeep
+
+# Brouillons d'images (entrée/sortie de npm run pixelize)
+/s.png
+/s.pixel.png
+
+# Divers
+.env
+.env.*
+.eslintcache
+*.tsbuildinfo
+Thumbs.db
+
+# Notes perso
+/TODO.md
+/CLAUDE.md
+/NOTES.md
+/.cursor/

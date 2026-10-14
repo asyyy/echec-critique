@@ -1,0 +1,388 @@
+/* Thème Vitrail — cathédrale, verre coloré, structure inversée (nav en bas).
+   Tout est scopé à data-theme=vitrail → revenir à un thème de base annule tout. */
+
+html[data-theme='vitrail'] body {
+  background-color: var(--color-bg-primary);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120, 80, 200, 0.35), transparent 55%),
+    radial-gradient(ellipse 40% 30% at 15% 70%, rgba(232, 90, 122, 0.12), transparent 60%),
+    radial-gradient(ellipse 35% 28% at 85% 60%, rgba(78, 203, 140, 0.1), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, rgba(232, 184, 74, 0.08), transparent 50%),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 47px,
+      rgba(80, 60, 120, 0.04) 47px,
+      rgba(80, 60, 120, 0.04) 48px
+    );
+  background-attachment: fixed;
+}
+
+html[data-theme='vitrail'] #app {
+  max-width: 640px;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* ——— Structure : toolbar haut, contenu, sous-nav, nav bas ——— */
+html[data-theme='vitrail'] .app-shell {
+  display: grid !important;
+  grid-template-areas:
+    'toolbar'
+    'content'
+    'subnav'
+    'nav';
+  grid-template-rows: auto 1fr auto auto;
+  /* minmax(0, …) : une colonne « auto » / « 1fr » s'élargit au contenu le plus large
+     (rangées d'onglets, longues lignes) et fait déborder l'écran */
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+html[data-theme='vitrail'] .app-header {
+  display: contents !important;
+  position: static !important;
+  background: transparent !important;
+}
+
+html[data-theme='vitrail'] .header-toolbar {
+  grid-area: toolbar;
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  padding: 0.65rem 0.75rem 0.5rem !important;
+  background:
+    linear-gradient(180deg, rgba(12, 8, 24, 0.92), rgba(12, 8, 24, 0.75)), var(--color-bg-primary);
+  backdrop-filter: blur(10px);
+  border-bottom: 3px solid #1a1028;
+  box-shadow: 0 1px 0 rgba(232, 184, 74, 0.25);
+}
+
+html[data-theme='vitrail'] .context-content {
+  grid-area: content;
+  padding: 0.6rem 1rem 1.4rem !important;
+  background: transparent !important;
+  position: relative;
+}
+
+/* Cadre de baie vitrée autour du contenu */
+html[data-theme='vitrail'] .context-content::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0.35rem 0.45rem;
+  border: 3px solid #2a1a40;
+  box-shadow:
+    inset 0 0 0 1px rgba(232, 184, 74, 0.35),
+    inset 0 0 40px rgba(100, 70, 180, 0.08);
+  border-radius: 4px 4px 40% 40% / 4px 4px 12px 12px;
+  clip-path: polygon(0% 8%, 4% 0%, 96% 0%, 100% 8%, 100% 100%, 0% 100%);
+  z-index: 0;
+}
+
+html[data-theme='vitrail'] .context-content > * {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme='vitrail'] .sub-context-nav {
+  grid-area: subnav;
+  padding: 0.4rem 0.75rem 0.15rem !important;
+  background: transparent !important;
+  gap: 0.35rem !important;
+}
+
+html[data-theme='vitrail'] .context-nav {
+  grid-area: nav;
+  position: sticky;
+  bottom: 0;
+  z-index: 120;
+  display: flex !important;
+  gap: 0.35rem !important;
+  padding: 0.45rem 0.55rem calc(0.55rem + env(safe-area-inset-bottom, 0)) !important;
+  background: linear-gradient(0deg, rgba(8, 4, 16, 0.98), rgba(18, 10, 36, 0.94));
+  border-top: 3px solid #1a1028;
+  box-shadow:
+    0 -1px 0 rgba(232, 184, 74, 0.3),
+    0 -12px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* ——— Onglets = verrières gothiques ——— */
+html[data-theme='vitrail'] .context-btn {
+  flex: 1;
+  min-width: 0;
+  gap: 0.25rem !important;
+  padding: 0.55rem 0.25rem 0.65rem !important;
+  border: 3px solid #1a1028 !important;
+  border-bottom: none !important;
+  border-radius: 50% 50% 4px 4px / 28% 28% 4px 4px !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 40%), var(--glass, #2a1848) !important;
+  color: var(--color-text-secondary) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.25),
+    0 2px 0 #0a0614;
+  overflow: hidden;
+}
+
+html[data-theme='vitrail'] .context-btn:nth-child(1) {
+  --glass: linear-gradient(160deg, #3a2060 0%, #5a3088 45%, #2a1848 100%);
+}
+html[data-theme='vitrail'] .context-btn:nth-child(2) {
+  --glass: linear-gradient(160deg, #602030 0%, #a04058 45%, #401828 100%);
+}
+html[data-theme='vitrail'] .context-btn:nth-child(3) {
+  --glass: linear-gradient(160deg, #204060 0%, #3870a0 45%, #183048 100%);
+}
+html[data-theme='vitrail'] .context-btn:nth-child(4) {
+  --glass: linear-gradient(160deg, #206040 0%, #389060 45%, #183828 100%);
+}
+html[data-theme='vitrail'] .context-btn:nth-child(5) {
+  --glass: linear-gradient(160deg, #605020 0%, #a08830 45%, #403818 100%);
+}
+html[data-theme='vitrail'] .context-btn:nth-child(6) {
+  --glass: linear-gradient(160deg, #403060 0%, #6850a0 45%, #281840 100%);
+}
+
+html[data-theme='vitrail'] .context-btn.active {
+  color: #fff8e8 !important;
+  border-color: var(--color-accent) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 240, 200, 0.35),
+    inset 0 0 24px rgba(232, 184, 74, 0.25),
+    0 0 16px rgba(232, 184, 74, 0.35),
+    0 2px 0 #0a0614;
+  z-index: 2;
+  filter: brightness(1.15);
+}
+
+html[data-theme='vitrail'] .context-label {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.06em !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+html[data-theme='vitrail'] .options-btn {
+  border-radius: 50% 50% 40% 40% / 55% 55% 40% 40% !important;
+  border: 2px solid var(--color-accent) !important;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 230, 160, 0.25), transparent 50%),
+    var(--color-bg-card) !important;
+  color: var(--color-accent) !important;
+  box-shadow: 0 0 12px rgba(232, 184, 74, 0.25);
+}
+
+/* Sous-onglets = losanges de verre */
+html[data-theme='vitrail'] .sub-context-btn {
+  clip-path: none !important;
+  background: transparent !important;
+  border-radius: 2px !important;
+  transform: none;
+}
+
+html[data-theme='vitrail'] .sub-context-btn-inner {
+  clip-path: polygon(8% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0 50%) !important;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent 40%), var(--color-bg-card) !important;
+  border: none;
+  box-shadow: inset 0 0 0 2px #1a1028;
+  padding: 0.65rem 1rem !important;
+}
+
+html[data-theme='vitrail'] .sub-context-btn.active {
+  color: var(--color-bg-primary) !important;
+  background: transparent !important;
+}
+
+html[data-theme='vitrail'] .sub-context-btn.active .sub-context-btn-inner {
+  background: linear-gradient(135deg, #f5d078, var(--color-accent)) !important;
+  box-shadow:
+    inset 0 0 0 2px #1a1028,
+    0 0 14px rgba(232, 184, 74, 0.4);
+  color: #1a1020;
+  font-weight: 800;
+}
+
+/* ——— Surfaces type panneaux de verre ——— */
+html[data-theme='vitrail'] .item-card,
+html[data-theme='vitrail'] .config-card,
+html[data-theme='vitrail'] .add-form,
+html[data-theme='vitrail'] .config-form,
+html[data-theme='vitrail'] .result-panel,
+html[data-theme='vitrail'] .options-panel,
+html[data-theme='vitrail'] .choice-option,
+html[data-theme='vitrail'] .credits-item,
+html[data-theme='vitrail'] .ability-card,
+html[data-theme='vitrail'] .stat-block,
+html[data-theme='vitrail'] .hp-panel {
+  border: 3px solid #1a1028 !important;
+  border-radius: 2px !important;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, transparent 42%),
+    linear-gradient(0deg, rgba(100, 70, 180, 0.12), transparent 60%), var(--color-bg-card) !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(232, 184, 74, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-theme='vitrail'] .choice-option.active {
+  box-shadow:
+    inset 0 0 0 1px rgba(232, 184, 74, 0.55),
+    0 0 18px rgba(232, 184, 74, 0.2),
+    0 4px 16px rgba(0, 0, 0, 0.35) !important;
+}
+
+html[data-theme='vitrail'] input:not([type='checkbox']):not([type='radio']),
+html[data-theme='vitrail'] select,
+html[data-theme='vitrail'] textarea {
+  border-radius: 2px !important;
+  border: 2px solid #2a1a48 !important;
+  border-bottom: 2px solid var(--color-accent) !important;
+  background: rgba(8, 4, 20, 0.65) !important;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme='vitrail'] .btn-add,
+html[data-theme='vitrail'] .btn-primary,
+html[data-theme='vitrail'] .btn-submit {
+  border-radius: 2px !important;
+  border: 2px solid #1a1028 !important;
+  background: linear-gradient(180deg, #f5d078, var(--color-accent)) !important;
+  color: #1a1020 !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 0 12px rgba(232, 184, 74, 0.25);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Checkmark Options — losange doré */
+html[data-theme='vitrail'] .choice-check {
+  width: 1.35rem !important;
+  height: 1.35rem !important;
+  border-radius: 2px !important;
+  transform: rotate(45deg) !important;
+  background: linear-gradient(135deg, #f5d078, var(--color-accent)) !important;
+  color: transparent !important;
+  font-size: 0 !important;
+  box-shadow:
+    inset 0 0 0 2px #1a1028,
+    0 0 10px rgba(232, 184, 74, 0.45);
+  position: relative;
+}
+
+html[data-theme='vitrail'] .choice-check::after {
+  content: '';
+  position: absolute;
+  inset: 28%;
+  background: #1a1020;
+  border-radius: 1px;
+  transform: rotate(0deg);
+}
+
+/* Cases à cocher — carreaux de verre */
+html[data-theme='vitrail'] input[type='checkbox'] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  flex-shrink: 0;
+  border: 2px solid #1a1028;
+  border-radius: 2px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.12), transparent), var(--color-bg-input);
+  box-shadow: inset 0 0 0 1px rgba(232, 184, 74, 0.35);
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  transform: rotate(45deg);
+  accent-color: unset;
+}
+
+html[data-theme='vitrail'] input[type='checkbox']::before {
+  content: '';
+  width: 0.4rem;
+  height: 0.4rem;
+  background: var(--color-accent);
+  transform: rotate(0deg) scale(0);
+  transition: transform 0.12s ease;
+  box-shadow: 0 0 6px rgba(232, 184, 74, 0.6);
+}
+
+html[data-theme='vitrail'] input[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+
+html[data-theme='vitrail'] .check-dot {
+  border-radius: 2px !important;
+  transform: rotate(45deg);
+  border-width: 2px !important;
+  border-color: #1a1028 !important;
+}
+
+html[data-theme='vitrail'] .check-row.proficient .check-dot {
+  background: linear-gradient(135deg, #f5d078, var(--color-accent)) !important;
+  box-shadow: 0 0 8px rgba(232, 184, 74, 0.45);
+}
+
+html[data-theme='vitrail'] .check-row.expertise .check-dot {
+  background: linear-gradient(135deg, #fff0c0, #e85a7a) !important;
+  box-shadow: 0 0 10px rgba(232, 90, 122, 0.4);
+}
+
+html[data-theme='vitrail'] .category-badge,
+html[data-theme='vitrail'] .equipped-badge,
+html[data-theme='vitrail'] .modifier-tag,
+html[data-theme='vitrail'] .weapon-dmg-tag {
+  border-radius: 2px !important;
+  border: 1px solid #1a1028 !important;
+  clip-path: polygon(6% 0, 100% 0, 94% 100%, 0 100%);
+}
+
+html[data-theme='vitrail'] .theme-preview {
+  border-radius: 2px !important;
+  border: 2px solid #1a1028 !important;
+  box-shadow: inset 0 0 0 1px rgba(232, 184, 74, 0.4);
+}
+
+/* Options panel : cadre plombé */
+html[data-theme='vitrail'] .options-panel {
+  border-radius: 8px 8px 0 0 !important;
+  border-top: 3px solid var(--color-accent) !important;
+}
+
+/* Lueur douce sur le panneau résultats combat */
+html[data-theme='vitrail'] .result-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme='vitrail'] .result-panel::after {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 60%
+  );
+  animation: vitrail-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes vitrail-shimmer {
+  0%,
+  100% {
+    transform: translateX(-30%);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateX(30%);
+    opacity: 1;
+  }
+}

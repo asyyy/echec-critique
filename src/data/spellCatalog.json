@@ -1,0 +1,3861 @@
+[
+  {
+    "id": "absorb-elements",
+    "name": "Absorption des éléments",
+    "nameEn": "Absorb Elements",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=absorb-elements"
+  },
+  {
+    "id": "enlarge-reduce",
+    "name": "Agrandissement/Rapetissement",
+    "nameEn": "Enlarge/Reduce",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=enlarge-reduce"
+  },
+  {
+    "id": "aid",
+    "name": "Aide",
+    "nameEn": "Aid",
+    "level": 2,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=aid"
+  },
+  {
+    "id": "alarm",
+    "name": "Alarme",
+    "nameEn": "Alarm",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=alarm"
+  },
+  {
+    "id": "planar-ally",
+    "name": "Allié planaire",
+    "nameEn": "Planar Ally",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=planar-ally"
+  },
+  {
+    "id": "enhance-ability",
+    "name": "Amélioration de caractéristique",
+    "nameEn": "Enhance Ability",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=enhance-ability"
+  },
+  {
+    "id": "skill-empowerment",
+    "name": "Amélioration de compétences",
+    "nameEn": "Skill Empowerment",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=skill-empowerment"
+  },
+  {
+    "id": "friends",
+    "name": "Amis",
+    "nameAlt": "Faux amis",
+    "nameEn": "Friends",
+    "level": 0,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=friends"
+  },
+  {
+    "id": "animal-friendship",
+    "name": "Amitié avec les animaux",
+    "nameEn": "Animal Friendship",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=animal-friendship"
+  },
+  {
+    "id": "animate-objects",
+    "name": "Animation d'objets",
+    "nameAlt": "Animation des objets",
+    "nameEn": "Animate Objects",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=animate-objects"
+  },
+  {
+    "id": "animate-dead",
+    "name": "Animation des morts",
+    "nameEn": "Animate Dead",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=animate-dead"
+  },
+  {
+    "id": "nondetection",
+    "name": "Antidétection",
+    "nameEn": "Nondetection",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=nondetection"
+  },
+  {
+    "id": "calm-emotions",
+    "name": "Apaisement des émotions",
+    "nameEn": "Calm Emotions",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=calm-emotions"
+  },
+  {
+    "id": "seeming",
+    "name": "Apparence trompeuse",
+    "nameEn": "Seeming",
+    "level": 5,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=seeming"
+  },
+  {
+    "id": "find-steed",
+    "name": "Appel de destrier",
+    "nameEn": "Find Steed",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=find-steed"
+  },
+  {
+    "id": "find-greater-steed",
+    "name": "Appel de destrier supérieur",
+    "nameEn": "Find Greater Steed",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=find-greater-steed"
+  },
+  {
+    "id": "find-familiar",
+    "name": "Appel de familier",
+    "nameEn": "Find Familiar",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=find-familiar"
+  },
+  {
+    "id": "call-lightning",
+    "name": "Appel de la foudre",
+    "nameEn": "Call Lightning",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=call-lightning"
+  },
+  {
+    "id": "elemental-weapon",
+    "name": "Arme élémentaire",
+    "nameEn": "Elemental Weapon",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=elemental-weapon"
+  },
+  {
+    "id": "magic-weapon",
+    "name": "Arme magique",
+    "nameEn": "Magic Weapon",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=magic-weapon"
+  },
+  {
+    "id": "holy-weapon",
+    "name": "Arme sacrée",
+    "nameEn": "Holy Weapon",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=holy-weapon"
+  },
+  {
+    "id": "spiritual-weapon",
+    "name": "Arme spirituelle",
+    "nameEn": "Spiritual Weapon",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=spiritual-weapon"
+  },
+  {
+    "id": "armor-of-agathys",
+    "name": "Armure d'Agathys",
+    "nameEn": "Armor of Agathys",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=armor-of-agathys"
+  },
+  {
+    "id": "mage-armor",
+    "name": "Armure de mage",
+    "nameAlt": "Armure du mage",
+    "nameEn": "Mage Armor",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mage-armor"
+  },
+  {
+    "id": "time-stop",
+    "name": "Arrêt du temps",
+    "nameEn": "Time Stop",
+    "level": 9,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=time-stop"
+  },
+  {
+    "id": "acid-splash",
+    "name": "Aspersion d'acide",
+    "nameAlt": "Aspersion acide",
+    "nameEn": "Acid Splash",
+    "level": 0,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=acid-splash"
+  },
+  {
+    "id": "phantasmal-killer",
+    "name": "Assassin imaginaire",
+    "nameEn": "Phantasmal Killer",
+    "level": 4,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=phantasmal-killer"
+  },
+  {
+    "id": "infernal-calling",
+    "name": "Assignation infernale",
+    "nameEn": "Infernal Calling",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=infernal-calling"
+  },
+  {
+    "id": "guidance",
+    "name": "Assistance",
+    "nameEn": "Guidance",
+    "level": 0,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=guidance"
+  },
+  {
+    "id": "earthbind",
+    "name": "Attraction terrestre",
+    "nameEn": "Earthbind",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=earthbind"
+  },
+  {
+    "id": "dawn",
+    "name": "Aube",
+    "nameEn": "Dawn",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dawn"
+  },
+  {
+    "id": "augury",
+    "name": "Augure",
+    "nameEn": "Augury",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=augury"
+  },
+  {
+    "id": "aura-of-purity",
+    "name": "Aura de pureté",
+    "nameEn": "Aura of Purity",
+    "level": 4,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=aura-of-purity"
+  },
+  {
+    "id": "aura-of-life",
+    "name": "Aura de vie",
+    "nameEn": "Aura of Life",
+    "level": 4,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=aura-of-life"
+  },
+  {
+    "id": "aura-of-vitality",
+    "name": "Aura de vitalité",
+    "nameEn": "Aura of Vitality",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=aura-of-vitality"
+  },
+  {
+    "id": "crusaders-mantle",
+    "name": "Aura du croisé",
+    "nameEn": "Crusader's Mantle",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=crusaders-mantle"
+  },
+  {
+    "id": "nystuls-magic-aura",
+    "name": "Aura magique de Nystul",
+    "nameEn": "Nystul's Magic Aura",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=nystuls-magic-aura"
+  },
+  {
+    "id": "holy-aura",
+    "name": "Aura sacrée",
+    "nameEn": "Holy Aura",
+    "level": 8,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=holy-aura"
+  },
+  {
+    "id": "antipathy-sympathy",
+    "name": "Aversion/Attirance",
+    "nameEn": "Antipathy/Sympathy",
+    "level": 8,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=antipathy-sympathy"
+  },
+  {
+    "id": "glibness",
+    "name": "Bagou",
+    "nameEn": "Glibness",
+    "level": 8,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=glibness"
+  },
+  {
+    "id": "goodberry",
+    "name": "Baies nourricières",
+    "nameEn": "Goodberry",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=goodberry"
+  },
+  {
+    "id": "banishment",
+    "name": "Bannissement",
+    "nameEn": "Banishment",
+    "level": 4,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=banishment"
+  },
+  {
+    "id": "blade-barrier",
+    "name": "Barrière de lames",
+    "nameEn": "Blade Barrier",
+    "level": 6,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blade-barrier"
+  },
+  {
+    "id": "bless",
+    "name": "Bénédiction",
+    "nameEn": "Bless",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=bless"
+  },
+  {
+    "id": "inflict-wounds",
+    "name": "Blessure",
+    "nameEn": "Inflict Wounds",
+    "level": 1,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=inflict-wounds"
+  },
+  {
+    "id": "druid-grove",
+    "name": "Bosquet des druides",
+    "nameEn": "Druid Grove",
+    "level": 6,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=druid-grove"
+  },
+  {
+    "id": "magic-mouth",
+    "name": "Bouche magique",
+    "nameEn": "Magic Mouth",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=magic-mouth"
+  },
+  {
+    "id": "shield",
+    "name": "Bouclier",
+    "nameEn": "Shield",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shield"
+  },
+  {
+    "id": "fire-shield",
+    "name": "Bouclier de feu",
+    "nameEn": "Fire Shield",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fire-shield"
+  },
+  {
+    "id": "shield-of-faith",
+    "name": "Bouclier de la foi",
+    "nameEn": "Shield of Faith",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shield-of-faith"
+  },
+  {
+    "id": "poison-spray",
+    "name": "Bouffée de poison",
+    "nameEn": "Poison Spray",
+    "level": 0,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=poison-spray"
+  },
+  {
+    "id": "fireball",
+    "name": "Boule de feu",
+    "nameEn": "Fireball",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fireball"
+  },
+  {
+    "id": "delayed-blast-fireball",
+    "name": "Boule de feu à retardement",
+    "nameEn": "Delayed Blast Fireball",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=delayed-blast-fireball"
+  },
+  {
+    "id": "gust-of-wind",
+    "name": "Bourrasque",
+    "nameEn": "Gust of Wind",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=gust-of-wind"
+  },
+  {
+    "id": "cloudkill",
+    "name": "Brume mortelle",
+    "nameEn": "Cloudkill",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=cloudkill"
+  },
+  {
+    "id": "forcecage",
+    "name": "Cage de force",
+    "nameEn": "Forcecage",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=forcecage"
+  },
+  {
+    "id": "soul-cage",
+    "name": "Cage des âmes",
+    "nameEn": "Soul Cage",
+    "level": 6,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=soul-cage"
+  },
+  {
+    "id": "swift-quiver",
+    "name": "Carquois magique",
+    "nameAlt": "Vif carquois",
+    "nameEn": "Swift Quiver",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=swift-quiver"
+  },
+  {
+    "id": "catapult",
+    "name": "Catapulte",
+    "nameEn": "Catapult",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=catapult"
+  },
+  {
+    "id": "blindness-deafness",
+    "name": "Cécité/Surdité",
+    "nameEn": "Blindness/Deafness",
+    "level": 2,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blindness-deafness"
+  },
+  {
+    "id": "circle-of-death",
+    "name": "Cercle de mort",
+    "nameEn": "Circle of Death",
+    "level": 6,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=circle-of-death"
+  },
+  {
+    "id": "circle-of-power",
+    "name": "Cercle de pouvoir",
+    "nameEn": "Circle of Power",
+    "level": 5,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=circle-of-power"
+  },
+  {
+    "id": "teleportation-circle",
+    "name": "Cercle de téléportation",
+    "nameEn": "Teleportation Circle",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=teleportation-circle"
+  },
+  {
+    "id": "magic-circle",
+    "name": "Cercle magique",
+    "nameEn": "Magic Circle",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=magic-circle"
+  },
+  {
+    "id": "ceremony",
+    "name": "Cérémonie",
+    "nameEn": "Ceremony",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ceremony"
+  },
+  {
+    "id": "chain-lightning",
+    "name": "Chaîne d'éclairs",
+    "nameEn": "Chain Lightning",
+    "level": 6,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=chain-lightning"
+  },
+  {
+    "id": "antimagic-field",
+    "name": "Champ antimagie",
+    "nameEn": "Antimagic Field",
+    "level": 8,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=antimagic-field"
+  },
+  {
+    "id": "shapechange",
+    "name": "Changement de forme",
+    "nameEn": "Shapechange",
+    "level": 9,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shapechange"
+  },
+  {
+    "id": "plane-shift",
+    "name": "Changement de plan",
+    "nameEn": "Plane Shift",
+    "level": 7,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=plane-shift"
+  },
+  {
+    "id": "charm-monster",
+    "name": "Charme-monstre",
+    "nameEn": "Charm Monster",
+    "level": 4,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=charm-monster"
+  },
+  {
+    "id": "charm-person",
+    "name": "Charme-personne",
+    "nameEn": "Charm Person",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=charm-person"
+  },
+  {
+    "id": "blinding-smite",
+    "name": "Châtiment aveuglant",
+    "nameEn": "Blinding Smite",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blinding-smite"
+  },
+  {
+    "id": "searing-smite",
+    "name": "Châtiment calcinant",
+    "nameEn": "Searing Smite",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=searing-smite"
+  },
+  {
+    "id": "wrathful-smite",
+    "name": "Châtiment courroucé",
+    "nameEn": "Wrathful Smite",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wrathful-smite"
+  },
+  {
+    "id": "staggering-smite",
+    "name": "Châtiment débilitant",
+    "nameEn": "Staggering Smite",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=staggering-smite"
+  },
+  {
+    "id": "banishing-smite",
+    "name": "Châtiment du ban",
+    "nameEn": "Banishing Smite",
+    "level": 5,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=banishing-smite"
+  },
+  {
+    "id": "branding-smite",
+    "name": "Châtiment révélateur",
+    "nameEn": "Branding Smite",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=branding-smite"
+  },
+  {
+    "id": "thunderous-smite",
+    "name": "Châtiment tonitruant",
+    "nameEn": "Thunderous Smite",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=thunderous-smite"
+  },
+  {
+    "id": "mordenkainens-faithful-hound",
+    "name": "Chien de garde de Mordenkainen",
+    "nameEn": "Mordenkainen's Faithful Hound",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mordenkainens-faithful-hound"
+  },
+  {
+    "id": "clairvoyance",
+    "name": "Clairvoyance",
+    "nameEn": "Clairvoyance",
+    "level": 3,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=clairvoyance"
+  },
+  {
+    "id": "blink",
+    "name": "Clignotement",
+    "nameEn": "Blink",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blink"
+  },
+  {
+    "id": "clone",
+    "name": "Clone",
+    "nameEn": "Clone",
+    "level": 8,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=clone"
+  },
+  {
+    "id": "leomunds-secret-chest",
+    "name": "Coffre secret de Léomund",
+    "nameEn": "Leomund's Secret Chest",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=leomunds-secret-chest"
+  },
+  {
+    "id": "snare",
+    "name": "Collet",
+    "nameEn": "Snare",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=snare"
+  },
+  {
+    "id": "flame-strike",
+    "name": "Colonne de flamme",
+    "nameEn": "Flame Strike",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=flame-strike"
+  },
+  {
+    "id": "sending",
+    "name": "Communication à distance",
+    "nameEn": "Sending",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sending"
+  },
+  {
+    "id": "speak-with-animals",
+    "name": "Communication avec les animaux",
+    "nameEn": "Speak with Animals",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=speak-with-animals"
+  },
+  {
+    "id": "speak-with-dead",
+    "name": "Communication avec les morts",
+    "nameEn": "Speak with Dead",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=speak-with-dead"
+  },
+  {
+    "id": "speak-with-plants",
+    "name": "Communication avec les plantes",
+    "nameEn": "Speak with Plants",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=speak-with-plants"
+  },
+  {
+    "id": "commune",
+    "name": "Communion",
+    "nameEn": "Commune",
+    "level": 5,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=commune"
+  },
+  {
+    "id": "commune-with-nature",
+    "name": "Communion avec la nature",
+    "nameEn": "Commune with Nature",
+    "level": 5,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=commune-with-nature"
+  },
+  {
+    "id": "comprehend-languages",
+    "name": "Compréhension des langues",
+    "nameEn": "Comprehend Languages",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=comprehend-languages"
+  },
+  {
+    "id": "compulsion",
+    "name": "Compulsion",
+    "nameEn": "Compulsion",
+    "level": 4,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=compulsion"
+  },
+  {
+    "id": "cone-of-cold",
+    "name": "Cône de froid",
+    "nameEn": "Cone of Cold",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=cone-of-cold"
+  },
+  {
+    "id": "confusion",
+    "name": "Confusion",
+    "nameEn": "Confusion",
+    "level": 4,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=confusion"
+  },
+  {
+    "id": "contact-other-plane",
+    "name": "Contact avec un autre plan",
+    "nameAlt": "Contact avec les plans",
+    "nameEn": "Contact Other Plane",
+    "level": 5,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=contact-other-plane"
+  },
+  {
+    "id": "chill-touch",
+    "name": "Contact glacial",
+    "nameEn": "Chill Touch",
+    "level": 0,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=chill-touch"
+  },
+  {
+    "id": "contagion",
+    "name": "Contagion",
+    "nameEn": "Contagion",
+    "level": 5,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=contagion"
+  },
+  {
+    "id": "harm",
+    "name": "Contamination",
+    "nameEn": "Harm",
+    "level": 6,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=harm"
+  },
+  {
+    "id": "planar-binding",
+    "name": "Contrat",
+    "nameAlt": "Entrave planaire",
+    "nameEn": "Planar Binding",
+    "level": 5,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=planar-binding"
+  },
+  {
+    "id": "counterspell",
+    "name": "Contresort",
+    "nameEn": "Counterspell",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=counterspell"
+  },
+  {
+    "id": "control-water",
+    "name": "Contrôle de l'eau",
+    "nameEn": "Control Water",
+    "level": 4,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=control-water"
+  },
+  {
+    "id": "control-flames",
+    "name": "Contrôle des flammes",
+    "nameEn": "Control Flames",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=control-flames"
+  },
+  {
+    "id": "control-winds",
+    "name": "Contrôle des vents",
+    "nameEn": "Control Winds",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=control-winds"
+  },
+  {
+    "id": "control-weather",
+    "name": "Contrôle du climat",
+    "nameEn": "Control Weather",
+    "level": 8,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=control-weather"
+  },
+  {
+    "id": "summon-aberration",
+    "name": "Convocation d'aberration",
+    "nameEn": "Summon Aberration",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-aberration"
+  },
+  {
+    "id": "summon-construct",
+    "name": "Convocation d'artificiel",
+    "nameEn": "Summon Construct",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-construct"
+  },
+  {
+    "id": "summon-elemental",
+    "name": "Convocation d'élémentaire",
+    "nameEn": "Summon Elemental",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-elemental"
+  },
+  {
+    "id": "summon-beast",
+    "name": "Convocation de bête",
+    "nameEn": "Summon Beast",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-beast"
+  },
+  {
+    "id": "summon-celestial",
+    "name": "Convocation de céleste",
+    "nameEn": "Summon Celestial",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-celestial"
+  },
+  {
+    "id": "summon-greater-demon",
+    "name": "Convocation de démon majeur",
+    "nameEn": "Summon Greater Demon",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-greater-demon"
+  },
+  {
+    "id": "summon-lesser-demons",
+    "name": "Convocation de démons mineurs",
+    "nameEn": "Summon Lesser Demons",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-lesser-demons"
+  },
+  {
+    "id": "summon-fey",
+    "name": "Convocation de fée",
+    "nameEn": "Summon Fey",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-fey"
+  },
+  {
+    "id": "summon-fiend",
+    "name": "Convocation de fiélon",
+    "nameEn": "Summon Fiend",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-fiend"
+  },
+  {
+    "id": "summon-undead",
+    "name": "Convocation de mort-vivant",
+    "nameEn": "Summon Undead",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-undead"
+  },
+  {
+    "id": "summon-shadowspawn",
+    "name": "Convocation de rejeton d'ombre",
+    "nameAlt": "Convocation d'ombreux",
+    "nameEn": "Summon Shadowspawn",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=summon-shadowspawn"
+  },
+  {
+    "id": "drawmijs-instant-summons",
+    "name": "Convocations instantanées de Drawmij",
+    "nameEn": "Drawmij's Instant Summons",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=drawmijs-instant-summons"
+  },
+  {
+    "id": "antilife-shell",
+    "name": "Coquille antivie",
+    "nameEn": "Antilife Shell",
+    "level": 5,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=antilife-shell"
+  },
+  {
+    "id": "rope-trick",
+    "name": "Corde enchantée",
+    "nameEn": "Rope Trick",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=rope-trick"
+  },
+  {
+    "id": "cordon-of-arrows",
+    "name": "Cordon de flèches",
+    "nameEn": "Cordon of Arrows",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=cordon-of-arrows"
+  },
+  {
+    "id": "tashas-otherworldly-guise",
+    "name": "Costume d'Outremonde de Tasha",
+    "nameEn": "Tasha's Otherworldly Guise",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tashas-otherworldly-guise"
+  },
+  {
+    "id": "color-spray",
+    "name": "Couleurs dansantes",
+    "nameEn": "Color Spray",
+    "level": 1,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=color-spray"
+  },
+  {
+    "id": "true-strike",
+    "name": "Coup au but",
+    "nameEn": "True Strike",
+    "level": 0,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=true-strike"
+  },
+  {
+    "id": "thunderclap",
+    "name": "Coup de tonnerre",
+    "nameEn": "Thunderclap",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=thunderclap"
+  },
+  {
+    "id": "crown-of-stars",
+    "name": "Couronne d'étoiles",
+    "nameEn": "Crown of Stars",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=crown-of-stars"
+  },
+  {
+    "id": "crown-of-madness",
+    "name": "Couronne du dément",
+    "nameEn": "Crown of Madness",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=crown-of-madness"
+  },
+  {
+    "id": "ice-knife",
+    "name": "Couteau de glace",
+    "nameEn": "Ice Knife",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ice-knife"
+  },
+  {
+    "id": "creation",
+    "name": "Création",
+    "nameEn": "Creation",
+    "level": 5,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=creation"
+  },
+  {
+    "id": "create-homunculus",
+    "name": "Création d'homoncule",
+    "nameEn": "Create Homunculus",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=create-homunculus"
+  },
+  {
+    "id": "create-undead",
+    "name": "Création de mort-vivant",
+    "nameEn": "Create Undead",
+    "level": 6,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=create-undead"
+  },
+  {
+    "id": "create-food-and-water",
+    "name": "Création de nourriture et d'eau",
+    "nameEn": "Create Food and Water",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=create-food-and-water"
+  },
+  {
+    "id": "create-or-destroy-water",
+    "name": "Création ou destruction d'eau",
+    "nameEn": "Create or Destroy Water",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=create-or-destroy-water"
+  },
+  {
+    "id": "spike-growth",
+    "name": "Croissance d'épines",
+    "nameEn": "Spike Growth",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=spike-growth"
+  },
+  {
+    "id": "plant-growth",
+    "name": "Croissance végétale",
+    "nameEn": "Plant Growth",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=plant-growth"
+  },
+  {
+    "id": "ottos-irresistible-dance",
+    "name": "Danse irrésistible d'Otto",
+    "nameEn": "Otto's Irresistible Dance",
+    "level": 6,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ottos-irresistible-dance"
+  },
+  {
+    "id": "danse-macabre",
+    "name": "Danse macabre",
+    "nameEn": "Danse Macabre",
+    "level": 5,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=danse-macabre"
+  },
+  {
+    "id": "knock",
+    "name": "Déblocage",
+    "nameEn": "Knock",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=knock"
+  },
+  {
+    "id": "eldritch-blast",
+    "name": "Décharge occulte",
+    "nameEn": "Eldritch Blast",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=eldritch-blast"
+  },
+  {
+    "id": "maze",
+    "name": "Dédale",
+    "nameEn": "Maze",
+    "level": 8,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=maze"
+  },
+  {
+    "id": "disguise-self",
+    "name": "Déguisement",
+    "nameEn": "Disguise Self",
+    "level": 1,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=disguise-self"
+  },
+  {
+    "id": "remove-curse",
+    "name": "Délivrance des malédictions",
+    "nameEn": "Remove Curse",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=remove-curse"
+  },
+  {
+    "id": "negative-energy-flood",
+    "name": "Déluge d'énergie négative",
+    "nameEn": "Negative Energy Flood",
+    "level": 5,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=negative-energy-flood"
+  },
+  {
+    "id": "demiplane",
+    "name": "Demi-plan",
+    "nameEn": "Demiplane",
+    "level": 8,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=demiplane"
+  },
+  {
+    "id": "disintegrate",
+    "name": "Désintégration",
+    "nameEn": "Disintegrate",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=disintegrate"
+  },
+  {
+    "id": "detect-magic",
+    "name": "Détection de la magie",
+    "nameEn": "Detect Magic",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=detect-magic"
+  },
+  {
+    "id": "detect-thoughts",
+    "name": "Détection des pensées",
+    "nameEn": "Detect Thoughts",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=detect-thoughts"
+  },
+  {
+    "id": "detect-evil-and-good",
+    "name": "Détection du mal et du bien",
+    "nameEn": "Detect Evil and Good",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=detect-evil-and-good"
+  },
+  {
+    "id": "detect-poison-and-disease",
+    "name": "Détection du poison et des maladies",
+    "nameEn": "Detect Poison and Disease",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=detect-poison-and-disease"
+  },
+  {
+    "id": "enthrall",
+    "name": "Discours captivant",
+    "nameEn": "Enthrall",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=enthrall"
+  },
+  {
+    "id": "scatter",
+    "name": "Dispersion",
+    "nameEn": "Scatter",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=scatter"
+  },
+  {
+    "id": "tensers-floating-disk",
+    "name": "Disque flottant de Tenser",
+    "nameEn": "Tenser's Floating Disk",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tensers-floating-disk"
+  },
+  {
+    "id": "sequester",
+    "name": "Dissimulation",
+    "nameAlt": "Dissimulation suprême",
+    "nameEn": "Sequester",
+    "level": 7,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sequester"
+  },
+  {
+    "id": "dispel-magic",
+    "name": "Dissipation de la magie",
+    "nameEn": "Dispel Magic",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dispel-magic"
+  },
+  {
+    "id": "dispel-evil-and-good",
+    "name": "Dissipation du mal et du bien",
+    "nameEn": "Dispel Evil and Good",
+    "level": 5,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dispel-evil-and-good"
+  },
+  {
+    "id": "divination",
+    "name": "Divination",
+    "nameEn": "Divination",
+    "level": 4,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=divination"
+  },
+  {
+    "id": "finger-of-death",
+    "name": "Doigt de mort",
+    "nameEn": "Finger of Death",
+    "level": 7,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=finger-of-death"
+  },
+  {
+    "id": "dominate-beast",
+    "name": "Domination de bête",
+    "nameAlt": "Domination d'animal",
+    "nameEn": "Dominate Beast",
+    "level": 4,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dominate-beast"
+  },
+  {
+    "id": "dominate-monster",
+    "name": "Domination de monstre",
+    "nameEn": "Dominate Monster",
+    "level": 8,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dominate-monster"
+  },
+  {
+    "id": "dominate-person",
+    "name": "Domination de personne",
+    "nameEn": "Dominate Person",
+    "level": 5,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dominate-person"
+  },
+  {
+    "id": "tongues",
+    "name": "Don des langues",
+    "nameEn": "Tongues",
+    "level": 3,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tongues"
+  },
+  {
+    "id": "mislead",
+    "name": "Double illusoire",
+    "nameEn": "Mislead",
+    "level": 5,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mislead"
+  },
+  {
+    "id": "illusory-dragon",
+    "name": "Dragon illusoire",
+    "nameEn": "Illusory Dragon",
+    "level": 8,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=illusory-dragon"
+  },
+  {
+    "id": "druidcraft",
+    "name": "Druidisme",
+    "nameEn": "Druidcraft",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=druidcraft"
+  },
+  {
+    "id": "compelled-duel",
+    "name": "Duel forcé",
+    "nameEn": "Compelled Duel",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=compelled-duel"
+  },
+  {
+    "id": "lightning-bolt",
+    "name": "Éclair",
+    "nameEn": "Lightning Bolt",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=lightning-bolt"
+  },
+  {
+    "id": "chaos-bolt",
+    "name": "Éclair de chaos",
+    "nameEn": "Chaos Bolt",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=chaos-bolt"
+  },
+  {
+    "id": "guiding-bolt",
+    "name": "Éclair traçant",
+    "nameAlt": "Rayon traçant",
+    "nameEn": "Guiding Bolt",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=guiding-bolt"
+  },
+  {
+    "id": "sunburst",
+    "name": "Éclat du soleil",
+    "nameEn": "Sunburst",
+    "level": 8,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sunburst"
+  },
+  {
+    "id": "create-bonfire",
+    "name": "Embrasement",
+    "nameEn": "Create Bonfire",
+    "level": 0,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=create-bonfire"
+  },
+  {
+    "id": "imprisonment",
+    "name": "Emprisonnement",
+    "nameEn": "Imprisonment",
+    "level": 9,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=imprisonment"
+  },
+  {
+    "id": "entangle",
+    "name": "Enchevêtrement",
+    "nameEn": "Entangle",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=entangle"
+  },
+  {
+    "id": "enervation",
+    "name": "Énervation",
+    "nameEn": "Enervation",
+    "level": 5,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=enervation"
+  },
+  {
+    "id": "weird",
+    "name": "Ennemi subconscient",
+    "nameEn": "Weird",
+    "level": 9,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=weird"
+  },
+  {
+    "id": "enemies-abound",
+    "name": "Ennemis à foison",
+    "nameEn": "Enemies Abound",
+    "level": 3,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=enemies-abound"
+  },
+  {
+    "id": "mordenkainens-sword",
+    "name": "Épée de Mordenkainen",
+    "nameEn": "Mordenkainen's Sword",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mordenkainens-sword"
+  },
+  {
+    "id": "mind-spike",
+    "name": "Épine mentale",
+    "nameEn": "Mind Spike",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mind-spike"
+  },
+  {
+    "id": "sword-burst",
+    "name": "Éruption de lames",
+    "nameEn": "Sword Burst",
+    "level": 0,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sword-burst"
+  },
+  {
+    "id": "erupting-earth",
+    "name": "Éruption de terre",
+    "nameEn": "Erupting Earth",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=erupting-earth"
+  },
+  {
+    "id": "feeblemind",
+    "name": "Esprit faible",
+    "nameEn": "Feeblemind",
+    "level": 8,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=feeblemind"
+  },
+  {
+    "id": "healing-spirit",
+    "name": "Esprit guérisseur",
+    "nameEn": "Healing Spirit",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=healing-spirit"
+  },
+  {
+    "id": "mind-blank",
+    "name": "Esprit impénétrable",
+    "nameEn": "Mind Blank",
+    "level": 8,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mind-blank"
+  },
+  {
+    "id": "spirit-guardians",
+    "name": "Esprits gardiens",
+    "nameEn": "Spirit Guardians",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=spirit-guardians"
+  },
+  {
+    "id": "awaken",
+    "name": "Éveil",
+    "nameEn": "Awaken",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=awaken"
+  },
+  {
+    "id": "fabricate",
+    "name": "Fabrication",
+    "nameEn": "Fabricate",
+    "level": 4,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fabricate"
+  },
+  {
+    "id": "shape-water",
+    "name": "Façonnage de l'eau",
+    "nameEn": "Shape Water",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shape-water"
+  },
+  {
+    "id": "stone-shape",
+    "name": "Façonnage de la pierre",
+    "nameEn": "Stone Shape",
+    "level": 4,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=stone-shape"
+  },
+  {
+    "id": "mold-earth",
+    "name": "Façonnage de la terre",
+    "nameEn": "Mold Earth",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mold-earth"
+  },
+  {
+    "id": "divine-favor",
+    "name": "Faveur divine",
+    "nameEn": "Divine Favor",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=divine-favor"
+  },
+  {
+    "id": "lightning-lure",
+    "name": "Ferrage foudroyant",
+    "nameAlt": "Ferrage fulgurant",
+    "nameEn": "Lightning Lure",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=lightning-lure"
+  },
+  {
+    "id": "heroes-feast",
+    "name": "Festin des héros",
+    "nameEn": "Heroes' Feast",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=heroes-feast"
+  },
+  {
+    "id": "feather-fall",
+    "name": "Feuille morte",
+    "nameEn": "Feather Fall",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=feather-fall"
+  },
+  {
+    "id": "aganazzars-scorcher",
+    "name": "Flambée d'Aganazzar",
+    "nameEn": "Aganazzar's Scorcher",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=aganazzars-scorcher"
+  },
+  {
+    "id": "continual-flame",
+    "name": "Flamme éternelle",
+    "nameEn": "Continual Flame",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=continual-flame"
+  },
+  {
+    "id": "sacred-flame",
+    "name": "Flamme sacrée",
+    "nameEn": "Sacred Flame",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sacred-flame"
+  },
+  {
+    "id": "produce-flame",
+    "name": "Flammes",
+    "nameEn": "Produce Flame",
+    "level": 0,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=produce-flame"
+  },
+  {
+    "id": "bane",
+    "name": "Fléau",
+    "nameAlt": "Imprécation",
+    "nameEn": "Bane",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=bane"
+  },
+  {
+    "id": "insect-plague",
+    "name": "Fléau d'insectes",
+    "nameEn": "Insect Plague",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=insect-plague"
+  },
+  {
+    "id": "elemental-bane",
+    "name": "Fléau élémentaire",
+    "nameEn": "Elemental Bane",
+    "level": 4,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=elemental-bane"
+  },
+  {
+    "id": "melfs-acid-arrow",
+    "name": "Flèche acide de Melf",
+    "nameEn": "Melf's Acid Arrow",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=melfs-acid-arrow"
+  },
+  {
+    "id": "lightning-arrow",
+    "name": "Flèche de foudre",
+    "nameEn": "Lightning Arrow",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=lightning-arrow"
+  },
+  {
+    "id": "flame-arrows",
+    "name": "Flèches enflammées",
+    "nameEn": "Flame Arrows",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=flame-arrows"
+  },
+  {
+    "id": "blight",
+    "name": "Flétrissement",
+    "nameEn": "Blight",
+    "level": 4,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blight"
+  },
+  {
+    "id": "abi-dalzims-horrid-wilting",
+    "name": "Flétrissure épouvantable d'Abi-Dalzim",
+    "nameEn": "Abi-Dalzim's Horrid Wilting",
+    "level": 8,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=abi-dalzims-horrid-wilting"
+  },
+  {
+    "id": "blur",
+    "name": "Flou",
+    "nameEn": "Blur",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blur"
+  },
+  {
+    "id": "phantasmal-force",
+    "name": "Force fantasmagorique",
+    "nameEn": "Phantasmal Force",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=phantasmal-force"
+  },
+  {
+    "id": "etherealness",
+    "name": "Forme éthérée",
+    "nameEn": "Etherealness",
+    "level": 7,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=etherealness"
+  },
+  {
+    "id": "gaseous-form",
+    "name": "Forme gazeuse",
+    "nameEn": "Gaseous Form",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=gaseous-form"
+  },
+  {
+    "id": "animal-shapes",
+    "name": "Formes animales",
+    "nameAlt": "Métamorphose animale",
+    "nameEn": "Animal Shapes",
+    "level": 8,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=animal-shapes"
+  },
+  {
+    "id": "intellect-fortress",
+    "name": "Forteresse d'intellect",
+    "nameAlt": "Forteresse mentale",
+    "nameEn": "Intellect Fortress",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=intellect-fortress"
+  },
+  {
+    "id": "mighty-fortress",
+    "name": "Forteresse majestueuse",
+    "nameEn": "Mighty Fortress",
+    "level": 8,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mighty-fortress"
+  },
+  {
+    "id": "tashas-hideous-laughter",
+    "name": "Fou rire de Tasha",
+    "nameEn": "Tasha's Hideous Laughter",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tashas-hideous-laughter"
+  },
+  {
+    "id": "thorn-whip",
+    "name": "Fouet épineux",
+    "nameEn": "Thorn Whip",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=thorn-whip"
+  },
+  {
+    "id": "tashas-mind-whip",
+    "name": "Fouet mental de Tasha",
+    "nameEn": "Tasha's Mind Whip",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tashas-mind-whip"
+  },
+  {
+    "id": "misty-step",
+    "name": "Foulée brumeuse",
+    "nameEn": "Misty Step",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=misty-step"
+  },
+  {
+    "id": "far-step",
+    "name": "Foulée dimensionnelle",
+    "nameEn": "Far Step",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=far-step"
+  },
+  {
+    "id": "thunder-step",
+    "name": "Foulée tonitruante",
+    "nameEn": "Thunder Step",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=thunder-step"
+  },
+  {
+    "id": "shatter",
+    "name": "Fracassement",
+    "nameEn": "Shatter",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shatter"
+  },
+  {
+    "id": "steel-wind-strike",
+    "name": "Frappe du vent d'acier",
+    "nameEn": "Steel Wind Strike",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=steel-wind-strike"
+  },
+  {
+    "id": "zephyr-strike",
+    "name": "Frappe du zéphyr",
+    "nameEn": "Zephyr Strike",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=zephyr-strike"
+  },
+  {
+    "id": "ensnaring-strike",
+    "name": "Frappe piégeuse",
+    "nameEn": "Ensnaring Strike",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ensnaring-strike"
+  },
+  {
+    "id": "cause-fear",
+    "name": "Frayeur",
+    "nameEn": "Cause Fear",
+    "level": 1,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=cause-fear"
+  },
+  {
+    "id": "wrath-of-nature",
+    "name": "Fureur de la nature",
+    "nameEn": "Wrath of Nature",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wrath-of-nature"
+  },
+  {
+    "id": "meld-into-stone",
+    "name": "Fusion dans la pierre",
+    "nameEn": "Meld into Stone",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=meld-into-stone"
+  },
+  {
+    "id": "guardian-of-faith",
+    "name": "Gardien de la foi",
+    "nameEn": "Guardian of Faith",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=guardian-of-faith"
+  },
+  {
+    "id": "guardian-of-nature",
+    "name": "Gardien de la nature",
+    "nameEn": "Guardian of Nature",
+    "level": 4,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=guardian-of-nature"
+  },
+  {
+    "id": "frostbite",
+    "name": "Gelure",
+    "nameEn": "Frostbite",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=frostbite"
+  },
+  {
+    "id": "toll-the-dead",
+    "name": "Glas",
+    "nameEn": "Toll the Dead",
+    "level": 0,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=toll-the-dead"
+  },
+  {
+    "id": "globe-of-invulnerability",
+    "name": "Globe d'invulnérabilité",
+    "nameEn": "Globe of Invulnerability",
+    "level": 6,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=globe-of-invulnerability"
+  },
+  {
+    "id": "glyph-of-warding",
+    "name": "Glyphe de protection",
+    "nameAlt": "Glyphe de garde",
+    "nameEn": "Glyph of Warding",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=glyph-of-warding"
+  },
+  {
+    "id": "shillelagh",
+    "name": "Gourdin magique",
+    "nameAlt": "Crosse des druides",
+    "nameEn": "Shillelagh",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shillelagh"
+  },
+  {
+    "id": "grease",
+    "name": "Graisse",
+    "nameEn": "Grease",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=grease"
+  },
+  {
+    "id": "longstrider",
+    "name": "Grande foulée",
+    "nameEn": "Longstrider",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=longstrider"
+  },
+  {
+    "id": "hail-of-thorns",
+    "name": "Grêle d'épines",
+    "nameEn": "Hail of Thorns",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hail-of-thorns"
+  },
+  {
+    "id": "heal",
+    "name": "Guérison",
+    "nameEn": "Heal",
+    "level": 6,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=heal"
+  },
+  {
+    "id": "mass-heal",
+    "name": "Guérison de groupe",
+    "nameEn": "Mass Heal",
+    "level": 9,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mass-heal"
+  },
+  {
+    "id": "haste",
+    "name": "Hâte",
+    "nameEn": "Haste",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=haste"
+  },
+  {
+    "id": "heroism",
+    "name": "Héroïsme",
+    "nameEn": "Heroism",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=heroism"
+  },
+  {
+    "id": "psychic-scream",
+    "name": "Hurlement psychique",
+    "nameEn": "Psychic Scream",
+    "level": 9,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=psychic-scream"
+  },
+  {
+    "id": "identify",
+    "name": "Identification",
+    "nameEn": "Identify",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=identify"
+  },
+  {
+    "id": "minor-illusion",
+    "name": "Illusion mineure",
+    "nameEn": "Minor Illusion",
+    "level": 0,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=minor-illusion"
+  },
+  {
+    "id": "programmed-illusion",
+    "name": "Illusion programmée",
+    "nameEn": "Programmed Illusion",
+    "level": 6,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=programmed-illusion"
+  },
+  {
+    "id": "major-image",
+    "name": "Image majeure",
+    "nameEn": "Major Image",
+    "level": 3,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=major-image"
+  },
+  {
+    "id": "mirror-image",
+    "name": "Image miroir",
+    "nameEn": "Mirror Image",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mirror-image"
+  },
+  {
+    "id": "silent-image",
+    "name": "Image silencieuse",
+    "nameEn": "Silent Image",
+    "level": 1,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=silent-image"
+  },
+  {
+    "id": "hold-monster",
+    "name": "Immobilisation de monstre",
+    "nameEn": "Hold Monster",
+    "level": 5,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hold-monster"
+  },
+  {
+    "id": "hold-person",
+    "name": "Immobilisation de personne",
+    "nameEn": "Hold Person",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hold-person"
+  },
+  {
+    "id": "immolation",
+    "name": "Immolation",
+    "nameAlt": "Immolation ardente",
+    "nameEn": "Immolation",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=immolation"
+  },
+  {
+    "id": "infestation",
+    "name": "Infestation",
+    "nameEn": "Infestation",
+    "level": 0,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=infestation"
+  },
+  {
+    "id": "command",
+    "name": "Injonction",
+    "nameEn": "Command",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=command"
+  },
+  {
+    "id": "giant-insect",
+    "name": "Insecte géant",
+    "nameEn": "Giant Insect",
+    "level": 4,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=giant-insect"
+  },
+  {
+    "id": "forbiddance",
+    "name": "Interdiction",
+    "nameEn": "Forbiddance",
+    "level": 6,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=forbiddance"
+  },
+  {
+    "id": "reverse-gravity",
+    "name": "Inversion de la gravité",
+    "nameEn": "Reverse Gravity",
+    "level": 7,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=reverse-gravity"
+  },
+  {
+    "id": "invisibility",
+    "name": "Invisibilité",
+    "nameEn": "Invisibility",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=invisibility"
+  },
+  {
+    "id": "greater-invisibility",
+    "name": "Invisibilité supérieure",
+    "nameAlt": "Invisibilité suprême",
+    "nameEn": "Greater Invisibility",
+    "level": 4,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=greater-invisibility"
+  },
+  {
+    "id": "conjure-animals",
+    "name": "Invocation d'animaux",
+    "nameEn": "Conjure Animals",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-animals"
+  },
+  {
+    "id": "conjure-elemental",
+    "name": "Invocation d'élémentaire",
+    "nameEn": "Conjure Elemental",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-elemental"
+  },
+  {
+    "id": "conjure-minor-elementals",
+    "name": "Invocation d'élémentaires mineurs",
+    "nameEn": "Conjure Minor Elementals",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-minor-elementals"
+  },
+  {
+    "id": "conjure-woodland-beings",
+    "name": "Invocation d'êtres sylvestres",
+    "nameEn": "Conjure Woodland Beings",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-woodland-beings"
+  },
+  {
+    "id": "conjure-celestial",
+    "name": "Invocation de céleste",
+    "nameEn": "Conjure Celestial",
+    "level": 7,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-celestial"
+  },
+  {
+    "id": "conjure-fey",
+    "name": "Invocation de fée",
+    "nameEn": "Conjure Fey",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-fey"
+  },
+  {
+    "id": "conjure-barrage",
+    "name": "Invocation de projectiles",
+    "nameAlt": "Hérissement de projectiles",
+    "nameEn": "Conjure Barrage",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-barrage"
+  },
+  {
+    "id": "conjure-volley",
+    "name": "Invocation de volée",
+    "nameEn": "Conjure Volley",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=conjure-volley"
+  },
+  {
+    "id": "invulnerability",
+    "name": "Invulnérabilité",
+    "nameEn": "Invulnerability",
+    "level": 9,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=invulnerability"
+  },
+  {
+    "id": "green-flame-blade",
+    "name": "Lame aux flammes vertes",
+    "nameAlt": "Lame des flammes vertes",
+    "nameEn": "Green-Flame Blade",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=green-flame-blade"
+  },
+  {
+    "id": "shadow-blade",
+    "name": "Lame d'ombres",
+    "nameEn": "Shadow Blade",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shadow-blade"
+  },
+  {
+    "id": "flame-blade",
+    "name": "Lame de feu",
+    "nameEn": "Flame Blade",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=flame-blade"
+  },
+  {
+    "id": "blade-of-disaster",
+    "name": "Lame du désastre",
+    "nameEn": "Blade of Disaster",
+    "level": 9,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blade-of-disaster"
+  },
+  {
+    "id": "booming-blade",
+    "name": "Lame retentissante",
+    "nameEn": "Booming Blade",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=booming-blade"
+  },
+  {
+    "id": "slow",
+    "name": "Lenteur",
+    "nameEn": "Slow",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=slow"
+  },
+  {
+    "id": "levitate",
+    "name": "Lévitation",
+    "nameEn": "Levitate",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=levitate"
+  },
+  {
+    "id": "grasping-vine",
+    "name": "Liane avide",
+    "nameEn": "Grasping Vine",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=grasping-vine"
+  },
+  {
+    "id": "skywrite",
+    "name": "Libellé aérien",
+    "nameEn": "Skywrite",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=skywrite"
+  },
+  {
+    "id": "freedom-of-movement",
+    "name": "Liberté de mouvement",
+    "nameEn": "Freedom of Movement",
+    "level": 4,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=freedom-of-movement"
+  },
+  {
+    "id": "beast-bond",
+    "name": "Lien avec une bête",
+    "nameEn": "Beast Bond",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=beast-bond"
+  },
+  {
+    "id": "warding-bond",
+    "name": "Lien de protection",
+    "nameEn": "Warding Bond",
+    "level": 2,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=warding-bond"
+  },
+  {
+    "id": "rarys-telepathic-bond",
+    "name": "Lien télépathique de Rary",
+    "nameEn": "Rary's Telepathic Bond",
+    "level": 5,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=rarys-telepathic-bond"
+  },
+  {
+    "id": "locate-animals-or-plants",
+    "name": "Localisation d'animaux ou de plantes",
+    "nameEn": "Locate Animals or Plants",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=locate-animals-or-plants"
+  },
+  {
+    "id": "locate-object",
+    "name": "Localisation d'objet",
+    "nameEn": "Locate Object",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=locate-object"
+  },
+  {
+    "id": "locate-creature",
+    "name": "Localisation de créature",
+    "nameEn": "Locate Creature",
+    "level": 4,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=locate-creature"
+  },
+  {
+    "id": "beacon-of-hope",
+    "name": "Lueur d'espoir",
+    "nameEn": "Beacon of Hope",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=beacon-of-hope"
+  },
+  {
+    "id": "faerie-fire",
+    "name": "Lueurs féeriques",
+    "nameEn": "Faerie Fire",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=faerie-fire"
+  },
+  {
+    "id": "light",
+    "name": "Lumière",
+    "nameEn": "Light",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=light"
+  },
+  {
+    "id": "daylight",
+    "name": "Lumière du jour",
+    "nameEn": "Daylight",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=daylight"
+  },
+  {
+    "id": "dancing-lights",
+    "name": "Lumières dansantes",
+    "nameEn": "Dancing Lights",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dancing-lights"
+  },
+  {
+    "id": "maelstrom",
+    "name": "Maelström",
+    "nameEn": "Maelstrom",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=maelstrom"
+  },
+  {
+    "id": "bigbys-hand",
+    "name": "Main de Bigby",
+    "nameEn": "Bigby's Hand",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=bigbys-hand"
+  },
+  {
+    "id": "mage-hand",
+    "name": "Main de mage",
+    "nameAlt": "Main du mage",
+    "nameEn": "Mage Hand",
+    "level": 0,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mage-hand"
+  },
+  {
+    "id": "burning-hands",
+    "name": "Mains brûlantes",
+    "nameEn": "Burning Hands",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=burning-hands"
+  },
+  {
+    "id": "bestow-curse",
+    "name": "Malédiction",
+    "nameEn": "Bestow Curse",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=bestow-curse"
+  },
+  {
+    "id": "hex",
+    "name": "Maléfice",
+    "nameEn": "Hex",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hex"
+  },
+  {
+    "id": "mordenkainens-magnificent-mansion",
+    "name": "Manoir somptueux de Mordenkainen",
+    "nameEn": "Mordenkainen's Magnificent Mansion",
+    "level": 7,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mordenkainens-magnificent-mansion"
+  },
+  {
+    "id": "water-walk",
+    "name": "Marche sur l'eau",
+    "nameAlt": "Marche sur l'onde",
+    "nameEn": "Water Walk",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=water-walk"
+  },
+  {
+    "id": "wind-walk",
+    "name": "Marche sur le vent",
+    "nameAlt": "Vent divin",
+    "nameEn": "Wind Walk",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wind-walk"
+  },
+  {
+    "id": "hunters-mark",
+    "name": "Marque du chasseur",
+    "nameEn": "Hunter's Mark",
+    "level": 1,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hunters-mark"
+  },
+  {
+    "id": "eyebite",
+    "name": "Mauvais oeil",
+    "nameEn": "Eyebite",
+    "level": 6,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=eyebite"
+  },
+  {
+    "id": "message",
+    "name": "Message",
+    "nameEn": "Message",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=message"
+  },
+  {
+    "id": "animal-messenger",
+    "name": "Messager animal",
+    "nameEn": "Animal Messenger",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=animal-messenger"
+  },
+  {
+    "id": "heat-metal",
+    "name": "Métal brûlant",
+    "nameEn": "Heat Metal",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=heat-metal"
+  },
+  {
+    "id": "polymorph",
+    "name": "Métamorphose",
+    "nameEn": "Polymorph",
+    "level": 4,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=polymorph"
+  },
+  {
+    "id": "mass-polymorph",
+    "name": "Métamorphose de groupe",
+    "nameEn": "Mass Polymorph",
+    "level": 9,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mass-polymorph"
+  },
+  {
+    "id": "true-polymorph",
+    "name": "Métamorphose suprême",
+    "nameEn": "True Polymorph",
+    "level": 9,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=true-polymorph"
+  },
+  {
+    "id": "melfs-minute-meteors",
+    "name": "Minuscules météores de Melf",
+    "nameEn": "Melf's Minute Meteors",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=melfs-minute-meteors"
+  },
+  {
+    "id": "mirage-arcane",
+    "name": "Mirage",
+    "nameEn": "Mirage Arcane",
+    "level": 7,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mirage-arcane"
+  },
+  {
+    "id": "tashas-caustic-brew",
+    "name": "Mixture caustique de Tasha",
+    "nameEn": "Tasha's Caustic Brew",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tashas-caustic-brew"
+  },
+  {
+    "id": "alter-self",
+    "name": "Modification d'apparence",
+    "nameEn": "Alter Self",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=alter-self"
+  },
+  {
+    "id": "modify-memory",
+    "name": "Modification de mémoire",
+    "nameEn": "Modify Memory",
+    "level": 5,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=modify-memory"
+  },
+  {
+    "id": "phantom-steed",
+    "name": "Monture fantôme",
+    "nameEn": "Phantom Steed",
+    "level": 3,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=phantom-steed"
+  },
+  {
+    "id": "vicious-mockery",
+    "name": "Moquerie cruelle",
+    "nameEn": "Vicious Mockery",
+    "level": 0,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=vicious-mockery"
+  },
+  {
+    "id": "feign-death",
+    "name": "Mort simulée",
+    "nameAlt": "État cadavérique",
+    "nameEn": "Feign Death",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=feign-death"
+  },
+  {
+    "id": "healing-word",
+    "name": "Mot de guérison",
+    "nameEn": "Healing Word",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=healing-word"
+  },
+  {
+    "id": "mass-healing-word",
+    "name": "Mot de guérison de groupe",
+    "nameEn": "Mass Healing Word",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mass-healing-word"
+  },
+  {
+    "id": "power-word-pain",
+    "name": "Mot de pouvoir douloureux",
+    "nameEn": "Power Word Pain",
+    "level": 7,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=power-word-pain"
+  },
+  {
+    "id": "power-word-stun",
+    "name": "Mot de pouvoir étourdissant",
+    "nameEn": "Power Word Stun",
+    "level": 8,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=power-word-stun"
+  },
+  {
+    "id": "power-word-heal",
+    "name": "Mot de pouvoir guérisseur",
+    "nameEn": "Power Word Heal",
+    "level": 9,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=power-word-heal"
+  },
+  {
+    "id": "power-word-kill",
+    "name": "Mot de pouvoir mortel",
+    "nameEn": "Power Word Kill",
+    "level": 9,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=power-word-kill"
+  },
+  {
+    "id": "word-of-radiance",
+    "name": "Mot de radiance",
+    "nameEn": "Word of Radiance",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=word-of-radiance"
+  },
+  {
+    "id": "word-of-recall",
+    "name": "Mot de retour",
+    "nameEn": "Word of Recall",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=word-of-recall"
+  },
+  {
+    "id": "hypnotic-pattern",
+    "name": "Motif hypnotique",
+    "nameEn": "Hypnotic Pattern",
+    "level": 3,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hypnotic-pattern"
+  },
+  {
+    "id": "wall-of-water",
+    "name": "Mur d'eau",
+    "nameEn": "Wall of Water",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-water"
+  },
+  {
+    "id": "wall-of-thorns",
+    "name": "Mur d'épines",
+    "nameEn": "Wall of Thorns",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-thorns"
+  },
+  {
+    "id": "wall-of-fire",
+    "name": "Mur de feu",
+    "nameEn": "Wall of Fire",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-fire"
+  },
+  {
+    "id": "wall-of-force",
+    "name": "Mur de force",
+    "nameEn": "Wall of Force",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-force"
+  },
+  {
+    "id": "wall-of-ice",
+    "name": "Mur de glace",
+    "nameEn": "Wall of Ice",
+    "level": 6,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-ice"
+  },
+  {
+    "id": "wall-of-light",
+    "name": "Mur de lumière",
+    "nameEn": "Wall of Light",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-light"
+  },
+  {
+    "id": "wall-of-stone",
+    "name": "Mur de pierre",
+    "nameEn": "Wall of Stone",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-stone"
+  },
+  {
+    "id": "wall-of-sand",
+    "name": "Mur de sable",
+    "nameEn": "Wall of Sand",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wall-of-sand"
+  },
+  {
+    "id": "wind-wall",
+    "name": "Mur de vent",
+    "nameEn": "Wind Wall",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wind-wall"
+  },
+  {
+    "id": "prismatic-wall",
+    "name": "Mur prismatique",
+    "nameEn": "Prismatic Wall",
+    "level": 9,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=prismatic-wall"
+  },
+  {
+    "id": "dissonant-whispers",
+    "name": "Murmures dissonants",
+    "nameEn": "Dissonant Whispers",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dissonant-whispers"
+  },
+  {
+    "id": "legend-lore",
+    "name": "Mythes et légendes",
+    "nameEn": "Legend Lore",
+    "level": 5,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=legend-lore"
+  },
+  {
+    "id": "fog-cloud",
+    "name": "Nappe de brouillard",
+    "nameEn": "Fog Cloud",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fog-cloud"
+  },
+  {
+    "id": "incendiary-cloud",
+    "name": "Nuage incendiaire",
+    "nameEn": "Incendiary Cloud",
+    "level": 8,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=incendiary-cloud"
+  },
+  {
+    "id": "stinking-cloud",
+    "name": "Nuage nauséabond",
+    "nameEn": "Stinking Cloud",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=stinking-cloud"
+  },
+  {
+    "id": "snillocs-snowball-swarm",
+    "name": "Nuée de boules de neige de Snilloc",
+    "nameEn": "Snilloc's Snowball Swarm",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=snillocs-snowball-swarm"
+  },
+  {
+    "id": "cloud-of-daggers",
+    "name": "Nuée de dagues",
+    "nameEn": "Cloud of Daggers",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=cloud-of-daggers"
+  },
+  {
+    "id": "meteor-swarm",
+    "name": "Nuée de météores",
+    "nameEn": "Meteor Swarm",
+    "level": 9,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=meteor-swarm"
+  },
+  {
+    "id": "arcane-eye",
+    "name": "Oeil magique",
+    "nameAlt": "Oeil du mage",
+    "nameEn": "Arcane Eye",
+    "level": 4,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=arcane-eye"
+  },
+  {
+    "id": "shadow-of-moil",
+    "name": "Ombre d'égarement",
+    "nameEn": "Shadow of Moil",
+    "level": 4,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shadow-of-moil"
+  },
+  {
+    "id": "chromatic-orb",
+    "name": "Orbe chromatique",
+    "nameEn": "Chromatic Orb",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=chromatic-orb"
+  },
+  {
+    "id": "bones-of-the-earth",
+    "name": "Ossements de la Terre",
+    "nameEn": "Bones of the Earth",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=bones-of-the-earth"
+  },
+  {
+    "id": "divine-word",
+    "name": "Parole divine",
+    "nameEn": "Divine Word",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=divine-word"
+  },
+  {
+    "id": "tree-stride",
+    "name": "Passage par les arbres",
+    "nameEn": "Tree Stride",
+    "level": 5,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tree-stride"
+  },
+  {
+    "id": "pass-without-trace",
+    "name": "Passage sans trace",
+    "nameEn": "Pass without Trace",
+    "level": 2,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=pass-without-trace"
+  },
+  {
+    "id": "passwall",
+    "name": "Passe-muraille",
+    "nameEn": "Passwall",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=passwall"
+  },
+  {
+    "id": "spider-climb",
+    "name": "Pattes d'araignée",
+    "nameEn": "Spider Climb",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=spider-climb"
+  },
+  {
+    "id": "barkskin",
+    "name": "Peau d'écorce",
+    "nameEn": "Barkskin",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=barkskin"
+  },
+  {
+    "id": "stoneskin",
+    "name": "Peau de pierre",
+    "nameEn": "Stoneskin",
+    "level": 4,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=stoneskin"
+  },
+  {
+    "id": "synaptic-static",
+    "name": "Perturbations synaptiques",
+    "nameEn": "Synaptic Static",
+    "level": 5,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=synaptic-static"
+  },
+  {
+    "id": "leomunds-tiny-hut",
+    "name": "Petite hutte de Léomund",
+    "nameEn": "Leomund's Tiny Hut",
+    "level": 3,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=leomunds-tiny-hut"
+  },
+  {
+    "id": "flesh-to-stone",
+    "name": "Pétrification",
+    "nameEn": "Flesh to Stone",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=flesh-to-stone"
+  },
+  {
+    "id": "fear",
+    "name": "Peur",
+    "nameAlt": "Terreur",
+    "nameEn": "Fear",
+    "level": 3,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fear"
+  },
+  {
+    "id": "magic-stone",
+    "name": "Pierre magique",
+    "nameEn": "Magic Stone",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=magic-stone"
+  },
+  {
+    "id": "mind-sliver",
+    "name": "Piqûre mentale",
+    "nameEn": "Mind Sliver",
+    "level": 0,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mind-sliver"
+  },
+  {
+    "id": "shocking-grasp",
+    "name": "Poigne électrique",
+    "nameEn": "Shocking Grasp",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=shocking-grasp"
+  },
+  {
+    "id": "maximilians-earthen-grasp",
+    "name": "Poigne terreuse de Maximilien",
+    "nameEn": "Maximilian's Earthen Grasp",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=maximilians-earthen-grasp"
+  },
+  {
+    "id": "gate",
+    "name": "Portail",
+    "nameEn": "Gate",
+    "level": 9,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=gate"
+  },
+  {
+    "id": "arcane-gate",
+    "name": "Portail magique",
+    "nameAlt": "Portail arcanique",
+    "nameEn": "Arcane Gate",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=arcane-gate"
+  },
+  {
+    "id": "dimension-door",
+    "name": "Porte dimensionnelle",
+    "nameEn": "Dimension Door",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dimension-door"
+  },
+  {
+    "id": "foresight",
+    "name": "Prémonition",
+    "nameEn": "Foresight",
+    "level": 9,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=foresight"
+  },
+  {
+    "id": "gentle-repose",
+    "name": "Préservation des morts",
+    "nameAlt": "Doux repos",
+    "nameEn": "Gentle Repose",
+    "level": 2,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=gentle-repose"
+  },
+  {
+    "id": "prestidigitation",
+    "name": "Prestidigitation",
+    "nameEn": "Prestidigitation",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=prestidigitation"
+  },
+  {
+    "id": "contingency",
+    "name": "Prévoyance",
+    "nameAlt": "Anticipation",
+    "nameEn": "Contingency",
+    "level": 6,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=contingency"
+  },
+  {
+    "id": "prayer-of-healing",
+    "name": "Prière de guérison",
+    "nameEn": "Prayer of Healing",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=prayer-of-healing"
+  },
+  {
+    "id": "mental-prison",
+    "name": "Prison mentale",
+    "nameEn": "Mental Prison",
+    "level": 6,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mental-prison"
+  },
+  {
+    "id": "magic-missile",
+    "name": "Projectile magique",
+    "nameEn": "Magic Missile",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=magic-missile"
+  },
+  {
+    "id": "astral-projection",
+    "name": "Projection astrale",
+    "nameEn": "Astral Projection",
+    "level": 9,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=astral-projection"
+  },
+  {
+    "id": "project-image",
+    "name": "Projection d'image",
+    "nameAlt": "Image projetée",
+    "nameEn": "Project Image",
+    "level": 7,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=project-image"
+  },
+  {
+    "id": "death-ward",
+    "name": "Protection contre la mort",
+    "nameEn": "Death Ward",
+    "level": 4,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=death-ward"
+  },
+  {
+    "id": "protection-from-evil-and-good",
+    "name": "Protection contre le mal et le bien",
+    "nameEn": "Protection from Evil and Good",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=protection-from-evil-and-good"
+  },
+  {
+    "id": "protection-from-poison",
+    "name": "Protection contre le poison",
+    "nameEn": "Protection from Poison",
+    "level": 2,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=protection-from-poison"
+  },
+  {
+    "id": "blade-ward",
+    "name": "Protection contre les armes",
+    "nameEn": "Blade Ward",
+    "level": 0,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=blade-ward"
+  },
+  {
+    "id": "protection-from-energy",
+    "name": "Protection contre une énergie",
+    "nameAlt": "Protection contre l'énergie",
+    "nameEn": "Protection from Energy",
+    "level": 3,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=protection-from-energy"
+  },
+  {
+    "id": "primordial-ward",
+    "name": "Protection primordiale",
+    "nameEn": "Primordial Ward",
+    "level": 6,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=primordial-ward"
+  },
+  {
+    "id": "guards-and-wards",
+    "name": "Protections et sceaux",
+    "nameEn": "Guards and Wards",
+    "level": 6,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=guards-and-wards"
+  },
+  {
+    "id": "purify-food-and-drink",
+    "name": "Purification de nourriture et d'eau",
+    "nameAlt": "Purification de la nourriture et de l'eau",
+    "nameEn": "Purify Food and Drink",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=purify-food-and-drink"
+  },
+  {
+    "id": "pyrotechnics",
+    "name": "Pyrotechnie",
+    "nameEn": "Pyrotechnics",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=pyrotechnics"
+  },
+  {
+    "id": "geas",
+    "name": "Quête",
+    "nameEn": "Geas",
+    "level": 5,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=geas"
+  },
+  {
+    "id": "raise-dead",
+    "name": "Rappel à la vie",
+    "nameEn": "Raise Dead",
+    "level": 5,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=raise-dead"
+  },
+  {
+    "id": "ray-of-enfeeblement",
+    "name": "Rayon affaiblissant",
+    "nameEn": "Ray of Enfeeblement",
+    "level": 2,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ray-of-enfeeblement"
+  },
+  {
+    "id": "scorching-ray",
+    "name": "Rayon ardent",
+    "nameEn": "Scorching Ray",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=scorching-ray"
+  },
+  {
+    "id": "ray-of-frost",
+    "name": "Rayon de givre",
+    "nameEn": "Ray of Frost",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ray-of-frost"
+  },
+  {
+    "id": "moonbeam",
+    "name": "Rayon de lune",
+    "nameEn": "Moonbeam",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=moonbeam"
+  },
+  {
+    "id": "sunbeam",
+    "name": "Rayon de soleil",
+    "nameEn": "Sunbeam",
+    "level": 6,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sunbeam"
+  },
+  {
+    "id": "ray-of-sickness",
+    "name": "Rayon empoisonné",
+    "nameEn": "Ray of Sickness",
+    "level": 1,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ray-of-sickness"
+  },
+  {
+    "id": "sickening-radiance",
+    "name": "Rayonnement écoeurant",
+    "nameEn": "Sickening Radiance",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sickening-radiance"
+  },
+  {
+    "id": "prismatic-spray",
+    "name": "Rayons prismatiques",
+    "nameAlt": "Embruns prismatiques",
+    "nameEn": "Prismatic Spray",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=prismatic-spray"
+  },
+  {
+    "id": "tidal-wave",
+    "name": "Raz-de-marée",
+    "nameEn": "Tidal Wave",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tidal-wave"
+  },
+  {
+    "id": "regenerate",
+    "name": "Régénération",
+    "nameEn": "Regenerate",
+    "level": 7,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=regenerate"
+  },
+  {
+    "id": "reincarnate",
+    "name": "Réincarnation",
+    "nameEn": "Reincarnate",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=reincarnate"
+  },
+  {
+    "id": "mending",
+    "name": "Réparation",
+    "nameEn": "Mending",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mending"
+  },
+  {
+    "id": "expeditious-retreat",
+    "name": "Repli expéditif",
+    "nameEn": "Expeditious Retreat",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=expeditious-retreat"
+  },
+  {
+    "id": "hellish-rebuke",
+    "name": "Représailles infernales",
+    "nameEn": "Hellish Rebuke",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hellish-rebuke"
+  },
+  {
+    "id": "resistance",
+    "name": "Résistance",
+    "nameEn": "Resistance",
+    "level": 0,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=resistance"
+  },
+  {
+    "id": "water-breathing",
+    "name": "Respiration aquatique",
+    "nameEn": "Water Breathing",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=water-breathing"
+  },
+  {
+    "id": "lesser-restoration",
+    "name": "Restauration partielle",
+    "nameEn": "Lesser Restoration",
+    "level": 2,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=lesser-restoration"
+  },
+  {
+    "id": "greater-restoration",
+    "name": "Restauration supérieure",
+    "nameAlt": "Restauration suprême",
+    "nameEn": "Greater Restoration",
+    "level": 5,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=greater-restoration"
+  },
+  {
+    "id": "resurrection",
+    "name": "Résurrection",
+    "nameEn": "Resurrection",
+    "level": 7,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=resurrection"
+  },
+  {
+    "id": "true-resurrection",
+    "name": "Résurrection suprême",
+    "nameEn": "True Resurrection",
+    "level": 9,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=true-resurrection"
+  },
+  {
+    "id": "revivify",
+    "name": "Retour à la vie",
+    "nameEn": "Revivify",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=revivify"
+  },
+  {
+    "id": "investiture-of-ice",
+    "name": "Sacre de la glace",
+    "nameEn": "Investiture of Ice",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=investiture-of-ice"
+  },
+  {
+    "id": "investiture-of-stone",
+    "name": "Sacre de la pierre",
+    "nameEn": "Investiture of Stone",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=investiture-of-stone"
+  },
+  {
+    "id": "investiture-of-flame",
+    "name": "Sacre des flammes",
+    "nameEn": "Investiture of Flame",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=investiture-of-flame"
+  },
+  {
+    "id": "investiture-of-wind",
+    "name": "Sacre du vent",
+    "nameEn": "Investiture of Wind",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=investiture-of-wind"
+  },
+  {
+    "id": "hallow",
+    "name": "Sanctification",
+    "nameEn": "Hallow",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hallow"
+  },
+  {
+    "id": "sanctuary",
+    "name": "Sanctuaire",
+    "nameEn": "Sanctuary",
+    "level": 1,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sanctuary"
+  },
+  {
+    "id": "mordenkainens-private-sanctum",
+    "name": "Sanctuaire privé de Mordenkainen",
+    "nameEn": "Mordenkainen's Private Sanctum",
+    "level": 4,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mordenkainens-private-sanctum"
+  },
+  {
+    "id": "jump",
+    "name": "Saut",
+    "nameEn": "Jump",
+    "level": 1,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=jump"
+  },
+  {
+    "id": "gust",
+    "name": "Saute de vent",
+    "nameEn": "Gust",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=gust"
+  },
+  {
+    "id": "primal-savagery",
+    "name": "Sauvagerie primitive",
+    "nameEn": "Primal Savagery",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=primal-savagery"
+  },
+  {
+    "id": "scrying",
+    "name": "Scrutation",
+    "nameEn": "Scrying",
+    "level": 5,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=scrying"
+  },
+  {
+    "id": "earth-tremor",
+    "name": "Secousse sismique",
+    "nameEn": "Earth Tremor",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=earth-tremor"
+  },
+  {
+    "id": "beast-sense",
+    "name": "Sens animal",
+    "nameEn": "Beast Sense",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=beast-sense"
+  },
+  {
+    "id": "find-the-path",
+    "name": "Sens de l'orientation",
+    "nameAlt": "Orientation",
+    "nameEn": "Find the Path",
+    "level": 6,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=find-the-path"
+  },
+  {
+    "id": "find-traps",
+    "name": "Sens des pièges",
+    "nameAlt": "Détection des pièges",
+    "nameEn": "Find Traps",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=find-traps"
+  },
+  {
+    "id": "unseen-servant",
+    "name": "Serviteur invisible",
+    "nameEn": "Unseen Servant",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=unseen-servant"
+  },
+  {
+    "id": "tiny-servant",
+    "name": "Serviteur miniature",
+    "nameEn": "Tiny Servant",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tiny-servant"
+  },
+  {
+    "id": "catnap",
+    "name": "Sieste",
+    "nameEn": "Catnap",
+    "level": 3,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=catnap"
+  },
+  {
+    "id": "silence",
+    "name": "Silence",
+    "nameEn": "Silence",
+    "level": 2,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=silence"
+  },
+  {
+    "id": "simulacrum",
+    "name": "Simulacre",
+    "nameEn": "Simulacrum",
+    "level": 7,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=simulacrum"
+  },
+  {
+    "id": "false-life",
+    "name": "Simulacre de vie",
+    "nameEn": "False Life",
+    "level": 1,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=false-life"
+  },
+  {
+    "id": "cure-wounds",
+    "name": "Soins",
+    "nameEn": "Cure Wounds",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=cure-wounds"
+  },
+  {
+    "id": "mass-cure-wounds",
+    "name": "Soins de groupe",
+    "nameEn": "Mass Cure Wounds",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mass-cure-wounds"
+  },
+  {
+    "id": "sleep",
+    "name": "Sommeil",
+    "nameEn": "Sleep",
+    "level": 1,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sleep"
+  },
+  {
+    "id": "dream",
+    "name": "Songe",
+    "nameEn": "Dream",
+    "level": 5,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dream"
+  },
+  {
+    "id": "dream-of-the-blue-veil",
+    "name": "Songe du voile bleu",
+    "nameEn": "Dream of the Blue Veil",
+    "level": 7,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dream-of-the-blue-veil"
+  },
+  {
+    "id": "dragons-breath",
+    "name": "Souffle du dragon",
+    "nameEn": "Dragon's Breath",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dragons-breath"
+  },
+  {
+    "id": "wish",
+    "name": "Souhait",
+    "nameEn": "Wish",
+    "level": 9,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=wish"
+  },
+  {
+    "id": "watery-sphere",
+    "name": "Sphère aqueuse",
+    "nameEn": "Watery Sphere",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=watery-sphere"
+  },
+  {
+    "id": "flaming-sphere",
+    "name": "Sphère de feu",
+    "nameEn": "Flaming Sphere",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=flaming-sphere"
+  },
+  {
+    "id": "storm-sphere",
+    "name": "Sphère de tempête",
+    "nameEn": "Storm Sphere",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=storm-sphere"
+  },
+  {
+    "id": "vitriolic-sphere",
+    "name": "Sphère de vitriol",
+    "nameEn": "Vitriolic Sphere",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=vitriolic-sphere"
+  },
+  {
+    "id": "otilukes-freezing-sphere",
+    "name": "Sphère glaciale d'Otiluke",
+    "nameAlt": "Sphère glacée d'Otiluke",
+    "nameEn": "Otiluke's Freezing Sphere",
+    "level": 6,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=otilukes-freezing-sphere"
+  },
+  {
+    "id": "otilukes-resilient-sphere",
+    "name": "Sphère résiliente d'Otiluke",
+    "nameEn": "Otiluke's Resilient Sphere",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=otilukes-resilient-sphere"
+  },
+  {
+    "id": "spare-the-dying",
+    "name": "Stabilisation",
+    "nameEn": "Spare the Dying",
+    "level": 0,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=spare-the-dying"
+  },
+  {
+    "id": "suggestion",
+    "name": "Suggestion",
+    "nameEn": "Suggestion",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=suggestion"
+  },
+  {
+    "id": "mass-suggestion",
+    "name": "Suggestion de groupe",
+    "nameEn": "Mass Suggestion",
+    "level": 6,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=mass-suggestion"
+  },
+  {
+    "id": "symbol",
+    "name": "Symbole",
+    "nameEn": "Symbol",
+    "level": 7,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=symbol"
+  },
+  {
+    "id": "telekinesis",
+    "name": "Télékinésie",
+    "nameEn": "Telekinesis",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=telekinesis"
+  },
+  {
+    "id": "telepathy",
+    "name": "Télépathie",
+    "nameEn": "Telepathy",
+    "level": 8,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=telepathy"
+  },
+  {
+    "id": "teleport",
+    "name": "Téléportation",
+    "nameEn": "Teleport",
+    "level": 7,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=teleport"
+  },
+  {
+    "id": "fire-storm",
+    "name": "Tempête de feu",
+    "nameEn": "Fire Storm",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fire-storm"
+  },
+  {
+    "id": "ice-storm",
+    "name": "Tempête de grêle",
+    "nameEn": "Ice Storm",
+    "level": 4,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=ice-storm"
+  },
+  {
+    "id": "sleet-storm",
+    "name": "Tempête de neige",
+    "nameEn": "Sleet Storm",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=sleet-storm"
+  },
+  {
+    "id": "storm-of-vengeance",
+    "name": "Tempête vengeresse",
+    "nameEn": "Storm of Vengeance",
+    "level": 9,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=storm-of-vengeance"
+  },
+  {
+    "id": "temple-of-the-gods",
+    "name": "Temple des dieux",
+    "nameEn": "Temple of the Gods",
+    "level": 7,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=temple-of-the-gods"
+  },
+  {
+    "id": "darkness",
+    "name": "Ténèbres",
+    "nameEn": "Darkness",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=darkness"
+  },
+  {
+    "id": "maddening-darkness",
+    "name": "Ténèbres oppressantes",
+    "nameEn": "Maddening Darkness",
+    "level": 8,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=maddening-darkness"
+  },
+  {
+    "id": "arms-of-hadar",
+    "name": "Tentacules de Hadar",
+    "nameEn": "Arms of Hadar",
+    "level": 1,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=arms-of-hadar"
+  },
+  {
+    "id": "evards-black-tentacles",
+    "name": "Tentacules noirs d'Evard",
+    "nameEn": "Evard's Black Tentacles",
+    "level": 4,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=evards-black-tentacles"
+  },
+  {
+    "id": "move-earth",
+    "name": "Terraformage",
+    "nameAlt": "Glissement de terrain",
+    "nameEn": "Move Earth",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=move-earth"
+  },
+  {
+    "id": "hallucinatory-terrain",
+    "name": "Terrain hallucinatoire",
+    "nameEn": "Hallucinatory Terrain",
+    "level": 4,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hallucinatory-terrain"
+  },
+  {
+    "id": "illusory-script",
+    "name": "Texte illusoire",
+    "nameEn": "Illusory Script",
+    "level": 1,
+    "school": "illusion",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=illusory-script"
+  },
+  {
+    "id": "thaumaturgy",
+    "name": "Thaumaturgie",
+    "nameEn": "Thaumaturgy",
+    "level": 0,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=thaumaturgy"
+  },
+  {
+    "id": "web",
+    "name": "Toile d'araignée",
+    "nameEn": "Web",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=web"
+  },
+  {
+    "id": "vampiric-touch",
+    "name": "Toucher du vampire",
+    "nameAlt": "Caresse du vampire",
+    "nameEn": "Vampiric Touch",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=vampiric-touch"
+  },
+  {
+    "id": "whirlwind",
+    "name": "Tourbillon",
+    "nameEn": "Whirlwind",
+    "level": 7,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=whirlwind"
+  },
+  {
+    "id": "dust-devil",
+    "name": "Tourbillon de poussière",
+    "nameEn": "Dust Devil",
+    "level": 2,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=dust-devil"
+  },
+  {
+    "id": "fire-bolt",
+    "name": "Trait de feu",
+    "nameEn": "Fire Bolt",
+    "level": 0,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fire-bolt"
+  },
+  {
+    "id": "witch-bolt",
+    "name": "Trait ensorcelé",
+    "nameEn": "Witch Bolt",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=witch-bolt"
+  },
+  {
+    "id": "life-transference",
+    "name": "Transfert de vie",
+    "nameEn": "Life Transference",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=life-transference"
+  },
+  {
+    "id": "tensers-transformation",
+    "name": "Transformation de Tenser",
+    "nameEn": "Tenser's Transformation",
+    "level": 6,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tensers-transformation"
+  },
+  {
+    "id": "transmute-rock",
+    "name": "Transmutation de la pierre",
+    "nameEn": "Transmute Rock",
+    "level": 5,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=transmute-rock"
+  },
+  {
+    "id": "earthquake",
+    "name": "Tremblement de terre",
+    "nameEn": "Earthquake",
+    "level": 8,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=earthquake"
+  },
+  {
+    "id": "tsunami",
+    "name": "Tsunami",
+    "nameEn": "Tsunami",
+    "level": 8,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=tsunami"
+  },
+  {
+    "id": "magic-jar",
+    "name": "Urne magique",
+    "nameAlt": "Possession",
+    "nameEn": "Magic Jar",
+    "level": 6,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=magic-jar"
+  },
+  {
+    "id": "destructive-wave",
+    "name": "Vague destructrice",
+    "nameEn": "Destructive Wave",
+    "level": 5,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=destructive-wave"
+  },
+  {
+    "id": "thunderwave",
+    "name": "Vague tonnante",
+    "nameEn": "Thunderwave",
+    "level": 1,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=thunderwave"
+  },
+  {
+    "id": "warding-wind",
+    "name": "Vent protecteur",
+    "nameEn": "Warding Wind",
+    "level": 2,
+    "school": "évocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=warding-wind"
+  },
+  {
+    "id": "arcane-lock",
+    "name": "Verrou magique",
+    "nameEn": "Arcane Lock",
+    "level": 2,
+    "school": "abjuration",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=arcane-lock"
+  },
+  {
+    "id": "darkvision",
+    "name": "Vision dans le noir",
+    "nameEn": "Darkvision",
+    "level": 2,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=darkvision"
+  },
+  {
+    "id": "true-seeing",
+    "name": "Vision suprême",
+    "nameEn": "True Seeing",
+    "level": 6,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=true-seeing"
+  },
+  {
+    "id": "transport-via-plants",
+    "name": "Voie végétale",
+    "nameEn": "Transport via Plants",
+    "level": 6,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=transport-via-plants"
+  },
+  {
+    "id": "spirit-shroud",
+    "name": "Voile spirituel",
+    "nameAlt": "Linceul spirituel",
+    "nameEn": "Spirit Shroud",
+    "level": 3,
+    "school": "nécromancie",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=spirit-shroud"
+  },
+  {
+    "id": "see-invisibility",
+    "name": "Voir l'invisible",
+    "nameAlt": "Détection de l'invisibilité",
+    "nameEn": "See Invisibility",
+    "level": 2,
+    "school": "divination",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=see-invisibility"
+  },
+  {
+    "id": "fly",
+    "name": "Vol",
+    "nameEn": "Fly",
+    "level": 3,
+    "school": "transmutation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=fly"
+  },
+  {
+    "id": "hunger-of-hadar",
+    "name": "Voracité de Hadar",
+    "nameEn": "Hunger of Hadar",
+    "level": 3,
+    "school": "invocation",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=hunger-of-hadar"
+  },
+  {
+    "id": "zone-of-truth",
+    "name": "Zone de vérité",
+    "nameEn": "Zone of Truth",
+    "level": 2,
+    "school": "enchantement",
+    "url": "https://www.aidedd.org/dnd/sorts.php?vo=zone-of-truth"
+  }
+]

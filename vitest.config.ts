@@ -11,6 +11,6 @@ export default defineConfig({
     include: ['src/**/__tests__/**/*.spec.ts'],
     setupFiles: ['src/__tests__/setup.ts'],
     // Node ≥ 25 expose un localStorage expérimental : on le coupe, setup.ts fournit le sien
-    poolOptions: { forks: { execArgv: ['--no-experimental-webstorage'] } },
+    execArgv: ['--no-experimental-webstorage'],
   },
 })

@@ -278,6 +278,10 @@ function attackCountLabel(count: number) {
                 >+ {{ t('combat.conditions') }}
                 {{ combat.formatModifier(previewBonus.conditions) }}</template
               >
+              <template v-if="previewBonus.features"
+                >+ {{ t('combat.features') }}
+                {{ combat.formatModifier(previewBonus.features) }}</template
+              >
               <template v-if="previewBonus.extra"
                 >+ {{ t('combat.extra') }} {{ combat.formatModifier(previewBonus.extra) }}</template
               >)

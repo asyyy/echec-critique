@@ -17,11 +17,15 @@ import InfoTip from '@/components/InfoTip.vue'
 import ConditionsBar from '@/components/ConditionsBar.vue'
 import { conditionModifiers, useConditionsStore } from '@/stores/conditions'
 import { useConditionLabel } from '@/composables/useConditionLabel'
+import { useFeaturesStore } from '@/stores/features'
+import OriginPicker from '@/components/OriginPicker.vue'
+import { CLASSES, type ClassId, type SpeciesId } from '@/utils/origins'
 
 const { t, locale } = useI18n()
 const char = useCharacterStore()
 const inventory = useInventoryStore()
 const conditions = useConditionsStore()
+const features = useFeaturesStore()
 const conditionLabel = useConditionLabel()
 const isEditing = ref(false)
 const now = ref(Date.now())
@@ -184,6 +188,49 @@ const tooltipConditionLines = computed(() =>
   ),
 )
 
+const tooltipFeatureLines = computed(() => bonusLines(features.features, tooltipTypes.value))
+
+const tooltipOriginLines = computed(() =>
+  bonusLines(
+    char.originEffects.map((e) => ({
+      name: t(`origins.effects.${e.id}.name`),
+      modifiers: e.modifiers,
+    })),
+    tooltipTypes.value,
+  ),
+)
+
+/* ── Classe et espèce : verrouillées en mode Modifier, choisies dans une fenêtre ── */
+
+const classLabel = computed(() =>
+  char.classId ? t(`origins.classes.${char.classId}.name`) : char.characterClass,
+)
+const speciesLabel = computed(() =>
+  char.speciesId ? t(`origins.species.${char.speciesId}.name`) : char.species,
+)
+
+type OriginKind = 'class' | 'species'
+/** Champs déverrouillés (cadenas) ; tout se reverrouille en sortant du mode Modifier */
+const unlockedOrigins = ref<Set<OriginKind>>(new Set())
+const originPicker = ref<OriginKind | null>(null)
+
+function toggleOriginLock(kind: OriginKind) {
+  const next = new Set(unlockedOrigins.value)
+  if (next.has(kind)) next.delete(kind)
+  else next.add(kind)
+  unlockedOrigins.value = next
+}
+
+function onOriginPick(id: string | null, label: string) {
+  if (originPicker.value === 'class') char.setClass(id as ClassId | null, label)
+  else char.setSpecies(id as SpeciesId | null, label)
+  // Choix fait : le champ se reverrouille
+  const next = new Set(unlockedOrigins.value)
+  next.delete(originPicker.value!)
+  unlockedOrigins.value = next
+  originPicker.value = null
+}
+
 /** Plusieurs types dans la bulle (score + bonus direct) : on précise le type sur chaque ligne */
 const tooltipMultiType = computed(() => tooltipTypes.value.length > 1)
 
@@ -224,7 +271,10 @@ const tooltipBreakdown = computed(() => {
           value: formatModifier(char.initiativeBonus),
         })
       }
-      const dexEquip = (char.equipmentAbilityBonus.dex ?? 0) + (char.conditionAbilityBonus.dex ?? 0)
+      const dexEquip =
+        (char.equipmentAbilityBonus.dex ?? 0) +
+        (char.conditionAbilityBonus.dex ?? 0) +
+        (char.featureAbilityBonus.dex ?? 0)
       if (dexEquip) {
         rows.push({
           label: t('stats.tips.dexScoreEquip', { score: char.effectiveScore('dex') }),
@@ -254,6 +304,16 @@ const tooltipBreakdown = computed(() => {
         { label: t('stats.tips.hpCurrent'), value: String(char.hpCurrent) },
         { label: t('stats.tips.hpMax'), value: String(char.hpMax) },
       ]
+      if (char.classId) {
+        rows.push({ label: t('origins.hitDie'), value: `d${CLASSES[char.classId].hitDie}` })
+      }
+      for (const effect of char.originEffects) {
+        if (effect.id !== 'nainTenacite') continue
+        rows.push({
+          label: t('stats.hpMaxReminder', { name: t(`origins.effects.${effect.id}.name`) }),
+          value: `+${char.originHpMaxBonus}`,
+        })
+      }
       if (hasTempHp.value) {
         rows.push({
           label: t('stats.tips.hpTemp'),
@@ -380,12 +440,16 @@ function sameTarget(a: InfoTarget, b: InfoTarget) {
 
 function hasEquipBonus(ability: Ability): boolean {
   return (
-    (char.equipmentAbilityBonus[ability] ?? 0) + (char.conditionAbilityBonus[ability] ?? 0) !== 0
+    (char.equipmentAbilityBonus[ability] ?? 0) +
+      (char.conditionAbilityBonus[ability] ?? 0) +
+      (char.featureAbilityBonus[ability] ?? 0) !==
+    0
   )
 }
 
 function setEditing(next: boolean) {
   isEditing.value = next
+  unlockedOrigins.value = new Set()
   closeTooltip()
   closeHpQuick()
 }
@@ -444,10 +508,8 @@ onUnmounted(() => {
           </template>
           <h2 v-else class="hero-name-read">{{ displayName }}</h2>
           <span v-if="!isEditing" class="hero-chip">{{ t('stats.level') }} {{ char.level }}</span>
-          <span v-if="!isEditing && char.characterClass" class="hero-chip">{{
-            char.characterClass
-          }}</span>
-          <span v-if="!isEditing && char.species" class="hero-chip">{{ char.species }}</span>
+          <span v-if="!isEditing && classLabel" class="hero-chip">{{ classLabel }}</span>
+          <span v-if="!isEditing && speciesLabel" class="hero-chip">{{ speciesLabel }}</span>
         </div>
         <button
           class="edit-toggle"
@@ -463,19 +525,56 @@ onUnmounted(() => {
           <span>{{ t('stats.level') }}</span>
           <input v-model.number="char.level" type="number" min="1" max="20" />
         </label>
-        <input
-          v-model="char.characterClass"
-          class="meta-text"
-          type="text"
-          :placeholder="t('stats.classPlaceholder')"
-        />
-        <input
-          v-model="char.species"
-          class="meta-text"
-          type="text"
-          :placeholder="t('stats.speciesPlaceholder')"
-        />
+        <div
+          v-for="kind in ['class', 'species'] as const"
+          :key="kind"
+          class="origin-field"
+          :class="{ unlocked: unlockedOrigins.has(kind) }"
+        >
+          <button
+            type="button"
+            class="origin-lock hit-area"
+            :aria-pressed="unlockedOrigins.has(kind)"
+            :aria-label="
+              unlockedOrigins.has(kind)
+                ? t(kind === 'class' ? 'origins.lockClass' : 'origins.lockSpecies')
+                : t(kind === 'class' ? 'origins.unlockClass' : 'origins.unlockSpecies')
+            "
+            @click="toggleOriginLock(kind)"
+          >
+            <!-- Cadenas : anse ouverte une fois déverrouillé -->
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <rect x="3" y="7" width="10" height="7.5" rx="1.5" />
+              <path
+                :d="
+                  unlockedOrigins.has(kind)
+                    ? 'M5.5 7V4.5a2.5 2.5 0 0 1 4.9-.7'
+                    : 'M5.5 7V4.5a2.5 2.5 0 0 1 5 0V7'
+                "
+              />
+            </svg>
+          </button>
+          <button
+            type="button"
+            class="origin-value"
+            :disabled="!unlockedOrigins.has(kind)"
+            @click="originPicker = kind"
+          >
+            <span v-if="kind === 'class' ? classLabel : speciesLabel">{{
+              kind === 'class' ? classLabel : speciesLabel
+            }}</span>
+            <span v-else class="origin-placeholder">{{
+              t(kind === 'class' ? 'stats.classPlaceholder' : 'stats.speciesPlaceholder')
+            }}</span>
+          </button>
+        </div>
       </div>
+      <OriginPicker
+        v-if="originPicker"
+        :kind="originPicker"
+        @close="originPicker = null"
+        @pick="onOriginPick"
+      />
     </section>
 
     <!-- Jets contre la mort : uniquement à 0 PV -->
@@ -950,6 +1049,38 @@ onUnmounted(() => {
             </li>
           </ul>
         </div>
+        <div v-if="tooltipFeatureLines.length" class="stat-tooltip-equip">
+          <div class="stat-tooltip-equip-title">
+            {{
+              bonusBlockTitle(
+                tooltipFeatureLines,
+                'stats.featuresTooltipTitle',
+                'stats.featuresTooltipPlain',
+              )
+            }}
+          </div>
+          <ul class="stat-tooltip-equip-list">
+            <li v-for="(line, i) in tooltipFeatureLines" :key="i">
+              {{ formatBonusLine(line, tooltipMultiType) }}
+            </li>
+          </ul>
+        </div>
+        <div v-if="tooltipOriginLines.length" class="stat-tooltip-equip">
+          <div class="stat-tooltip-equip-title">
+            {{
+              bonusBlockTitle(
+                tooltipOriginLines,
+                'stats.originTooltipTitle',
+                'stats.originTooltipPlain',
+              )
+            }}
+          </div>
+          <ul class="stat-tooltip-equip-list">
+            <li v-for="(line, i) in tooltipOriginLines" :key="i">
+              {{ formatBonusLine(line, tooltipMultiType) }}
+            </li>
+          </ul>
+        </div>
       </div>
     </Teleport>
   </div>
@@ -1137,6 +1268,7 @@ onUnmounted(() => {
 
 .hero-meta {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
 }
@@ -1164,15 +1296,63 @@ onUnmounted(() => {
   padding: 0;
 }
 
-.meta-text {
-  flex: 1;
+/* Classe / espèce : verrouillées, le cadenas ouvre le choix */
+.origin-field {
+  /* Trop étroit pour deux champs (petit écran) : l'espèce passe à la ligne */
+  flex: 1 1 7.5rem;
   min-width: 0;
+  display: flex;
+  align-items: stretch;
   background: var(--color-bg-secondary);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  padding: 0.4rem 0.6rem;
+}
+.origin-field.unlocked {
+  border-color: var(--color-accent);
+}
+
+.origin-lock {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.9rem;
+  border: none;
+  border-right: 1px solid var(--color-border);
+  background: none;
+  color: var(--color-text-muted);
+}
+.origin-field.unlocked .origin-lock {
+  color: var(--color-accent);
+}
+.origin-lock svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.origin-value {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0.4rem 0.5rem;
+  border: none;
+  background: none;
   color: var(--color-text-primary);
   font-size: 0.85rem;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.origin-value:disabled {
+  color: var(--color-text-secondary);
+  cursor: default;
+}
+.origin-placeholder {
+  color: var(--color-text-muted);
 }
 
 /* Jets contre la mort */

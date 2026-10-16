@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { useSpellsStore, concentrationSaveDc } from '@/stores/spells'
 import { useCharacterStore } from '@/stores/character'
 import { useCombatStore } from '@/stores/combat'
+import { useFeaturesStore } from '@/stores/features'
 import ActionIconButton from '@/components/ActionIconButton.vue'
 import InfoTip from '@/components/InfoTip.vue'
 import LeadNote from '@/components/LeadNote.vue'
@@ -14,10 +15,12 @@ const { show: showToast } = useToast()
 const spells = useSpellsStore()
 const character = useCharacterStore()
 const combat = useCombatStore()
+const features = useFeaturesStore()
 
 /** Repos long = nouvelle journée d'aventure : on repart aussi d'un historique d'attaques vide */
 function onLongRest() {
   spells.longRest()
+  features.longRest()
   combat.clearHistory()
 }
 

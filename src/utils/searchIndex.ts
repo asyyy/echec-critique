@@ -1,6 +1,7 @@
 import { ABILITIES, SKILLS, SKILL_ABILITY, type Skill } from '@/utils/dnd'
 import { MODIFIER_LABELS, CATEGORY_LABELS } from '@/stores/inventory'
 import { i18n } from '@/i18n'
+import type { FeatureOrigin } from '@/stores/features'
 
 export type AppTab = 'stats' | 'combat' | 'inventaire' | 'equipements' | 'calculatrice'
 
@@ -13,6 +14,10 @@ export interface SearchEntry {
   section: string
   /** Onglet de catégorie à activer dans l'Inventaire (sinon « Tous ») */
   categoryFilter?: string
+  /** Sous-onglet de Personnage à ouvrir (sinon « Équipements ») */
+  equipmentSection?: 'equipable' | 'capacite' | 'traits'
+  /** Onglet d'origine à activer dans Capa & Traits */
+  featureOrigin?: FeatureOrigin | 'all'
 }
 
 export function normalizeSearch(text: string): string {
@@ -223,6 +228,18 @@ export function buildStaticSearchIndex(): SearchEntry[] {
       t('search.sectionEquipment'),
       ['bonus'],
     ),
+    {
+      ...entry(
+        'features',
+        t('search.features'),
+        'equipements',
+        'search-features',
+        t('search.sectionFeatures'),
+        ['capacite', 'capacites', 'trait', 'traits', 'feature', 'don', 'feat'],
+      ),
+      equipmentSection: 'capacite',
+      featureOrigin: 'all',
+    },
   )
 
   for (const [key] of Object.entries(CATEGORY_LABELS)) {
@@ -308,5 +325,41 @@ export function inventoryCategorySearchEntries(
       ['categorie', 'category'],
     ),
     categoryFilter: id,
+  }))
+}
+
+/** Capacités & traits → leur carte dans Personnage > Capa & Traits (onglet « Toutes ») */
+export function featureSearchEntries(
+  features: { id: string; name: string; description: string; origin: FeatureOrigin }[],
+): SearchEntry[] {
+  const t = i18n.global.t
+  return features.map((f) => ({
+    ...entry(
+      `feature-${f.id}`,
+      f.name,
+      'equipements',
+      `search-feature-${f.id}`,
+      t('search.sectionFeature'),
+      [f.description, t(`features.origins.${f.origin}`)],
+    ),
+    equipmentSection: 'capacite',
+    featureOrigin: 'all',
+  }))
+}
+
+/** Origines qui ont des capacités → Capa & Traits filtré sur elles */
+export function featureOriginSearchEntries(origins: FeatureOrigin[]): SearchEntry[] {
+  const t = i18n.global.t
+  return origins.map((origin) => ({
+    ...entry(
+      `feature-origin-${origin}`,
+      t(`features.origins.${origin}`),
+      'equipements',
+      'search-features',
+      t('search.sectionFeatureOrigin'),
+      ['capacite', 'feature'],
+    ),
+    equipmentSection: 'capacite',
+    featureOrigin: origin,
   }))
 }

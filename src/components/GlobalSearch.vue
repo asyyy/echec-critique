@@ -2,10 +2,13 @@
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useInventoryStore } from '@/stores/inventory'
+import { FEATURE_ORIGINS, useFeaturesStore } from '@/stores/features'
 import { useSettingsStore } from '@/stores/settings'
 import { useCategoryLabel } from '@/composables/useCategoryLabel'
 import {
   buildStaticSearchIndex,
+  featureOriginSearchEntries,
+  featureSearchEntries,
   filterSearchEntries,
   inventoryCategorySearchEntries,
   inventorySearchEntries,
@@ -19,6 +22,7 @@ const emit = defineEmits<{
 
 const { t } = useI18n()
 const inventory = useInventoryStore()
+const features = useFeaturesStore()
 const settings = useSettingsStore()
 const categoryLabel = useCategoryLabel()
 const query = ref('')
@@ -32,12 +36,19 @@ const searchableCategories = computed(() => {
   )
 })
 
+/** Mêmes origines que les onglets de Capa & Traits */
+const searchableOrigins = computed(() =>
+  FEATURE_ORIGINS.filter((o) => features.features.some((f) => f.origin === o)),
+)
+
 const allEntries = computed(() => {
   void settings.locale
   const entries = [
     ...buildStaticSearchIndex(),
     ...inventoryCategorySearchEntries(searchableCategories.value, categoryLabel),
     ...inventorySearchEntries(inventory.items, categoryLabel),
+    ...featureOriginSearchEntries(searchableOrigins.value),
+    ...featureSearchEntries(features.features),
   ]
   if (!settings.showCalculator) {
     return entries.filter((e) => e.tab !== 'calculatrice')
@@ -70,6 +81,8 @@ watch(query, (value) => {
 function selectEntry(entry: SearchEntry) {
   // Catégorie → son onglet ; objet → « Tous » (le filtre pourrait le masquer)
   if (entry.tab === 'inventaire') inventory.categoryFilter = entry.categoryFilter ?? 'all'
+  // Origine → son onglet ; capacité → « Toutes »
+  if (entry.featureOrigin) features.originFilter = entry.featureOrigin
   emit('select', entry)
   query.value = ''
   isFocused.value = false

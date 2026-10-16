@@ -32,6 +32,8 @@ import {
   type ActiveCondition,
   type SavedCondition,
 } from '@/stores/conditions'
+import { FEATURE_ORIGINS, normalizeFeatures, type Feature } from '@/stores/features'
+import { CLASS_IDS, SPECIES_IDS, type ClassId, type SpeciesId } from '@/utils/origins'
 
 const PREFIX = 'EC1.'
 
@@ -73,6 +75,9 @@ export interface CharacterSnapshot {
   initiativeBonus?: number
   deathSaveSuccesses?: number
   deathSaveFailures?: number
+  /** Classe / espèce du SRD ; absent (anciens exports) → reconnues d'après le texte */
+  classId?: ClassId | null
+  speciesId?: SpeciesId | null
 }
 
 export interface CharacterBundle {
@@ -86,12 +91,14 @@ export interface CharacterBundle {
   conditions?: ActiveCondition[]
   /** États créés par le joueur et mémorisés (« Mes états ») */
   savedConditions?: SavedCondition[]
+  /** Capacités & traits */
+  features?: Feature[]
 }
 
 /** Payload compact v1 (tableaux + omissions) */
 type CompactV1 = {
   v: 1
-  /** [n,l,k,s, abilities[6], savesMask, skills[[idx,rank]], hpC,hpM,hpT, insp, ac, spd, initBonus, deathOk, deathKo] */
+  /** [n,l,k,s, abilities[6], savesMask, skills[[idx,rank]], hpC,hpM,hpT, insp, ac, spd, initBonus, deathOk, deathKo, classIdx|-1, speciesIdx|-1] */
   c: unknown[]
   i?: unknown[]
   a?: unknown[]
@@ -103,6 +110,8 @@ type CompactV1 = {
   e?: unknown[]
   /** états mémorisés : [[nom, buff?1:0, sourceIdx, mods]] */
   m?: unknown[]
+  /** capacités : [[nom, origineIdx, description, utilisationsMax, dépensées, court?1:0, mods]] */
+  f?: unknown[]
 }
 
 function toB64Url(bytes: Uint8Array): string {
@@ -195,7 +204,16 @@ function packCharacter(c: CharacterSnapshot): unknown[] {
     c.initiativeBonus || undefined,
     c.deathSaveSuccesses || undefined,
     c.deathSaveFailures || undefined,
+    // -1 = personnalisé (distinct d'un ancien export sans la colonne)
+    c.classId === undefined ? undefined : c.classId ? CLASS_IDS.indexOf(c.classId) : -1,
+    c.speciesId === undefined ? undefined : c.speciesId ? SPECIES_IDS.indexOf(c.speciesId) : -1,
   ]
+}
+
+/** Colonne d'id : index connu → id ; -1 → personnalisé ; absente → undefined */
+function unpackOriginIndex<T>(raw: unknown, ids: readonly T[]): T | null | undefined {
+  if (raw == null) return undefined
+  return ids[Number(raw)] ?? null
 }
 
 function unpackCharacter(raw: unknown): CharacterSnapshot {
@@ -224,6 +242,8 @@ function unpackCharacter(raw: unknown): CharacterSnapshot {
     initiativeBonus: Math.round(Number(row[13]) || 0),
     deathSaveSuccesses: Math.max(0, Math.min(3, Math.round(Number(row[14]) || 0))),
     deathSaveFailures: Math.max(0, Math.min(3, Math.round(Number(row[15]) || 0))),
+    classId: unpackOriginIndex(row[16], CLASS_IDS),
+    speciesId: unpackOriginIndex(row[17], SPECIES_IDS),
   }
 }
 
@@ -505,6 +525,17 @@ export function packBundle(bundle: CharacterBundle): CompactV1 {
       packMods(c.modifiers),
     ])
   }
+  if (bundle.features?.length) {
+    compact.f = bundle.features.map((f) => [
+      f.name,
+      FEATURE_ORIGINS.indexOf(f.origin),
+      f.description || undefined,
+      f.usesMax || undefined,
+      f.usesSpent || undefined,
+      f.recharge === 'short' ? 1 : undefined,
+      packMods(f.modifiers),
+    ])
+  }
   return compact
 }
 
@@ -564,7 +595,34 @@ export function unpackBundle(data: CompactV1 | Record<string, unknown>): Charact
         )
       : [],
   )
-  return { character, inventory, attacks, spells, categories, conditions, savedConditions }
+  const rawFeatures = (data as CompactV1).f
+  const features = normalizeFeatures(
+    Array.isArray(rawFeatures)
+      ? rawFeatures.map((e) =>
+          Array.isArray(e)
+            ? {
+                name: e[0],
+                origin: FEATURE_ORIGINS[Number(e[1])],
+                description: e[2],
+                usesMax: e[3],
+                usesSpent: e[4],
+                recharge: e[5] === 1 ? 'short' : 'long',
+                modifiers: unpackMods(e[6]),
+              }
+            : null,
+        )
+      : [],
+  )
+  return {
+    character,
+    inventory,
+    attacks,
+    spells,
+    categories,
+    conditions,
+    savedConditions,
+    features,
+  }
 }
 
 export async function encodeBundle(bundle: CharacterBundle): Promise<string> {

@@ -1,16 +1,18 @@
 import { useCharacterStore, type SkillRank } from '@/stores/character'
 import { useInventoryStore } from '@/stores/inventory'
 import { useConditionsStore } from '@/stores/conditions'
+import { useFeaturesStore } from '@/stores/features'
 import { useCombatStore } from '@/stores/combat'
 import { useSpellsStore } from '@/stores/spells'
 import type { CharacterBundle } from '@/utils/characterBundle'
 import { ABILITIES, SKILLS, type Ability, type Skill } from '@/utils/dnd'
 
-/** Lire / appliquer le personnage actif en entier (fiche, inventaire, états, attaques, sorts) */
+/** Lire / appliquer le personnage actif en entier (fiche, inventaire, états, capacités, attaques, sorts) */
 export function useCharacterBundle() {
   const character = useCharacterStore()
   const inventory = useInventoryStore()
   const conditionsStore = useConditionsStore()
+  const featuresStore = useFeaturesStore()
   const combat = useCombatStore()
   const spellsStore = useSpellsStore()
 
@@ -55,6 +57,8 @@ export function useCharacterBundle() {
         level: snap.level,
         characterClass: snap.characterClass,
         species: snap.species,
+        classId: snap.classId,
+        speciesId: snap.speciesId,
         abilityScores: snap.abilityScores,
         savingThrowProficiency: snap.savingThrowProficiency,
         skillRank: snap.skillRank,
@@ -82,6 +86,10 @@ export function useCharacterBundle() {
         ...c,
         modifiers: c.modifiers.map((m) => ({ ...m })),
       })),
+      features: featuresStore.features.map((f) => ({
+        ...f,
+        modifiers: f.modifiers.map((m) => ({ ...m })),
+      })),
       attacks: combat.configs.map((cfg) => ({
         ...cfg,
         damageParts: cfg.damageParts.map((p) => ({ ...p })),
@@ -97,6 +105,7 @@ export function useCharacterBundle() {
     })
     inventory.replaceAll(bundle.inventory, bundle.categories)
     conditionsStore.replaceAll(bundle.conditions, bundle.savedConditions)
+    featuresStore.replaceAll(bundle.features)
     combat.replaceConfigs(bundle.attacks)
     combat.clearHistory()
     spellsStore.applySnapshot(bundle.spells)

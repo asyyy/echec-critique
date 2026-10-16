@@ -191,7 +191,9 @@ const creditEntries = computed(() =>
     [
       { nameKey: 'credits.parentsName' as const, detailKey: 'credits.parents' as const },
       { name: 'AideDD', detailKey: 'credits.aidedd' as const },
-      { name: 'D&D 5e', detailKey: 'credits.dndInspired' as const },
+      // Seule mention permise de Wizards : la déclaration d'attribution du SRD, telle quelle
+      { name: 'SRD 5.2.1', detailKey: 'credits.srd' as const },
+      { name: '5E', detailKey: 'credits.compatible' as const },
     ] as const
   ).map((entry) => ({
     name: 'nameKey' in entry ? t(entry.nameKey) : entry.name,

@@ -8,6 +8,7 @@ import {
   type ModifierType,
 } from '@/stores/inventory'
 import LeadNote from '@/components/LeadNote.vue'
+import FeaturesView from '@/components/FeaturesView.vue'
 import { useCategoryLabel } from '@/composables/useCategoryLabel'
 
 const { t, locale } = useI18n()
@@ -205,9 +206,7 @@ function toggleAvailable(cat: EquipmentCategory) {
       </div>
     </template>
 
-    <section v-else-if="props.section === 'capacite'" class="placeholder-panel">
-      <p class="hint">{{ t('equipment.capacitePlaceholder') }}</p>
-    </section>
+    <FeaturesView v-else-if="props.section === 'capacite'" />
 
     <section v-else class="placeholder-panel">
       <p class="hint">{{ t('equipment.traitsPlaceholder') }}</p>

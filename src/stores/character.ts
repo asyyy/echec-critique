@@ -11,6 +11,19 @@ import {
   passiveScore,
 } from '@/utils/dnd'
 import { useConditionsStore } from '@/stores/conditions'
+import { useFeaturesStore } from '@/stores/features'
+import {
+  CLASSES,
+  SPECIES,
+  ORIGIN_EFFECTS,
+  activeOriginEffects,
+  isClassId,
+  isSpeciesId,
+  matchClassId,
+  matchSpeciesId,
+  type ClassId,
+  type SpeciesId,
+} from '@/utils/origins'
 import { useInventoryStore } from '@/stores/inventory'
 import type { ModifierType } from '@/stores/inventory'
 
@@ -30,8 +43,12 @@ export type SkillRank = 'none' | 'proficient' | 'expertise'
 export interface CharacterPersisted {
   name: string
   level: number
+  /** Texte affiché (classe « Personnalisé » ou nom de la classe choisie) */
   characterClass: string
   species: string
+  /** Classe / espèce du SRD choisies dans le sélecteur ; null = personnalisé */
+  classId: ClassId | null
+  speciesId: SpeciesId | null
   abilityScores: Record<Ability, number>
   savingThrowProficiency: Record<Ability, boolean>
   skillRank: Record<Skill, SkillRank>
@@ -100,6 +117,8 @@ function loadCharacter(): CharacterPersisted {
     level: 1,
     characterClass: '',
     species: '',
+    classId: null,
+    speciesId: null,
     abilityScores: defaultAbilityScores(),
     savingThrowProficiency: defaultProficiencies(),
     skillRank: defaultSkillRanks(),
@@ -127,12 +146,18 @@ function loadCharacter(): CharacterPersisted {
       hpTempExpiresAt = null
     }
 
+    const characterClass =
+      typeof parsed.characterClass === 'string' ? parsed.characterClass : defaults.characterClass
+    const species = typeof parsed.species === 'string' ? parsed.species : defaults.species
+
     return {
       name: typeof parsed.name === 'string' ? parsed.name : defaults.name,
       level: Math.max(1, Math.min(20, Math.round(Number(parsed.level) || 1))),
-      characterClass:
-        typeof parsed.characterClass === 'string' ? parsed.characterClass : defaults.characterClass,
-      species: typeof parsed.species === 'string' ? parsed.species : defaults.species,
+      characterClass,
+      species,
+      // Anciennes sauvegardes : classe / espèce saisies en texte, reconnues par leur nom
+      classId: resolveClassId(parsed.classId, characterClass),
+      speciesId: resolveSpeciesId(parsed.speciesId, species),
       abilityScores: mergeAbilityScores(parsed.abilityScores),
       savingThrowProficiency: mergeSavingThrows(parsed.savingThrowProficiency),
       skillRank: mergeSkillRanks(parsed.skillRank),
@@ -150,6 +175,17 @@ function loadCharacter(): CharacterPersisted {
   } catch {
     return defaults
   }
+}
+
+/** Id enregistré, sinon nom reconnu (FR / EN) ; `null` explicite = personnalisé */
+function resolveClassId(raw: unknown, text: string): ClassId | null {
+  if (isClassId(raw)) return raw
+  return raw === null ? null : matchClassId(text)
+}
+
+function resolveSpeciesId(raw: unknown, text: string): SpeciesId | null {
+  if (isSpeciesId(raw)) return raw
+  return raw === null ? null : matchSpeciesId(text)
 }
 
 function persistCharacter(state: CharacterPersisted) {
@@ -173,6 +209,8 @@ export const useCharacterStore = defineStore('character', () => {
   const level = ref(saved.level)
   const characterClass = ref(saved.characterClass)
   const species = ref(saved.species)
+  const classId = ref<ClassId | null>(saved.classId)
+  const speciesId = ref<SpeciesId | null>(saved.speciesId)
   const abilityScores = ref(saved.abilityScores)
   const savingThrowProficiency = ref(saved.savingThrowProficiency)
   const skillRank = ref(saved.skillRank)
@@ -189,6 +227,7 @@ export const useCharacterStore = defineStore('character', () => {
 
   const inventory = useInventoryStore()
   const conditions = useConditionsStore()
+  const features = useFeaturesStore()
 
   const profBonus = computed(() => proficiencyBonus(level.value))
 
@@ -207,17 +246,80 @@ export const useCharacterStore = defineStore('character', () => {
   const equipmentAbilityBonus = computed(() => abilityBonusFrom(inventory.totalModifiers))
   /** Bonus de score venant des états temporaires */
   const conditionAbilityBonus = computed(() => abilityBonusFrom(conditions.totalModifiers))
+  /** Bonus de score venant des capacités & traits */
+  const featureAbilityBonus = computed(() => abilityBonusFrom(features.totalModifiers))
 
-  /** Équipement + états temporaires, par type de modificateur */
+  /** Effets chiffrés de la classe et de l'espèce (niveau atteint, armure portée…) */
+  const originEffects = computed(() =>
+    activeOriginEffects(classId.value, speciesId.value, {
+      level: level.value,
+      wearsArmor: inventory.equippedItems.some((i) => i.category === 'armure'),
+      wearsShield: inventory.equippedItems.some((i) => i.category === 'bouclier'),
+      abilityMod,
+    }),
+  )
+
+  const originTotals = computed(() => {
+    const totals: Partial<Record<ModifierType, number>> = {}
+    for (const effect of originEffects.value) {
+      for (const mod of effect.modifiers) totals[mod.type] = (totals[mod.type] ?? 0) + mod.value
+    }
+    return totals
+  })
+
+  /** PV max apportés par l'espèce (Ténacité naine) : rappel, les PV max restent saisis */
+  const originHpMaxBonus = computed(() =>
+    originEffects.value.reduce(
+      (sum, e) =>
+        sum +
+        (ORIGIN_EFFECTS[e.id].hpMax?.({
+          level: level.value,
+          wearsArmor: false,
+          wearsShield: false,
+          abilityMod,
+        }) ?? 0),
+      0,
+    ),
+  )
+
+  /** Équipement + états temporaires + capacités + classe / espèce, par type de modificateur */
   function bonus(type: ModifierType): number {
-    return (inventory.totalModifiers[type] ?? 0) + (conditions.totalModifiers[type] ?? 0)
+    return (
+      (inventory.totalModifiers[type] ?? 0) +
+      (conditions.totalModifiers[type] ?? 0) +
+      (features.totalModifiers[type] ?? 0) +
+      (originTotals.value[type] ?? 0)
+    )
+  }
+
+  /**
+   * Choix d'une classe : les sauvegardes maîtrisées deviennent celles de la classe
+   * (le joueur peut les changer ensuite en mode Modifier). `label` : nom affiché / saisi.
+   */
+  function setClass(id: ClassId | null, label: string) {
+    if (id && id !== classId.value) {
+      const saves = CLASSES[id].saves
+      savingThrowProficiency.value = Object.fromEntries(
+        ABILITIES.map((ab) => [ab, saves.includes(ab)]),
+      ) as Record<Ability, boolean>
+    }
+    classId.value = id
+    characterClass.value = label.trim()
+  }
+
+  /** Choix d'une espèce : la vitesse de base devient celle de l'espèce */
+  function setSpecies(id: SpeciesId | null, label: string) {
+    if (id && id !== speciesId.value) speedBase.value = SPECIES[id].speed
+    speciesId.value = id
+    species.value = label.trim()
   }
 
   function effectiveScore(ability: Ability): number {
     return (
       abilityScores.value[ability] +
       (equipmentAbilityBonus.value[ability] ?? 0) +
-      (conditionAbilityBonus.value[ability] ?? 0)
+      (conditionAbilityBonus.value[ability] ?? 0) +
+      (featureAbilityBonus.value[ability] ?? 0)
     )
   }
 
@@ -352,6 +454,8 @@ export const useCharacterStore = defineStore('character', () => {
       level: level.value,
       characterClass: characterClass.value,
       species: species.value,
+      classId: classId.value,
+      speciesId: speciesId.value,
       abilityScores: { ...abilityScores.value },
       savingThrowProficiency: { ...savingThrowProficiency.value },
       skillRank: { ...skillRank.value },
@@ -373,6 +477,12 @@ export const useCharacterStore = defineStore('character', () => {
     if (data.level !== undefined) level.value = data.level
     if (data.characterClass !== undefined) characterClass.value = data.characterClass
     if (data.species !== undefined) species.value = data.species
+    if (data.classId !== undefined || data.characterClass !== undefined) {
+      classId.value = resolveClassId(data.classId, characterClass.value)
+    }
+    if (data.speciesId !== undefined || data.species !== undefined) {
+      speciesId.value = resolveSpeciesId(data.speciesId, species.value)
+    }
     if (data.abilityScores !== undefined) {
       abilityScores.value = mergeAbilityScores(data.abilityScores)
     }
@@ -462,6 +572,8 @@ export const useCharacterStore = defineStore('character', () => {
     level.value = 1
     characterClass.value = ''
     species.value = ''
+    classId.value = null
+    speciesId.value = null
     abilityScores.value = defaultAbilityScores()
     savingThrowProficiency.value = defaultProficiencies()
     skillRank.value = defaultSkillRanks()
@@ -482,6 +594,8 @@ export const useCharacterStore = defineStore('character', () => {
       level,
       characterClass,
       species,
+      classId,
+      speciesId,
       abilityScores,
       savingThrowProficiency,
       skillRank,
@@ -502,6 +616,8 @@ export const useCharacterStore = defineStore('character', () => {
         level: level.value,
         characterClass: characterClass.value,
         species: species.value,
+        classId: classId.value,
+        speciesId: speciesId.value,
         abilityScores: { ...abilityScores.value },
         savingThrowProficiency: { ...savingThrowProficiency.value },
         skillRank: { ...skillRank.value },
@@ -525,6 +641,12 @@ export const useCharacterStore = defineStore('character', () => {
     level,
     characterClass,
     species,
+    classId,
+    speciesId,
+    setClass,
+    setSpecies,
+    originEffects,
+    originHpMaxBonus,
     abilityScores,
     savingThrowProficiency,
     skillRank,
@@ -552,6 +674,7 @@ export const useCharacterStore = defineStore('character', () => {
     profBonus,
     equipmentAbilityBonus,
     conditionAbilityBonus,
+    featureAbilityBonus,
     speedBeforeConditions,
     effectiveScore,
     abilityMod,

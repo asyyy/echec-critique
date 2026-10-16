@@ -153,7 +153,7 @@ function onSearchSelect(entry: SearchEntry) {
   navigateSearchResult(entry, (tab) => {
     activeContext.value = tab as Context
     if (tab === 'equipements') {
-      equipmentSection.value = 'equipable'
+      equipmentSection.value = entry.equipmentSection ?? 'equipable'
     }
   })
 }

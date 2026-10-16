@@ -105,7 +105,7 @@ function emptySpells(): SpellsSnapshot {
   }
 }
 
-/** Guerrière : équipement, bonus d'objets, catégorie perso, attaques multiples, buffs et debuffs */
+/** Guerrière : équipement, bonus d'objets, catégorie perso, attaques multiples, buffs et debuffs, capacités */
 function fighter(L: Pick2): CharacterBundle {
   const sword = item(1, L('Épée longue +1', 'Longsword +1'), 'arme', {
     modifiers: [
@@ -212,6 +212,44 @@ function fighter(L: Pick2): CharacterBundle {
         kind: 'buff',
         source: 'allie',
         modifiers: [],
+      },
+    ],
+    features: [
+      {
+        id: 'ft-demo-souffle',
+        name: L('Second souffle', 'Second Wind'),
+        origin: 'classe',
+        description: L(
+          'Action bonus : récupère 1d10 + niveau de Guerrier PV.',
+          'Bonus action: regain 1d10 + Fighter level HP.',
+        ),
+        usesMax: 2,
+        usesSpent: 1,
+        recharge: 'short',
+        modifiers: [],
+      },
+      {
+        id: 'ft-demo-fougue',
+        name: L('Fougue', 'Action Surge'),
+        origin: 'classe',
+        description: L('Une action de plus pendant ton tour.', 'One extra action on your turn.'),
+        usesMax: 1,
+        usesSpent: 0,
+        recharge: 'short',
+        modifiers: [],
+      },
+      {
+        id: 'ft-demo-vigilant',
+        name: L('Vigilant', 'Alert'),
+        origin: 'don',
+        description: L(
+          'Bonus de maîtrise ajouté à l’initiative.',
+          'Proficiency bonus added to Initiative.',
+        ),
+        usesMax: 0,
+        usesSpent: 0,
+        recharge: 'long',
+        modifiers: [{ type: 'initiative', value: 3 }],
       },
     ],
     spells: emptySpells(),

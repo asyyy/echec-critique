@@ -2,6 +2,7 @@ import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import { useCharacterStore } from '@/stores/character'
 import { useConditionsStore } from '@/stores/conditions'
+import { useFeaturesStore } from '@/stores/features'
 import { useInventoryStore } from '@/stores/inventory'
 import { ABILITY_SHORT, formatModifier, type Ability } from '@/utils/dnd'
 import { i18n } from '@/i18n'
@@ -132,12 +133,16 @@ export const useCombatStore = defineStore('combat', () => {
   const inventory = useInventoryStore()
 
   const conditions = useConditionsStore()
+  const features = useFeaturesStore()
 
   const equipmentAttackBonus = computed(() => inventory.totalModifiers.attaque ?? 0)
   const equipmentDamageBonus = computed(() => inventory.totalModifiers.degats ?? 0)
   /** États temporaires : s'appliquent à toutes les attaques, arme liée ou non */
   const conditionAttackBonus = computed(() => conditions.totalModifiers.attaque ?? 0)
   const conditionDamageBonus = computed(() => conditions.totalModifiers.degats ?? 0)
+  /** Capacités & traits : toujours actifs, sur toutes les attaques */
+  const featureAttackBonus = computed(() => features.totalModifiers.attaque ?? 0)
+  const featureDamageBonus = computed(() => features.totalModifiers.degats ?? 0)
 
   /** Bonus attaque : arme liée si présente, sinon total équipé */
   function configEquipmentAttack(config: AttackConfig): number {
@@ -163,27 +168,31 @@ export const useCombatStore = defineStore('combat', () => {
     proficiency: number
     equipment: number
     conditions: number
+    features: number
     extra: number
   } {
     const abilityMod = character.abilityMod(config.ability)
     const proficiency = config.proficient ? character.profBonus : 0
     const equipment = configEquipmentAttack(config)
     const conditionsBonus = conditionAttackBonus.value
+    const featuresBonus = featureAttackBonus.value
     const extra = config.attackBonusExtra
     return {
       abilityMod,
       proficiency,
       equipment,
       conditions: conditionsBonus,
+      features: featuresBonus,
       extra,
-      total: abilityMod + proficiency + equipment + conditionsBonus + extra,
+      total: abilityMod + proficiency + equipment + conditionsBonus + featuresBonus + extra,
     }
   }
 
   function damageFormulaPreview(config: AttackConfig): string {
     const tt = i18n.global.t
     const abilityMod = character.abilityMod(config.ability)
-    const equipDmg = configEquipmentDamage(config) + conditionDamageBonus.value
+    const equipDmg =
+      configEquipmentDamage(config) + conditionDamageBonus.value + featureDamageBonus.value
     const parts = config.damageParts.map((p, i) => {
       let flat = p.flatBonus
       if (p.includeAbilityMod) flat += abilityMod
@@ -244,7 +253,8 @@ export const useCombatStore = defineStore('combat', () => {
 
     if (hit && !rolled[outcome]) {
       const abilityMod = character.abilityMod(config.ability)
-      const equipDmg = configEquipmentDamage(config) + conditionDamageBonus.value
+      const equipDmg =
+        configEquipmentDamage(config) + conditionDamageBonus.value + featureDamageBonus.value
       const parts = config.damageParts.map((part, partIndex) =>
         rollDamagePart(part, abilityMod, partIndex === 0 ? equipDmg : 0, isCriticalHit),
       )

@@ -12,6 +12,7 @@ import {
   type OriginEffectId,
   type SpeciesId,
 } from '@/utils/origins'
+import type { Ability } from '@/utils/dnd'
 
 /**
  * Choix de la classe ou de l'espèce : liste à gauche, ce que le choix apporte à droite.
@@ -64,6 +65,10 @@ function meters(n: number) {
   return `${n.toLocaleString(locale.value, { maximumFractionDigits: 1 })} m`
 }
 
+function abilityList(list: Ability[], joiner: 'and' | 'or') {
+  return list.map((ab) => t(`abilities.${ab}`)).join(t(`origins.${joiner}`))
+}
+
 /** PV au niveau 1 : maximum du dé + mod. de Con actuel */
 const hpLevel1 = computed(() => {
   if (!classInfo.value) return ''
@@ -86,21 +91,6 @@ const effects = computed(() => {
     reached: char.level >= ORIGIN_EFFECTS[id].level,
   }))
 })
-
-/** Repère à droite du nom dans la liste : dé de vie (classe) ou vitesse (espèce) */
-function optionTag(id: string) {
-  return props.kind === 'class'
-    ? `d${CLASSES[id as ClassId].hitDie}`
-    : meters(SPECIES[id as SpeciesId].speed)
-}
-
-const speciesTraits = computed(() =>
-  speciesInfo.value
-    ? t(`origins.species.${speciesInfo.value.id}.traits`)
-        .split(',')
-        .map((s) => s.trim())
-    : [],
-)
 
 function confirm() {
   if (selected.value === 'custom') emit('pick', null, customName.value)
@@ -147,8 +137,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
                 :class="{ active: selected === id, current: currentId === id }"
                 @click="selected = id"
               >
-                <span class="option-name">{{ nameOf(id) }}</span>
-                <span class="option-tag">{{ optionTag(id) }}</span>
+                {{ nameOf(id) }}
               </button>
             </li>
             <li>
@@ -183,45 +172,29 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 
             <!-- Classe -->
             <template v-else-if="classInfo">
-              <div class="detail-head">
-                <h4 class="form-title">{{ nameOf(classInfo.id) }}</h4>
-                <span class="die-badge" :aria-label="t('origins.hitDie')"
-                  >d{{ classInfo.hitDie }}</span
-                >
-              </div>
+              <h4 class="form-title">{{ nameOf(classInfo.id) }}</h4>
               <dl class="detail-rows">
+                <dt>{{ t('origins.hitDie') }}</dt>
+                <dd>d{{ classInfo.hitDie }}</dd>
                 <dt>{{ t('origins.hpLevel1') }}</dt>
-                <dd class="value-strong">{{ hpLevel1 }}</dd>
+                <dd>{{ hpLevel1 }}</dd>
                 <dt>{{ t('origins.primary') }}</dt>
-                <dd class="chips">
-                  <template v-for="(ab, i) in classInfo.primary" :key="ab">
-                    <span v-if="i" class="chip-joiner">{{
-                      t(classInfo.primaryOr ? 'origins.or' : 'origins.and').trim()
-                    }}</span>
-                    <span class="chip accent">{{ t(`abilities.${ab}`) }}</span>
-                  </template>
-                </dd>
+                <dd>{{ abilityList(classInfo.primary, classInfo.primaryOr ? 'or' : 'and') }}</dd>
                 <dt>{{ t('origins.saves') }}</dt>
-                <dd class="chips">
-                  <span v-for="ab in classInfo.saves" :key="ab" class="chip success">{{
-                    t(`abilities.${ab}`)
-                  }}</span>
-                </dd>
-                <template v-if="classInfo.spellcasting">
-                  <dt>{{ t('origins.spellcasting') }}</dt>
-                  <dd class="chips">
-                    <span class="chip magic">{{ t(`abilities.${classInfo.spellcasting}`) }}</span>
-                  </dd>
-                </template>
+                <dd>{{ abilityList(classInfo.saves, 'and') }}</dd>
                 <dt>{{ t('origins.skills') }}</dt>
                 <dd>{{ t('origins.skillsN', { n: classInfo.skillChoices }) }}</dd>
                 <dt>{{ t('origins.armor') }}</dt>
                 <dd>{{ armorText }}</dd>
                 <dt>{{ t('origins.weapons') }}</dt>
                 <dd>{{ t(`origins.classes.${classInfo.id}.weapons`) }}</dd>
+                <template v-if="classInfo.spellcasting">
+                  <dt>{{ t('origins.spellcasting') }}</dt>
+                  <dd>{{ t(`abilities.${classInfo.spellcasting}`) }}</dd>
+                </template>
               </dl>
 
-              <section class="detail-block applied">
+              <section class="detail-block">
                 <h5 class="field-label">{{ t('origins.applied') }}</h5>
                 <ul>
                   <li>
@@ -237,31 +210,21 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 
             <!-- Espèce -->
             <template v-else-if="speciesInfo">
-              <div class="detail-head">
-                <h4 class="form-title">{{ nameOf(speciesInfo.id) }}</h4>
-                <span class="die-badge" :aria-label="t('origins.speed')">{{
-                  meters(speciesInfo.speed)
-                }}</span>
-              </div>
+              <h4 class="form-title">{{ nameOf(speciesInfo.id) }}</h4>
               <dl class="detail-rows">
                 <dt>{{ t('origins.size') }}</dt>
                 <dd>{{ t(`origins.sizes.${speciesInfo.size}`) }}</dd>
+                <dt>{{ t('origins.speed') }}</dt>
+                <dd>{{ meters(speciesInfo.speed) }}</dd>
                 <dt>{{ t('origins.darkvision') }}</dt>
-                <dd class="chips">
-                  <span v-if="speciesInfo.darkvision" class="chip magic">{{
-                    meters(speciesInfo.darkvision)
-                  }}</span>
-                  <template v-else>{{ t('origins.none') }}</template>
+                <dd>
+                  {{ speciesInfo.darkvision ? meters(speciesInfo.darkvision) : t('origins.none') }}
                 </dd>
                 <dt>{{ t('origins.traits') }}</dt>
-                <dd class="chips">
-                  <span v-for="trait in speciesTraits" :key="trait" class="chip accent">{{
-                    trait
-                  }}</span>
-                </dd>
+                <dd>{{ t(`origins.species.${speciesInfo.id}.traits`) }}</dd>
               </dl>
 
-              <section class="detail-block applied">
+              <section class="detail-block">
                 <h5 class="field-label">{{ t('origins.applied') }}</h5>
                 <ul>
                   <li>{{ t('origins.appliedSpeed', { n: meters(speciesInfo.speed) }) }}</li>
@@ -269,7 +232,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
               </section>
             </template>
 
-            <section v-if="effects.length" class="detail-block computed">
+            <section v-if="effects.length" class="detail-block">
               <h5 class="field-label">{{ t('origins.computed') }}</h5>
               <ul>
                 <li v-for="effect in effects" :key="effect.id" :class="{ later: !effect.reached }">
@@ -361,10 +324,6 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 
 .origin-option {
   width: 100%;
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.3rem;
   text-align: left;
   padding: 0.5rem 0.55rem;
   border: 1px solid transparent;
@@ -385,80 +344,6 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 }
 .origin-option.custom {
   font-style: italic;
-}
-
-.option-name {
-  min-width: 0;
-}
-
-.option-tag {
-  flex-shrink: 0;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--color-text-muted);
-}
-.origin-option.active .option-tag {
-  color: var(--color-accent);
-}
-
-.detail-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-  padding-bottom: 0.55rem;
-  border-bottom: 2px solid var(--color-accent);
-}
-
-/* Dé de vie / vitesse : pastille pleine à la couleur du thème */
-.die-badge {
-  flex-shrink: 0;
-  padding: 0.2rem 0.55rem;
-  border-radius: 999px;
-  background: var(--color-accent);
-  color: var(--color-on-accent);
-  font-size: 0.8rem;
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.detail-rows dd.value-strong {
-  color: var(--color-accent);
-  font-weight: 800;
-}
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.chip {
-  padding: 0.1rem 0.45rem;
-  border-radius: 999px;
-  border: 1px solid currentColor;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.4;
-}
-.chip.accent {
-  color: var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 14%, transparent);
-}
-.chip.success {
-  color: var(--color-success);
-  background: color-mix(in srgb, var(--color-success) 14%, transparent);
-}
-/* Magie : incantation, vision dans le noir */
-.chip.magic {
-  color: var(--color-warning);
-  background: color-mix(in srgb, var(--color-warning) 14%, transparent);
-}
-
-.chip-joiner {
-  font-size: 0.72rem;
-  color: var(--color-text-muted);
 }
 
 .origin-detail {
@@ -492,24 +377,6 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  padding: 0.55rem 0.65rem;
-  border-radius: var(--radius-sm);
-  border-left: 3px solid var(--color-border);
-  background: var(--color-bg-secondary);
-}
-/* Appliqué au choix : vert ; calculé par l'app : couleur du thème */
-.detail-block.applied {
-  border-left-color: var(--color-success);
-  background: color-mix(in srgb, var(--color-success) 10%, var(--color-bg-secondary));
-}
-.detail-block.applied li::before {
-  content: '✓';
-  color: var(--color-success);
-  font-weight: 800;
-}
-.detail-block.computed {
-  border-left-color: var(--color-accent);
-  background: color-mix(in srgb, var(--color-accent) 10%, var(--color-bg-secondary));
 }
 .detail-block h5 {
   margin: 0;
@@ -537,16 +404,9 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 }
 
 .effect-level {
-  padding: 0 0.35rem;
-  border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: var(--color-on-accent);
-  background: var(--color-accent);
-}
-.detail-block li.later .effect-level {
-  color: var(--color-text-secondary);
-  background: var(--color-border);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
 }
 
 .effect-detail {

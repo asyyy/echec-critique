@@ -59,6 +59,8 @@ export function useCharacterBundle() {
         species: snap.species,
         classId: snap.classId,
         speciesId: snap.speciesId,
+        subclass: snap.subclass,
+        subclassId: snap.subclassId,
         abilityScores: snap.abilityScores,
         savingThrowProficiency: snap.savingThrowProficiency,
         skillRank: snap.skillRank,

@@ -2,23 +2,31 @@
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCharacterStore } from '@/stores/character'
+import InfoTip from '@/components/InfoTip.vue'
 import {
   CLASSES,
   CLASS_IDS,
   ORIGIN_EFFECTS,
   SPECIES,
   SPECIES_IDS,
+  SUBCLASSES,
+  SUBCLASS_FEATURES,
+  SUBCLASS_FEATURE_LEVELS,
+  subclassUrl,
+  subclassesOf,
   type ClassId,
   type OriginEffectId,
   type SpeciesId,
+  type SubclassId,
 } from '@/utils/origins'
 import type { Ability } from '@/utils/dnd'
 
 /**
- * Choix de la classe ou de l'espèce : liste à gauche, ce que le choix apporte à droite.
- * « Personnalisé » garde un nom libre, sans bonus automatique.
+ * Choix de la classe, de l'espèce ou de la sous-classe : liste à gauche, ce que le choix apporte
+ * à droite. « Personnalisé » garde un nom libre, sans bonus automatique.
+ * `prompted` : ouverte d'office au passage du niveau 3 (fermer = « Plus tard »).
  */
-const props = defineProps<{ kind: 'class' | 'species' }>()
+const props = defineProps<{ kind: 'class' | 'species' | 'subclass'; prompted?: boolean }>()
 
 const emit = defineEmits<{
   close: []
@@ -28,22 +36,49 @@ const emit = defineEmits<{
 const { t, locale } = useI18n()
 const char = useCharacterStore()
 
-const ids = computed<readonly string[]>(() => (props.kind === 'class' ? CLASS_IDS : SPECIES_IDS))
-const currentId = computed(() => (props.kind === 'class' ? char.classId : char.speciesId))
+/** Sous-classes : seulement celles de la classe choisie (aucune si classe personnalisée) */
+const ids = computed<readonly string[]>(() => {
+  if (props.kind === 'class') return CLASS_IDS
+  if (props.kind === 'species') return SPECIES_IDS
+  return char.classId ? subclassesOf(char.classId) : []
+})
+const currentId = computed(() => {
+  if (props.kind === 'class') return char.classId
+  if (props.kind === 'species') return char.speciesId
+  return char.subclassId
+})
+const currentText = computed(() => {
+  if (props.kind === 'class') return char.characterClass
+  if (props.kind === 'species') return char.species
+  return char.subclass
+})
 
-const selected = ref<string>(currentId.value ?? 'custom')
-const customName = ref(
-  currentId.value ? '' : props.kind === 'class' ? char.characterClass : char.species,
+/** Sous-classe pas encore choisie : on part de la première de la liste */
+const defaultId = computed(() =>
+  props.kind === 'subclass' && !currentText.value.trim() ? sortByName(ids.value)[0] : undefined,
+)
+
+const selected = ref<string>(currentId.value ?? defaultId.value ?? 'custom')
+const customName = ref(currentId.value ? '' : currentText.value)
+
+const customLabel = computed(() =>
+  t(props.kind === 'subclass' ? 'origins.customSubclass' : 'origins.custom'),
+)
+const title = computed(() =>
+  props.prompted ? t('origins.subclassPromptTitle') : t(`origins.${props.kind}Title`),
 )
 
 function nameOf(id: string) {
+  if (props.kind === 'subclass') return t(`origins.subclasses.${id}`)
   return t(`origins.${props.kind === 'class' ? 'classes' : 'species'}.${id}.name`)
 }
 
 /** Liste triée par nom dans la langue affichée */
-const sortedIds = computed(() =>
-  [...ids.value].sort((a, b) => nameOf(a).localeCompare(nameOf(b), locale.value)),
-)
+function sortByName(list: readonly string[]) {
+  return [...list].sort((a, b) => nameOf(a).localeCompare(nameOf(b), locale.value))
+}
+
+const sortedIds = computed(() => sortByName(ids.value))
 
 const classInfo = computed(() =>
   props.kind === 'class' && selected.value !== 'custom'
@@ -83,6 +118,30 @@ const armorText = computed(() => {
   return text.charAt(0).toUpperCase() + text.slice(1)
 })
 
+/** Noms des capacités de la sous-classe, regroupés par niveau (vide : non détaillée sur AideDD) */
+function featuresByLevel(id: SubclassId) {
+  const groups: { level: number; names: string[] }[] = []
+  SUBCLASS_FEATURES[id]?.forEach((level, i) => {
+    const name = t(`origins.subclassFeatures.${id}.${i}`)
+    const last = groups[groups.length - 1]
+    if (last?.level === level) last.names.push(name)
+    else groups.push({ level, names: [name] })
+  })
+  return groups
+}
+
+const subclassInfo = computed(() => {
+  if (props.kind !== 'subclass' || selected.value === 'custom') return null
+  const id = selected.value as SubclassId
+  return {
+    id,
+    srd: !!SUBCLASSES[id].srd,
+    levels: SUBCLASS_FEATURE_LEVELS[SUBCLASSES[id].classId].join(', '),
+    url: subclassUrl(id, locale.value),
+    features: featuresByLevel(id),
+  }
+})
+
 const effects = computed(() => {
   const list: OriginEffectId[] = classInfo.value?.effects ?? speciesInfo.value?.effects ?? []
   return list.map((id) => ({
@@ -108,14 +167,9 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 <template>
   <Teleport to="body">
     <div class="origin-backdrop" @click.self="emit('close')">
-      <div
-        class="origin-dialog"
-        role="dialog"
-        aria-modal="true"
-        :aria-label="t(`origins.${kind}Title`)"
-      >
+      <div class="origin-dialog" role="dialog" aria-modal="true" :aria-label="title">
         <header class="origin-head">
-          <h3 class="form-title">{{ t(`origins.${kind}Title`) }}</h3>
+          <h3 class="form-title">{{ title }}</h3>
           <button
             type="button"
             class="origin-close hit-area"
@@ -127,7 +181,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
         </header>
 
         <div class="origin-body">
-          <ul class="origin-list" role="listbox" :aria-label="t(`origins.${kind}Title`)">
+          <ul class="origin-list" role="listbox" :aria-label="title">
             <li v-for="id in sortedIds" :key="id">
               <button
                 type="button"
@@ -149,7 +203,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
                 :class="{ active: selected === 'custom' }"
                 @click="selected = 'custom'"
               >
-                {{ t('origins.custom') }}
+                {{ customLabel }}
               </button>
             </li>
           </ul>
@@ -157,7 +211,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
           <div class="origin-detail" aria-live="polite">
             <!-- Personnalisé -->
             <template v-if="selected === 'custom'">
-              <h4 class="form-title">{{ t('origins.custom') }}</h4>
+              <h4 class="form-title">{{ customLabel }}</h4>
               <label class="field">
                 <span>{{ t('origins.customName') }}</span>
                 <input
@@ -232,6 +286,52 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
               </section>
             </template>
 
+            <!-- Sous-classe : capacités (noms + liens AideDD), puis la source -->
+            <template v-else-if="subclassInfo">
+              <h4 class="form-title">{{ nameOf(subclassInfo.id) }}</h4>
+              <dl v-if="!subclassInfo.features.length" class="detail-rows">
+                <dt>{{ t('origins.featureLevels') }}</dt>
+                <dd>{{ subclassInfo.levels }}</dd>
+              </dl>
+
+              <!-- Noms seulement (hors SRD : pas de texte), chacun renvoie à la sous-classe sur AideDD -->
+              <section v-if="subclassInfo.features.length" class="detail-block">
+                <h5 class="field-label">{{ t('origins.subclassFeaturesTitle') }}</h5>
+                <ul>
+                  <li v-for="group in subclassInfo.features" :key="group.level">
+                    <span class="effect-level">{{ t('origins.levelN', { n: group.level }) }}</span>
+                    <span class="feature-links">
+                      <a
+                        v-for="name in group.names"
+                        :key="name"
+                        :href="subclassInfo.url"
+                        target="_blank"
+                        rel="noopener"
+                        >{{ name }}</a
+                      >
+                    </span>
+                  </li>
+                </ul>
+              </section>
+              <p v-else class="hint">{{ t('origins.featuresNoList') }}</p>
+
+              <a class="aidedd-link" :href="subclassInfo.url" target="_blank" rel="noopener">
+                {{ t('origins.aidedd') }} ↗
+              </a>
+
+              <!-- Source en dernière ligne -->
+              <dl class="detail-rows">
+                <dt>{{ t('origins.source') }}</dt>
+                <dd :class="{ key: subclassInfo.srd }">
+                  <template v-if="subclassInfo.srd">{{ t('origins.sourceSrd') }}</template>
+                  <span v-else class="source-phb">
+                    {{ t('origins.sourcePhb') }}
+                    <InfoTip :title="t('origins.sourcePhb')" :lines="[t('origins.sourceTip')]" />
+                  </span>
+                </dd>
+              </dl>
+            </template>
+
             <section v-if="effects.length" class="detail-block">
               <h5 class="field-label">{{ t('origins.computed') }}</h5>
               <ul>
@@ -247,7 +347,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 
         <footer class="origin-actions">
           <button class="btn-secondary" type="button" @click="emit('close')">
-            {{ t('common.cancel') }}
+            {{ prompted ? t('origins.later') : t('common.cancel') }}
           </button>
           <button class="btn-primary" type="button" @click="confirm">
             {{ t('origins.choose') }}
@@ -411,6 +511,30 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
   color: var(--color-success);
 }
 .detail-block li:not(.later) strong {
+  color: var(--color-accent);
+}
+
+.source-phb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.feature-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.6rem;
+  min-width: 0;
+}
+.feature-links a {
+  color: var(--color-accent);
+  overflow-wrap: anywhere;
+}
+
+.aidedd-link {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--color-accent);
 }
 

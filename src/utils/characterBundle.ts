@@ -33,7 +33,14 @@ import {
   type SavedCondition,
 } from '@/stores/conditions'
 import { FEATURE_ORIGINS, normalizeFeatures, type Feature } from '@/stores/features'
-import { CLASS_IDS, SPECIES_IDS, type ClassId, type SpeciesId } from '@/utils/origins'
+import {
+  CLASS_IDS,
+  SPECIES_IDS,
+  SUBCLASS_IDS,
+  type ClassId,
+  type SpeciesId,
+  type SubclassId,
+} from '@/utils/origins'
 
 const PREFIX = 'EC1.'
 
@@ -78,6 +85,9 @@ export interface CharacterSnapshot {
   /** Classe / espèce du SRD ; absent (anciens exports) → reconnues d'après le texte */
   classId?: ClassId | null
   speciesId?: SpeciesId | null
+  /** Sous-classe (texte affiché + id de la liste 2024) ; absente des anciens exports */
+  subclass?: string
+  subclassId?: SubclassId | null
 }
 
 export interface CharacterBundle {
@@ -98,7 +108,7 @@ export interface CharacterBundle {
 /** Payload compact v1 (tableaux + omissions) */
 type CompactV1 = {
   v: 1
-  /** [n,l,k,s, abilities[6], savesMask, skills[[idx,rank]], hpC,hpM,hpT, insp, ac, spd, initBonus, deathOk, deathKo, classIdx|-1, speciesIdx|-1] */
+  /** [n,l,k,s, abilities[6], savesMask, skills[[idx,rank]], hpC,hpM,hpT, insp, ac, spd, initBonus, deathOk, deathKo, classIdx|-1, speciesIdx|-1, subclass, subclassIdx|-1] */
   c: unknown[]
   i?: unknown[]
   a?: unknown[]
@@ -207,6 +217,8 @@ function packCharacter(c: CharacterSnapshot): unknown[] {
     // -1 = personnalisé (distinct d'un ancien export sans la colonne)
     c.classId === undefined ? undefined : c.classId ? CLASS_IDS.indexOf(c.classId) : -1,
     c.speciesId === undefined ? undefined : c.speciesId ? SPECIES_IDS.indexOf(c.speciesId) : -1,
+    c.subclass || undefined,
+    c.subclassId === undefined ? undefined : c.subclassId ? SUBCLASS_IDS.indexOf(c.subclassId) : -1,
   ]
 }
 
@@ -244,6 +256,8 @@ function unpackCharacter(raw: unknown): CharacterSnapshot {
     deathSaveFailures: Math.max(0, Math.min(3, Math.round(Number(row[15]) || 0))),
     classId: unpackOriginIndex(row[16], CLASS_IDS),
     speciesId: unpackOriginIndex(row[17], SPECIES_IDS),
+    subclass: typeof row[18] === 'string' ? row[18] : undefined,
+    subclassId: unpackOriginIndex(row[19], SUBCLASS_IDS),
   }
 }
 

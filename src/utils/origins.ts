@@ -262,6 +262,228 @@ export function activeOriginEffects(
     }))
 }
 
+/* ── Sous-classes (règles 2024) ── */
+
+/** Niveau où toutes les classes choisissent leur sous-classe */
+export const SUBCLASS_LEVEL = 3
+
+/**
+ * Les 4 sous-classes de chaque classe (Manuel des joueurs 2024). Une seule par classe est dans
+ * le SRD 5.2.1 (`srd`) ; les autres : nom + lien AideDD, jamais leur texte.
+ * Ordre figé (index exportés) : ajouts en fin de tableau.
+ */
+export const SUBCLASS_IDS = [
+  'arbreMonde',
+  'berserker',
+  'coeurSauvage',
+  'zelateur',
+  'danse',
+  'savoir',
+  'seduction',
+  'vaillance',
+  'guerre',
+  'lumiere',
+  'ruse',
+  'vie',
+  'astres',
+  'lune',
+  'mers',
+  'terre',
+  'aberrante',
+  'draconique',
+  'mecanique',
+  'sauvage',
+  'champion',
+  'chevalierOcculte',
+  'maitreGuerre',
+  'soldatPsi',
+  'abjurateur',
+  'devin',
+  'evocateur',
+  'illusionniste',
+  'elements',
+  'misericorde',
+  'ombre',
+  'paume',
+  'archifee',
+  'celeste',
+  'fielon',
+  'grandAncien',
+  'anciens',
+  'devotion',
+  'gloire',
+  'vengeance',
+  'belluaire',
+  'chasseur',
+  'traqueurTenebres',
+  'vagabondFeerique',
+  'ameAceree',
+  'arnaqueurArcanique',
+  'assassin',
+  'voleur',
+] as const
+
+export type SubclassId = (typeof SUBCLASS_IDS)[number]
+
+export interface SubclassInfo {
+  classId: ClassId
+  /** Sous-classe reprise dans le SRD 5.2.1 */
+  srd?: true
+  /** Ancres de la page de la classe sur AideDD (FR, EN) */
+  anchor: [fr: string, en: string]
+}
+
+export const SUBCLASSES: Record<SubclassId, SubclassInfo> = {
+  arbreMonde: { classId: 'barbare', anchor: ['arbre-monde', 'world-tree'] },
+  berserker: { classId: 'barbare', srd: true, anchor: ['berserker', 'berserker'] },
+  coeurSauvage: { classId: 'barbare', anchor: ['coeur-sauvage', 'wild-heart'] },
+  zelateur: { classId: 'barbare', anchor: ['zelateur', 'zealot'] },
+  danse: { classId: 'barde', anchor: ['danse', 'dance'] },
+  savoir: { classId: 'barde', srd: true, anchor: ['savoir', 'lore'] },
+  seduction: { classId: 'barde', anchor: ['seduction', 'glamour'] },
+  vaillance: { classId: 'barde', anchor: ['vaillance', 'valor'] },
+  guerre: { classId: 'clerc', anchor: ['guerre', 'war'] },
+  lumiere: { classId: 'clerc', anchor: ['lumière', 'light'] },
+  ruse: { classId: 'clerc', anchor: ['ruse', 'trickery'] },
+  vie: { classId: 'clerc', srd: true, anchor: ['vie', 'life'] },
+  astres: { classId: 'druide', anchor: ['astres', 'stars'] },
+  lune: { classId: 'druide', anchor: ['lune', 'moon'] },
+  mers: { classId: 'druide', anchor: ['mers', 'sea'] },
+  terre: { classId: 'druide', srd: true, anchor: ['terre', 'land'] },
+  aberrante: { classId: 'ensorceleur', anchor: ['aberrante', 'aberrant'] },
+  draconique: { classId: 'ensorceleur', srd: true, anchor: ['draconique', 'draconic'] },
+  mecanique: { classId: 'ensorceleur', anchor: ['mécanique', 'clockwork'] },
+  sauvage: { classId: 'ensorceleur', anchor: ['sauvage', 'wild-magic'] },
+  champion: { classId: 'guerrier', srd: true, anchor: ['champion', 'champion'] },
+  chevalierOcculte: { classId: 'guerrier', anchor: ['chevalier-occulte', 'eldritch-knight'] },
+  maitreGuerre: { classId: 'guerrier', anchor: ['maitre-guerre', 'battle-master'] },
+  soldatPsi: { classId: 'guerrier', anchor: ['soldat-psi', 'psi-warrior'] },
+  abjurateur: { classId: 'magicien', anchor: ['abjurateur', 'abjurer'] },
+  devin: { classId: 'magicien', anchor: ['devin', 'diviner'] },
+  evocateur: { classId: 'magicien', srd: true, anchor: ['evocateur', 'evoker'] },
+  illusionniste: { classId: 'magicien', anchor: ['illusionniste', 'illusionist'] },
+  elements: { classId: 'moine', anchor: ['element', 'element'] },
+  misericorde: { classId: 'moine', anchor: ['misericorde', 'mercy'] },
+  ombre: { classId: 'moine', anchor: ['ombre', 'shadow'] },
+  paume: { classId: 'moine', srd: true, anchor: ['paume', 'open-hand'] },
+  archifee: { classId: 'occultiste', anchor: ['archifee', 'archfey'] },
+  celeste: { classId: 'occultiste', anchor: ['celeste', 'celestial'] },
+  fielon: { classId: 'occultiste', srd: true, anchor: ['fielon', 'fiend'] },
+  grandAncien: { classId: 'occultiste', anchor: ['grand-ancien', 'great-old-one'] },
+  anciens: { classId: 'paladin', anchor: ['anciens', 'ancients'] },
+  devotion: { classId: 'paladin', srd: true, anchor: ['devotion', 'devotion'] },
+  gloire: { classId: 'paladin', anchor: ['gloire', 'glory'] },
+  vengeance: { classId: 'paladin', anchor: ['vengeance', 'vengeance'] },
+  belluaire: { classId: 'rodeur', anchor: ['belluaire', 'beast-master'] },
+  chasseur: { classId: 'rodeur', srd: true, anchor: ['chasseur', 'hunter'] },
+  traqueurTenebres: { classId: 'rodeur', anchor: ['traqueur-tenebres', 'gloom-stalker'] },
+  vagabondFeerique: { classId: 'rodeur', anchor: ['vagabond-feerique', 'fey-wanderer'] },
+  ameAceree: { classId: 'roublard', anchor: ['ame-aceree', 'soulknife'] },
+  arnaqueurArcanique: { classId: 'roublard', anchor: ['arnaqueur-arcanique', 'arcane-trickster'] },
+  assassin: { classId: 'roublard', anchor: ['assassin', 'assassin'] },
+  voleur: { classId: 'roublard', srd: true, anchor: ['voleur', 'thief'] },
+}
+
+/** Niveaux où la sous-classe apporte des capacités (2024) */
+export const SUBCLASS_FEATURE_LEVELS: Record<ClassId, number[]> = {
+  barbare: [3, 6, 10, 14],
+  barde: [3, 6, 14],
+  clerc: [3, 6, 17],
+  druide: [3, 6, 10, 14],
+  ensorceleur: [3, 6, 14, 18],
+  guerrier: [3, 7, 10, 15, 18],
+  magicien: [3, 6, 10, 14],
+  moine: [3, 6, 11, 17],
+  occultiste: [3, 6, 10, 14],
+  paladin: [3, 7, 15, 20],
+  rodeur: [3, 7, 11, 15],
+  roublard: [3, 9, 13, 17],
+}
+
+/**
+ * Niveau de chaque capacité de sous-classe, dans l'ordre des noms (`origins.subclassFeatures.*`,
+ * repris d'AideDD : noms seulement). Absente : AideDD ne détaille pas la sous-classe.
+ */
+export const SUBCLASS_FEATURES: Partial<Record<SubclassId, number[]>> = {
+  arbreMonde: [3, 6, 10, 14],
+  berserker: [3, 6, 10, 14],
+  coeurSauvage: [3, 3, 6, 10, 14],
+  danse: [3, 6, 6, 14],
+  savoir: [3, 3, 6, 14],
+  seduction: [3, 3, 6, 14],
+  vaillance: [3, 3, 6, 14],
+  guerre: [3, 3, 3, 6, 17],
+  lumiere: [3, 3, 3, 6, 17],
+  ruse: [3, 3, 3, 6, 17],
+  vie: [3, 3, 3, 6, 17],
+  lune: [3, 3, 6, 10, 14],
+  mers: [3, 3, 6, 10, 14],
+  terre: [3, 3, 6, 10, 14],
+  draconique: [3, 3, 6, 14, 18],
+  sauvage: [3, 3, 6, 14, 18],
+  champion: [3, 3, 7, 10, 15, 18],
+  chevalierOcculte: [3, 3, 7, 10, 15, 18],
+  maitreGuerre: [3, 3, 7, 10, 15, 18],
+  abjurateur: [3, 3, 6, 10, 14],
+  devin: [3, 3, 6, 10, 14],
+  evocateur: [3, 3, 6, 10, 14],
+  illusionniste: [3, 3, 6, 10, 14],
+  elements: [3, 3, 6, 11, 17],
+  ombre: [3, 6, 11, 17],
+  paume: [3, 6, 11, 17],
+  archifee: [3, 3, 6, 10, 14],
+  celeste: [3, 3, 6, 10, 14],
+  fielon: [3, 3, 6, 10, 14],
+  grandAncien: [3, 3, 3, 6, 10, 10, 14],
+  anciens: [3, 3, 7, 15, 20],
+  devotion: [3, 3, 7, 15, 20],
+  gloire: [3, 3, 3, 7, 15, 20],
+  vengeance: [3, 3, 7, 15, 20],
+  belluaire: [3, 7, 11, 15],
+  chasseur: [3, 3, 7, 11, 15],
+  traqueurTenebres: [3, 3, 3, 7, 11, 15],
+  arnaqueurArcanique: [3, 3, 9, 13, 17],
+  assassin: [3, 3, 9, 13, 17],
+  voleur: [3, 3, 9, 13, 17],
+}
+
+/** Pages anglaises d'AideDD : nom anglais de la classe */
+const AIDEDD_EN_CLASS: Record<ClassId, string> = {
+  barbare: 'barbarian',
+  barde: 'bard',
+  clerc: 'cleric',
+  druide: 'druid',
+  ensorceleur: 'sorcerer',
+  guerrier: 'fighter',
+  magicien: 'wizard',
+  moine: 'monk',
+  occultiste: 'warlock',
+  paladin: 'paladin',
+  rodeur: 'ranger',
+  roublard: 'rogue',
+}
+
+export function subclassesOf(classId: ClassId): SubclassId[] {
+  return SUBCLASS_IDS.filter((id) => SUBCLASSES[id].classId === classId)
+}
+
+/** Lien AideDD (règles 2024) vers la sous-classe, en français ou en anglais */
+export function subclassUrl(id: SubclassId, lang: string): string {
+  const { classId, anchor } = SUBCLASSES[id]
+  return lang.startsWith('fr')
+    ? `https://www.aidedd.org/regles-24/classes/${classId}/#${encodeURIComponent(anchor[0])}`
+    : `https://www.aidedd.org/en/${AIDEDD_EN_CLASS[classId]}-2024/#${anchor[1]}`
+}
+
+export function isSubclassId(value: unknown): value is SubclassId {
+  return typeof value === 'string' && (SUBCLASS_IDS as readonly string[]).includes(value)
+}
+
+/** Sous-classe enregistrée, gardée seulement si elle appartient à la classe */
+export function subclassOfClass(raw: unknown, classId: ClassId | null): SubclassId | null {
+  return isSubclassId(raw) && classId != null && SUBCLASSES[raw].classId === classId ? raw : null
+}
+
 /* ── Reconnaissance d'un texte libre (anciennes sauvegardes) ── */
 
 const CLASS_ALIASES: Record<ClassId, string[]> = {

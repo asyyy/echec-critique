@@ -21,8 +21,10 @@ import {
   isSpeciesId,
   matchClassId,
   matchSpeciesId,
+  subclassOfClass,
   type ClassId,
   type SpeciesId,
+  type SubclassId,
 } from '@/utils/origins'
 import { useInventoryStore } from '@/stores/inventory'
 import type { ModifierType } from '@/stores/inventory'
@@ -49,6 +51,10 @@ export interface CharacterPersisted {
   /** Classe / espèce du SRD choisies dans le sélecteur ; null = personnalisé */
   classId: ClassId | null
   speciesId: SpeciesId | null
+  /** Sous-classe : texte affiché (personnalisée ou nom de celle choisie) */
+  subclass: string
+  /** Sous-classe de la liste 2024 (appartient forcément à `classId`) ; null = personnalisée / aucune */
+  subclassId: SubclassId | null
   abilityScores: Record<Ability, number>
   savingThrowProficiency: Record<Ability, boolean>
   skillRank: Record<Skill, SkillRank>
@@ -119,6 +125,8 @@ function loadCharacter(): CharacterPersisted {
     species: '',
     classId: null,
     speciesId: null,
+    subclass: '',
+    subclassId: null,
     abilityScores: defaultAbilityScores(),
     savingThrowProficiency: defaultProficiencies(),
     skillRank: defaultSkillRanks(),
@@ -149,6 +157,7 @@ function loadCharacter(): CharacterPersisted {
     const characterClass =
       typeof parsed.characterClass === 'string' ? parsed.characterClass : defaults.characterClass
     const species = typeof parsed.species === 'string' ? parsed.species : defaults.species
+    const classId = resolveClassId(parsed.classId, characterClass)
 
     return {
       name: typeof parsed.name === 'string' ? parsed.name : defaults.name,
@@ -156,8 +165,11 @@ function loadCharacter(): CharacterPersisted {
       characterClass,
       species,
       // Anciennes sauvegardes : classe / espèce saisies en texte, reconnues par leur nom
-      classId: resolveClassId(parsed.classId, characterClass),
+      classId,
       speciesId: resolveSpeciesId(parsed.speciesId, species),
+      // Absente des anciennes sauvegardes
+      subclass: cleanSubclassText(parsed.subclass),
+      subclassId: subclassOfClass(parsed.subclassId, classId),
       abilityScores: mergeAbilityScores(parsed.abilityScores),
       savingThrowProficiency: mergeSavingThrows(parsed.savingThrowProficiency),
       skillRank: mergeSkillRanks(parsed.skillRank),
@@ -188,6 +200,11 @@ function resolveSpeciesId(raw: unknown, text: string): SpeciesId | null {
   return raw === null ? null : matchSpeciesId(text)
 }
 
+/** Texte de sous-classe ; une clé i18n enregistrée par erreur (ancienne version) est effacée */
+function cleanSubclassText(raw: unknown): string {
+  return typeof raw === 'string' && !raw.startsWith('origins.') ? raw : ''
+}
+
 function persistCharacter(state: CharacterPersisted) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
@@ -211,6 +228,8 @@ export const useCharacterStore = defineStore('character', () => {
   const species = ref(saved.species)
   const classId = ref<ClassId | null>(saved.classId)
   const speciesId = ref<SpeciesId | null>(saved.speciesId)
+  const subclass = ref(saved.subclass)
+  const subclassId = ref<SubclassId | null>(saved.subclassId)
   const abilityScores = ref(saved.abilityScores)
   const savingThrowProficiency = ref(saved.savingThrowProficiency)
   const skillRank = ref(saved.skillRank)
@@ -303,8 +322,22 @@ export const useCharacterStore = defineStore('character', () => {
         ABILITIES.map((ab) => [ab, saves.includes(ab)]),
       ) as Record<Ability, boolean>
     }
+    // Autre classe : l'ancienne sous-classe n'a plus de sens
+    if (id !== classId.value) {
+      subclassId.value = null
+      subclass.value = ''
+    }
     classId.value = id
     characterClass.value = label.trim()
+  }
+
+  /** Choix d'une sous-classe ; `id` null = personnalisée (texte seul) ou aucune */
+  function setSubclass(id: SubclassId | null, label: string) {
+    const valid = subclassOfClass(id, classId.value)
+    // Sous-classe d'une autre classe : choix ignoré
+    if (id && !valid) return
+    subclassId.value = valid
+    subclass.value = label.trim()
   }
 
   /** Choix d'une espèce : la vitesse de base devient celle de l'espèce */
@@ -456,6 +489,8 @@ export const useCharacterStore = defineStore('character', () => {
       species: species.value,
       classId: classId.value,
       speciesId: speciesId.value,
+      subclass: subclass.value,
+      subclassId: subclassId.value,
       abilityScores: { ...abilityScores.value },
       savingThrowProficiency: { ...savingThrowProficiency.value },
       skillRank: { ...skillRank.value },
@@ -483,6 +518,9 @@ export const useCharacterStore = defineStore('character', () => {
     if (data.speciesId !== undefined || data.species !== undefined) {
       speciesId.value = resolveSpeciesId(data.speciesId, species.value)
     }
+    // Absente (anciens exports) : aucune sous-classe ; l'id doit appartenir à la classe
+    subclass.value = cleanSubclassText(data.subclass)
+    subclassId.value = subclassOfClass(data.subclassId, classId.value)
     if (data.abilityScores !== undefined) {
       abilityScores.value = mergeAbilityScores(data.abilityScores)
     }
@@ -574,6 +612,8 @@ export const useCharacterStore = defineStore('character', () => {
     species.value = ''
     classId.value = null
     speciesId.value = null
+    subclass.value = ''
+    subclassId.value = null
     abilityScores.value = defaultAbilityScores()
     savingThrowProficiency.value = defaultProficiencies()
     skillRank.value = defaultSkillRanks()
@@ -596,6 +636,8 @@ export const useCharacterStore = defineStore('character', () => {
       species,
       classId,
       speciesId,
+      subclass,
+      subclassId,
       abilityScores,
       savingThrowProficiency,
       skillRank,
@@ -618,6 +660,8 @@ export const useCharacterStore = defineStore('character', () => {
         species: species.value,
         classId: classId.value,
         speciesId: speciesId.value,
+        subclass: subclass.value,
+        subclassId: subclassId.value,
         abilityScores: { ...abilityScores.value },
         savingThrowProficiency: { ...savingThrowProficiency.value },
         skillRank: { ...skillRank.value },
@@ -643,7 +687,10 @@ export const useCharacterStore = defineStore('character', () => {
     species,
     classId,
     speciesId,
+    subclass,
+    subclassId,
     setClass,
+    setSubclass,
     setSpecies,
     originEffects,
     originHpMaxBonus,

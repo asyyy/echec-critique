@@ -19,7 +19,13 @@ import { conditionModifiers, useConditionsStore } from '@/stores/conditions'
 import { useConditionLabel } from '@/composables/useConditionLabel'
 import { useFeaturesStore } from '@/stores/features'
 import OriginPicker from '@/components/OriginPicker.vue'
-import { CLASSES, type ClassId, type SpeciesId } from '@/utils/origins'
+import {
+  CLASSES,
+  SUBCLASS_LEVEL,
+  type ClassId,
+  type SpeciesId,
+  type SubclassId,
+} from '@/utils/origins'
 
 const { t, locale } = useI18n()
 const char = useCharacterStore()
@@ -208,11 +214,70 @@ const classLabel = computed(() =>
 const speciesLabel = computed(() =>
   char.speciesId ? t(`origins.species.${char.speciesId}.name`) : char.species,
 )
+const subclassLabel = computed(() =>
+  char.subclassId ? t(`origins.subclasses.${char.subclassId}`) : char.subclass,
+)
 
-type OriginKind = 'class' | 'species'
+type OriginKind = 'class' | 'subclass' | 'species'
+const ORIGIN_KINDS: OriginKind[] = ['class', 'subclass', 'species']
+const ORIGIN_KEY: Record<OriginKind, string> = {
+  class: 'Class',
+  subclass: 'Subclass',
+  species: 'Species',
+}
 /** Champs déverrouillés (cadenas) ; tout se reverrouille en sortant du mode Modifier */
 const unlockedOrigins = ref<Set<OriginKind>>(new Set())
 const originPicker = ref<OriginKind | null>(null)
+/** Fenêtre de sous-classe ouverte d'office (niveau 3 atteint) */
+const originPrompted = ref(false)
+
+function originLabel(kind: OriginKind) {
+  if (kind === 'class') return classLabel.value
+  if (kind === 'subclass') return subclassLabel.value
+  return speciesLabel.value
+}
+
+/** Champs affichés : la sous-classe n'apparaît qu'au niveau 3, avec une classe (même personnalisée) */
+const visibleOriginKinds = computed(() =>
+  ORIGIN_KINDS.filter(
+    (kind) =>
+      kind !== 'subclass' ||
+      (char.level >= SUBCLASS_LEVEL && (!!char.classId || !!char.characterClass.trim())),
+  ),
+)
+
+/** Niveau auquel la fenêtre a déjà été proposée (« Plus tard » : pas avant le prochain niveau) */
+let subclassPromptedAt = 0
+
+/**
+ * Classe du SRD sans sous-classe au niveau 3 ou plus : on propose de la choisir,
+ * une fois par niveau (`force` : nouvelle classe choisie).
+ */
+function maybePromptSubclass(force = false) {
+  const level = Number(char.level)
+  if (
+    char.classId &&
+    level >= SUBCLASS_LEVEL &&
+    (force || subclassPromptedAt !== level) &&
+    !char.subclassId &&
+    !char.subclass.trim() &&
+    !originPicker.value
+  ) {
+    subclassPromptedAt = level
+    originPrompted.value = true
+    originPicker.value = 'subclass'
+  }
+}
+
+function openOriginPicker(kind: OriginKind) {
+  originPrompted.value = false
+  originPicker.value = kind
+}
+
+function closeOriginPicker() {
+  originPicker.value = null
+  originPrompted.value = false
+}
 
 function toggleOriginLock(kind: OriginKind) {
   const next = new Set(unlockedOrigins.value)
@@ -222,13 +287,17 @@ function toggleOriginLock(kind: OriginKind) {
 }
 
 function onOriginPick(id: string | null, label: string) {
-  if (originPicker.value === 'class') char.setClass(id as ClassId | null, label)
+  const kind = originPicker.value!
+  if (kind === 'class') char.setClass(id as ClassId | null, label)
+  else if (kind === 'subclass') char.setSubclass(id as SubclassId | null, label)
   else char.setSpecies(id as SpeciesId | null, label)
   // Choix fait : le champ se reverrouille
   const next = new Set(unlockedOrigins.value)
-  next.delete(originPicker.value!)
+  next.delete(kind)
   unlockedOrigins.value = next
-  originPicker.value = null
+  closeOriginPicker()
+  // Nouvelle classe à un niveau ≥ 3 : la sous-classe suit
+  if (kind === 'class') maybePromptSubclass(true)
 }
 
 /** Plusieurs types dans la bulle (score + bonus direct) : on précise le type sur chaque ligne */
@@ -452,6 +521,8 @@ function setEditing(next: boolean) {
   unlockedOrigins.value = new Set()
   closeTooltip()
   closeHpQuick()
+  // « Terminé » : le niveau a pu passer à 3 sans que le champ émette `change` (mobile)
+  if (!next) maybePromptSubclass()
 }
 
 function openTooltip(target: InfoTarget, event: MouseEvent) {
@@ -509,6 +580,7 @@ onUnmounted(() => {
           <h2 v-else class="hero-name-read">{{ displayName }}</h2>
           <span v-if="!isEditing" class="hero-chip">{{ t('stats.level') }} {{ char.level }}</span>
           <span v-if="!isEditing && classLabel" class="hero-chip">{{ classLabel }}</span>
+          <span v-if="!isEditing && subclassLabel" class="hero-chip">{{ subclassLabel }}</span>
           <span v-if="!isEditing && speciesLabel" class="hero-chip">{{ speciesLabel }}</span>
         </div>
         <button
@@ -523,10 +595,17 @@ onUnmounted(() => {
       <div v-if="isEditing" class="hero-meta">
         <label class="meta-field">
           <span>{{ t('stats.level') }}</span>
-          <input v-model.number="char.level" type="number" min="1" max="20" />
+          <!-- Niveau validé (sortie du champ) : propose la sous-classe au niveau 3 -->
+          <input
+            v-model.number="char.level"
+            type="number"
+            min="1"
+            max="20"
+            @change="maybePromptSubclass()"
+          />
         </label>
         <div
-          v-for="kind in ['class', 'species'] as const"
+          v-for="kind in visibleOriginKinds"
           :key="kind"
           class="origin-field"
           :class="{ unlocked: unlockedOrigins.has(kind) }"
@@ -536,9 +615,7 @@ onUnmounted(() => {
             class="origin-lock hit-area"
             :aria-pressed="unlockedOrigins.has(kind)"
             :aria-label="
-              unlockedOrigins.has(kind)
-                ? t(kind === 'class' ? 'origins.lockClass' : 'origins.lockSpecies')
-                : t(kind === 'class' ? 'origins.unlockClass' : 'origins.unlockSpecies')
+              t(`origins.${unlockedOrigins.has(kind) ? 'lock' : 'unlock'}${ORIGIN_KEY[kind]}`)
             "
             @click="toggleOriginLock(kind)"
           >
@@ -558,21 +635,19 @@ onUnmounted(() => {
             type="button"
             class="origin-value"
             :disabled="!unlockedOrigins.has(kind)"
-            @click="originPicker = kind"
+            @click="openOriginPicker(kind)"
           >
-            <span v-if="kind === 'class' ? classLabel : speciesLabel">{{
-              kind === 'class' ? classLabel : speciesLabel
-            }}</span>
-            <span v-else class="origin-placeholder">{{
-              t(kind === 'class' ? 'stats.classPlaceholder' : 'stats.speciesPlaceholder')
-            }}</span>
+            <span v-if="originLabel(kind)">{{ originLabel(kind) }}</span>
+            <span v-else class="origin-placeholder">{{ t(`stats.${kind}Placeholder`) }}</span>
           </button>
         </div>
       </div>
       <OriginPicker
         v-if="originPicker"
+        :key="originPicker"
         :kind="originPicker"
-        @close="originPicker = null"
+        :prompted="originPrompted"
+        @close="closeOriginPicker"
         @pick="onOriginPick"
       />
     </section>

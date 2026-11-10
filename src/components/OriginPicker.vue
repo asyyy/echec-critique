@@ -175,7 +175,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
               <h4 class="form-title">{{ nameOf(classInfo.id) }}</h4>
               <dl class="detail-rows">
                 <dt>{{ t('origins.hitDie') }}</dt>
-                <dd>d{{ classInfo.hitDie }}</dd>
+                <dd class="key">d{{ classInfo.hitDie }}</dd>
                 <dt>{{ t('origins.hpLevel1') }}</dt>
                 <dd>{{ hpLevel1 }}</dd>
                 <dt>{{ t('origins.primary') }}</dt>
@@ -190,11 +190,11 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
                 <dd>{{ t(`origins.classes.${classInfo.id}.weapons`) }}</dd>
                 <template v-if="classInfo.spellcasting">
                   <dt>{{ t('origins.spellcasting') }}</dt>
-                  <dd>{{ t(`abilities.${classInfo.spellcasting}`) }}</dd>
+                  <dd class="key">{{ t(`abilities.${classInfo.spellcasting}`) }}</dd>
                 </template>
               </dl>
 
-              <section class="detail-block">
+              <section class="detail-block applied">
                 <h5 class="field-label">{{ t('origins.applied') }}</h5>
                 <ul>
                   <li>
@@ -215,7 +215,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
                 <dt>{{ t('origins.size') }}</dt>
                 <dd>{{ t(`origins.sizes.${speciesInfo.size}`) }}</dd>
                 <dt>{{ t('origins.speed') }}</dt>
-                <dd>{{ meters(speciesInfo.speed) }}</dd>
+                <dd class="key">{{ meters(speciesInfo.speed) }}</dd>
                 <dt>{{ t('origins.darkvision') }}</dt>
                 <dd>
                   {{ speciesInfo.darkvision ? meters(speciesInfo.darkvision) : t('origins.none') }}
@@ -224,7 +224,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
                 <dd>{{ t(`origins.species.${speciesInfo.id}.traits`) }}</dd>
               </dl>
 
-              <section class="detail-block">
+              <section class="detail-block applied">
                 <h5 class="field-label">{{ t('origins.applied') }}</h5>
                 <ul>
                   <li>{{ t('origins.appliedSpeed', { n: meters(speciesInfo.speed) }) }}</li>
@@ -401,6 +401,17 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
 /* Effet d'un niveau pas encore atteint */
 .detail-block li.later {
   color: var(--color-text-muted);
+}
+
+/* Touches de couleur : chiffres clés, ce qui est appliqué, effets acquis */
+.detail-rows dd.key {
+  color: var(--color-accent);
+}
+.detail-block.applied li {
+  color: var(--color-success);
+}
+.detail-block li:not(.later) strong {
+  color: var(--color-accent);
 }
 
 .effect-level {

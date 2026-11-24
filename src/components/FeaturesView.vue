@@ -15,11 +15,14 @@ import {
 import { MODIFIER_LABELS, type Modifier, type ModifierType } from '@/stores/inventory'
 import ActionIconButton from '@/components/ActionIconButton.vue'
 import InfoTip from '@/components/InfoTip.vue'
+import FeatureReminder from '@/components/FeatureReminder.vue'
+import { useCharacterStore } from '@/stores/character'
 import { useHorizontalScroll } from '@/composables/useHorizontalScroll'
 import { useToast } from '@/composables/useToast'
 
 const { t, locale } = useI18n()
 const store = useFeaturesStore()
+const char = useCharacterStore()
 const { show: showToast } = useToast()
 
 /** « Autre » n'a pas d'effet calculé : inutile pour une capacité */
@@ -33,13 +36,41 @@ const originCounts = computed(() => {
   return counts
 })
 
-/** Seulement les origines qui ont des capacités */
+/** Classe / sous-classe choisies (Stats > Fiche) : leur onglet reste affiché, même sans capacité */
+const hasClass = computed(() => !!char.classId || !!char.characterClass.trim())
+const hasSubclass = computed(() => !!char.subclassId || !!char.subclass.trim())
+
+/** Seulement les origines qui ont des capacités (+ la classe et la sous-classe choisies) */
 const filterTabs = computed(() =>
-  FEATURE_ORIGINS.filter((o) => originCounts.value[o]).map((o) => ({
+  FEATURE_ORIGINS.filter(
+    (o) =>
+      originCounts.value[o] ||
+      (o === 'classe' && hasClass.value) ||
+      (o === 'sousClasse' && hasSubclass.value),
+  ).map((o) => ({
     id: o,
-    count: originCounts.value[o]!,
+    count: originCounts.value[o] ?? 0,
   })),
 )
+
+/** Rappel en tête des onglets Classe / Sous-classe : nom et capacités par niveau (liens AideDD) */
+const originReminder = computed(() => {
+  if (store.originFilter === 'classe' && hasClass.value) {
+    return {
+      name: char.classId ? t(`origins.classes.${char.classId}.name`) : char.characterClass,
+      classId: char.classId,
+      subclassId: null,
+    }
+  }
+  if (store.originFilter === 'sousClasse' && hasSubclass.value) {
+    return {
+      name: char.subclassId ? t(`origins.subclasses.${char.subclassId}`) : char.subclass,
+      classId: null,
+      subclassId: char.subclassId,
+    }
+  }
+  return null
+})
 
 const tabsEl = ref<HTMLElement | null>(null)
 const tabsScroll = useHorizontalScroll(tabsEl)
@@ -172,7 +203,7 @@ function submit() {
         }"
       >
         <div
-          v-if="store.features.length"
+          v-if="store.features.length || hasClass"
           ref="tabsEl"
           class="category-tabs"
           role="group"
@@ -306,7 +337,22 @@ function submit() {
       </form>
     </Transition>
 
-    <div v-if="!store.features.length" class="empty-state">
+    <!-- Onglets Classe / Sous-classe : rappel des capacités (liens AideDD), rien n'est ajouté tout seul -->
+    <section v-if="originReminder" class="origin-ref" :aria-label="originReminder.name">
+      <h3 class="form-title">{{ originReminder.name }}</h3>
+      <FeatureReminder
+        v-if="originReminder.subclassId"
+        :subclass-id="originReminder.subclassId"
+        :level="char.level"
+      />
+      <FeatureReminder
+        v-else-if="originReminder.classId"
+        :class-id="originReminder.classId"
+        :level="char.level"
+      />
+    </section>
+
+    <div v-if="!store.features.length && store.originFilter === 'all'" class="empty-state">
       <p>{{ t('features.empty') }}</p>
     </div>
     <div v-else-if="!visibleFeatures.length" class="empty-state">
@@ -405,6 +451,20 @@ function submit() {
 </template>
 
 <style scoped>
+.origin-ref {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.75rem 0.85rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+.origin-ref h3 {
+  margin: 0;
+}
+
 .features {
   display: flex;
   flex-direction: column;

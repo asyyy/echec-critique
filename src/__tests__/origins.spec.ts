@@ -4,7 +4,11 @@ import { useCharacterStore } from '@/stores/character'
 import { useInventoryStore } from '@/stores/inventory'
 import { packBundle, unpackBundle } from '@/utils/characterBundle'
 import { buildDemoCharacter } from '@/utils/demoCharacters'
+import { fr } from '@/i18n/locales/fr'
+import { en } from '@/i18n/locales/en'
 import {
+  CLASS_FEATURES,
+  SUBCLASS_FEATURES,
   CLASS_IDS,
   SUBCLASSES,
   matchClassId,
@@ -183,5 +187,19 @@ describe('sous-classes', () => {
     applyBundle(buildDemoCharacter('wizard', 'fr'))
     expect(useCharacterStore().subclassId).toBeNull()
     expect(useCharacterStore().subclass).toBe('')
+  })
+})
+
+describe('rappel des capacités (noms AideDD)', () => {
+  it('un nom FR et EN par niveau, pour chaque classe et sous-classe détaillée', () => {
+    for (const locale of [fr, en]) {
+      for (const classId of CLASS_IDS) {
+        expect(locale.origins.classFeatures[classId]).toHaveLength(CLASS_FEATURES[classId].length)
+      }
+      const names: Record<string, readonly string[]> = locale.origins.subclassFeatures
+      for (const [id, levels] of Object.entries(SUBCLASS_FEATURES)) {
+        expect(names[id]).toHaveLength(levels.length)
+      }
+    }
   })
 })

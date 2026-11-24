@@ -3,6 +3,7 @@ import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCharacterStore } from '@/stores/character'
 import InfoTip from '@/components/InfoTip.vue'
+import FeatureReminder from '@/components/FeatureReminder.vue'
 import {
   CLASSES,
   CLASS_IDS,
@@ -10,9 +11,6 @@ import {
   SPECIES,
   SPECIES_IDS,
   SUBCLASSES,
-  SUBCLASS_FEATURES,
-  SUBCLASS_FEATURE_LEVELS,
-  subclassUrl,
   subclassesOf,
   type ClassId,
   type OriginEffectId,
@@ -118,27 +116,12 @@ const armorText = computed(() => {
   return text.charAt(0).toUpperCase() + text.slice(1)
 })
 
-/** Noms des capacités de la sous-classe, regroupés par niveau (vide : non détaillée sur AideDD) */
-function featuresByLevel(id: SubclassId) {
-  const groups: { level: number; names: string[] }[] = []
-  SUBCLASS_FEATURES[id]?.forEach((level, i) => {
-    const name = t(`origins.subclassFeatures.${id}.${i}`)
-    const last = groups[groups.length - 1]
-    if (last?.level === level) last.names.push(name)
-    else groups.push({ level, names: [name] })
-  })
-  return groups
-}
-
 const subclassInfo = computed(() => {
   if (props.kind !== 'subclass' || selected.value === 'custom') return null
   const id = selected.value as SubclassId
   return {
     id,
     srd: !!SUBCLASSES[id].srd,
-    levels: SUBCLASS_FEATURE_LEVELS[SUBCLASSES[id].classId].join(', '),
-    url: subclassUrl(id, locale.value),
-    features: featuresByLevel(id),
   }
 })
 
@@ -260,6 +243,8 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
                   </li>
                 </ul>
               </section>
+
+              <FeatureReminder :class-id="classInfo.id" :level="char.level" />
             </template>
 
             <!-- Espèce -->
@@ -289,35 +274,7 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
             <!-- Sous-classe : capacités (noms + liens AideDD), puis la source -->
             <template v-else-if="subclassInfo">
               <h4 class="form-title">{{ nameOf(subclassInfo.id) }}</h4>
-              <dl v-if="!subclassInfo.features.length" class="detail-rows">
-                <dt>{{ t('origins.featureLevels') }}</dt>
-                <dd>{{ subclassInfo.levels }}</dd>
-              </dl>
-
-              <!-- Noms seulement (hors SRD : pas de texte), chacun renvoie à la sous-classe sur AideDD -->
-              <section v-if="subclassInfo.features.length" class="detail-block">
-                <h5 class="field-label">{{ t('origins.subclassFeaturesTitle') }}</h5>
-                <ul>
-                  <li v-for="group in subclassInfo.features" :key="group.level">
-                    <span class="effect-level">{{ t('origins.levelN', { n: group.level }) }}</span>
-                    <span class="feature-links">
-                      <a
-                        v-for="name in group.names"
-                        :key="name"
-                        :href="subclassInfo.url"
-                        target="_blank"
-                        rel="noopener"
-                        >{{ name }}</a
-                      >
-                    </span>
-                  </li>
-                </ul>
-              </section>
-              <p v-else class="hint">{{ t('origins.featuresNoList') }}</p>
-
-              <a class="aidedd-link" :href="subclassInfo.url" target="_blank" rel="noopener">
-                {{ t('origins.aidedd') }} ↗
-              </a>
+              <FeatureReminder :subclass-id="subclassInfo.id" :level="char.level" />
 
               <!-- Source en dernière ligne -->
               <dl class="detail-rows">
@@ -518,24 +475,6 @@ onUnmounted(() => document.removeEventListener('keydown', onKeydown))
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-}
-
-.feature-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.15rem 0.6rem;
-  min-width: 0;
-}
-.feature-links a {
-  color: var(--color-accent);
-  overflow-wrap: anywhere;
-}
-
-.aidedd-link {
-  align-self: flex-start;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--color-accent);
 }
 
 .effect-level {

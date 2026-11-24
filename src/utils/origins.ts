@@ -447,6 +447,25 @@ export const SUBCLASS_FEATURES: Partial<Record<SubclassId, number[]>> = {
   voleur: [3, 3, 9, 13, 17],
 }
 
+/**
+ * Niveau de chaque capacité de classe (2024), dans l'ordre des noms (`origins.classFeatures.*`,
+ * repris d'AideDD : noms seulement, rappel sans ajout automatique).
+ */
+export const CLASS_FEATURES: Record<ClassId, number[]> = {
+  barbare: [1, 1, 1, 2, 2, 3, 3, 4, 5, 5, 7, 7, 9, 11, 13, 15, 17, 18, 19, 20],
+  barde: [1, 1, 2, 2, 3, 4, 5, 7, 10, 18, 19, 20],
+  clerc: [1, 1, 2, 3, 4, 5, 7, 10, 14, 19, 20],
+  druide: [1, 1, 1, 2, 2, 3, 4, 5, 7, 15, 18, 19, 20],
+  ensorceleur: [1, 1, 2, 2, 3, 4, 5, 7, 19, 20],
+  guerrier: [1, 1, 1, 2, 2, 3, 4, 5, 5, 9, 9, 11, 13, 19, 20],
+  magicien: [1, 1, 1, 2, 3, 4, 5, 18, 19, 20],
+  moine: [1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 9, 10, 10, 13, 14, 15, 18, 19, 20],
+  occultiste: [1, 1, 2, 3, 4, 9, 11, 19, 20],
+  paladin: [1, 1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 9, 10, 11, 14, 18, 19],
+  rodeur: [1, 1, 1, 2, 2, 3, 4, 5, 6, 9, 10, 13, 14, 17, 18, 19, 20],
+  roublard: [1, 1, 1, 1, 2, 3, 3, 4, 5, 5, 7, 7, 11, 14, 15, 18, 19, 20],
+}
+
 /** Pages anglaises d'AideDD : nom anglais de la classe */
 const AIDEDD_EN_CLASS: Record<ClassId, string> = {
   barbare: 'barbarian',
@@ -465,6 +484,13 @@ const AIDEDD_EN_CLASS: Record<ClassId, string> = {
 
 export function subclassesOf(classId: ClassId): SubclassId[] {
   return SUBCLASS_IDS.filter((id) => SUBCLASSES[id].classId === classId)
+}
+
+/** Lien AideDD (règles 2024) vers la page de la classe, en français ou en anglais */
+export function classUrl(classId: ClassId, lang: string): string {
+  return lang.startsWith('fr')
+    ? `https://www.aidedd.org/regles-24/classes/${classId}/`
+    : `https://www.aidedd.org/en/${AIDEDD_EN_CLASS[classId]}-2024/`
 }
 
 /** Lien AideDD (règles 2024) vers la sous-classe, en français ou en anglais */
